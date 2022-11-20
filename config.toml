@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Amazon SageMaker Workshop"
-theme = "hugo-theme-learn"
+theme = "learn"
 uglyurls = true
 googleAnalytics = ""
 
@@ -12,7 +12,7 @@ hrefTargetBlank = true
 [params]
 themeVariant = "mine"
 showVisitedLinks = false
-author = "Daniele Stroppa"
+author = "Kyriakos Amtoniadis"
 description = "Amazon SageMaker Workshop"
 disableSearch = false
 disableAssetsBusting = false
