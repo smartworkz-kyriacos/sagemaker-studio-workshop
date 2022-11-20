@@ -7,7 +7,7 @@
     --MAIN-LINK-HOVER-color:#599af1; /* Color of hovered links */
     --MAIN-ANCHOR-color: #4881cd; /* color of anchors on titles */
 
-    --MENU-HEADER-BG-color:#283e5b; /* Background color of menu header */
+    --MENU-HEADER-BG-color: #070b26; /* #283e5b Background color of menu header */
     --MENU-HEADER-BORDER-color:#435c7c; /*Color of menu header border */
 
     --MENU-SEARCH-BG-color:#202c3c; /* Search field background color (by default borders + icons) */
@@ -28,6 +28,16 @@
 
 body {
     color: var(--MAIN-TEXT-color) !important;
+}
+
+#body img {
+    box-shadow: 10px 10px 5px grey;
+    border: 1px solid orange;
+}
+#body td img {
+    margin: 0rem auto;
+    border: none;
+    box-shadow: none;
 }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
@@ -79,10 +89,17 @@ a:hover {
 }
 
 #sidebar #footer h5.copyright, #sidebar #footer p.build-number {
-  font-size: 10px;
-  letter-spacing: .15px;
+  font-size: 12px;
+  letter-spacing: .20px;
   line-height: 150% !important;
 }
+
+#sidebar #footer h5.legal {
+    font-size: 12px;
+    letter-spacing: .20px;
+    line-height: 150% !important;
+    display: flex;
+  }
 
 #body a.highlight:after {
     display: block;
@@ -139,47 +156,7 @@ a:hover {
     color: #e07d04 !important;
 }
 
-div.notices p:first-child:before {
-    position: absolute;
-    top: 2px;
-    color: #fff;
-    font-family: 'Font Awesome\ 5 Free';
-    content: #F06A;
-    font-weight: 900; /* Fix version 5.0.9 */
-    left: 10px;
+.btn-default {
+    color: #f90 !important;
+    border-color: #f90 !important;
 }
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-    border: 1px solid #dddddd;
-    font-weight: normal;
-    color: #454545;
-}
-
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
-    border: 1px solid var(--MENU-HEADER-BG-color);
-    background: var(--MENU-HEADER-BG-color);
-    font-weight: normal;
-    color: #fff;
-}
-
-.ui-widget.ui-widget-content {
-    border: 1px solid #eeeeee;
-}
-
-.ui-widget-header {
-  border: 1px solid #eeeeee;
-}
-
-.hljs {
-  background-color: none; 
-}
-
-pre {
-  background-color: var(--MENU-SECTIONS-BG-color) !important;
-}
-
-div.notices.info p {
-    border-top: 30px solid #fd9827;
-    background: #FFF2DB;
-}
-
