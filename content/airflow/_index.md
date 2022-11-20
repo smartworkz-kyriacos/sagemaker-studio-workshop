@@ -1,7 +1,7 @@
 +++
 chapter = true
 title = "Airflow Integration"
-weight = 90
+weight = 10
 +++
 
 # Getting Started
