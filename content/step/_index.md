@@ -1,8 +1,8 @@
----
++++
 title: "Step Functions"
 chapter: true
 weight: 100
----
++++
 # Implementation with Step Functions
 
 We will move to the part 2 of the workshop on out Jupyter Notebook into the folder "2-implementation-with-step-functions"
