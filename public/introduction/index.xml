@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on Amazon SageMaker Workshop</title>
+    <title>SageMaker Studio on Amazon SageMaker Workshop</title>
     <link>/introduction.html</link>
-    <description>Recent content in Introduction on Amazon SageMaker Workshop</description>
+    <description>Recent content in SageMaker Studio on Amazon SageMaker Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learning</title>
-      <link>/introduction/concepts.html</link>
+      <link>/introduction/machine-learning.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/introduction/concepts.html</guid>
+      <guid>/introduction/machine-learning.html</guid>
       <description>This section describes a typical machine learning workflow and summarizes how you accomplish those tasks with Amazon SageMaker.
 In machine learning, you &amp;ldquo;teach&amp;rdquo; a computer to make predictions, or inferences. First, you use an algorithm and example data to train a model. Then you integrate your model into your application to generate inferences in real time and at scale. In a production environment, a model typically learns from millions of example data items and produces inferences in hundreds to less than 20 milliseconds.</description>
     </item>

@@ -4,8 +4,6 @@
   <url>
     <loc>/</loc>
   </url><url>
-    <loc>/_index-old.html</loc>
-  </url><url>
     <loc>/personalize/lite/introduction.html</loc>
   </url><url>
     <loc>/cleanup/sagemaker.html</loc>
@@ -48,9 +46,9 @@
   </url><url>
     <loc>/personalize/full/videorecommendation.html</loc>
   </url><url>
-    <loc>/introduction.html</loc>
-  </url><url>
     <loc>/custom/containers.html</loc>
+  </url><url>
+    <loc>/introduction.html</loc>
   </url><url>
     <loc>/security_for_sysops/security_overview.html</loc>
   </url><url>
@@ -82,7 +80,7 @@
   </url><url>
     <loc>/personalize/lite.html</loc>
   </url><url>
-    <loc>/introduction/concepts.html</loc>
+    <loc>/introduction/machine-learning.html</loc>
   </url><url>
     <loc>/prerequisites.html</loc>
   </url><url>
