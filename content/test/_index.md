@@ -1,6 +1,5 @@
 ---
 chapter: true
 title: "Test"
-weight: 30
-draft: false
+weight: 90
 ---
