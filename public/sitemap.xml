@@ -4,6 +4,10 @@
   <url>
     <loc>/</loc>
   </url><url>
+    <loc>/_index-old.html</loc>
+  </url><url>
+    <loc>/personalize/lite/introduction.html</loc>
+  </url><url>
     <loc>/cleanup/sagemaker.html</loc>
   </url><url>
     <loc>/security_for_sysops/scenario.html</loc>
@@ -16,7 +20,11 @@
   </url><url>
     <loc>/conclusion/conclusion.html</loc>
   </url><url>
+    <loc>/personalize/lite/building.html</loc>
+  </url><url>
     <loc>/builtin/resnet.html</loc>
+  </url><url>
+    <loc>/personalize/full/overview.html</loc>
   </url><url>
     <loc>/security_for_sysops/tools.html</loc>
   </url><url>
@@ -24,11 +32,23 @@
   </url><url>
     <loc>/builtin/rcf.html</loc>
   </url><url>
+    <loc>/personalize/lite/cloudformation.html</loc>
+  </url><url>
+    <loc>/personalize/full/deploy.html</loc>
+  </url><url>
+    <loc>/personalize/full/setup.html</loc>
+  </url><url>
     <loc>/custom/algo.html</loc>
+  </url><url>
+    <loc>/personalize/lite/agenda.html</loc>
+  </url><url>
+    <loc>/personalize/full/parallel.html</loc>
   </url><url>
     <loc>/builtin/parallelized.html</loc>
   </url><url>
-    <loc>/cleanup/workspace.html</loc>
+    <loc>/personalize/full/videorecommendation.html</loc>
+  </url><url>
+    <loc>/introduction.html</loc>
   </url><url>
     <loc>/custom/containers.html</loc>
   </url><url>
@@ -36,11 +56,37 @@
   </url><url>
     <loc>/security_for_users/security_overview.html</loc>
   </url><url>
+    <loc>/personalize/lite/using.html</loc>
+  </url><url>
+    <loc>/personalize/lite/clean.html</loc>
+  </url><url>
+    <loc>/personalize/full/runvideorecommendation.html</loc>
+  </url><url>
+    <loc>/personalize/full/additionalpersonalize.html</loc>
+  </url><url>
+    <loc>/personalize/full/plugin.html</loc>
+  </url><url>
+    <loc>/personalize/full/additionalcampaigns.html</loc>
+  </url><url>
+    <loc>/personalize/full/closing.html</loc>
+  </url><url>
+    <loc>/airflow.html</loc>
+  </url><url>
+    <loc>/personalize.html</loc>
+  </url><url>
+    <loc>/cleanup/workspace.html</loc>
+  </url><url>
+    <loc>/personalize/full/conclusion.html</loc>
+  </url><url>
     <loc>/prerequisites/prerequisites.html</loc>
+  </url><url>
+    <loc>/personalize/lite.html</loc>
   </url><url>
     <loc>/introduction/concepts.html</loc>
   </url><url>
     <loc>/prerequisites.html</loc>
+  </url><url>
+    <loc>/start.html</loc>
   </url><url>
     <loc>/security_for_sysops/team_resources/secure_networking.html</loc>
   </url><url>
@@ -48,9 +94,53 @@
   </url><url>
     <loc>/security_for_users/notebook/ml_lifecycle.html</loc>
   </url><url>
+    <loc>/step.html</loc>
+  </url><url>
+    <loc>/step/upload.html</loc>
+  </url><url>
+    <loc>/step/crawler.html</loc>
+  </url><url>
+    <loc>/airflow/introduction.html</loc>
+  </url><url>
     <loc>/security_for_sysops/team_resources/secure_environment_lab.html</loc>
   </url><url>
-    <loc>/introduction.html</loc>
+    <loc>/step/gluejob.html</loc>
+  </url><url>
+    <loc>/airflow/highlevel.html</loc>
+  </url><url>
+    <loc>/airflow/airflowconcepts.html</loc>
+  </url><url>
+    <loc>/step/orchestration.html</loc>
+  </url><url>
+    <loc>/airflow/airflowsetup.html</loc>
+  </url><url>
+    <loc>/step/createrole.html</loc>
+  </url><url>
+    <loc>/airflow/buildingworkflow.html</loc>
+  </url><url>
+    <loc>/step/trainmodel.html</loc>
+  </url><url>
+    <loc>/step/awaitmodel.html</loc>
+  </url><url>
+    <loc>/step/deploymodel.html</loc>
+  </url><url>
+    <loc>/airflow/puttingalltogether.html</loc>
+  </url><url>
+    <loc>/airflow/cleanup.html</loc>
+  </url><url>
+    <loc>/step/usemodel.html</loc>
+  </url><url>
+    <loc>/airflow/conclusion.html</loc>
+  </url><url>
+    <loc>/step/createstep.html</loc>
+  </url><url>
+    <loc>/step/schedule.html</loc>
+  </url><url>
+    <loc>/step/cloudformation.html</loc>
+  </url><url>
+    <loc>/start/create.html</loc>
+  </url><url>
+    <loc>/personalize/full.html</loc>
   </url><url>
     <loc>/prerequisites/jupyter.html</loc>
   </url><url>
@@ -59,6 +149,8 @@
     <loc>/security_for_users/notebook/notebook_lab_01.html</loc>
   </url><url>
     <loc>/security_for_sysops/best_practice/service_catalog.html</loc>
+  </url><url>
+    <loc>/start/clone.html</loc>
   </url><url>
     <loc>/security_for_sysops/best_practice/best_practice_lab.html</loc>
   </url><url>
@@ -117,6 +209,8 @@
     <loc>/security_for_users/faq.html</loc>
   </url><url>
     <loc>/categories.html</loc>
+  </url><url>
+    <loc>/more_resources.html</loc>
   </url><url>
     <loc>/tags.html</loc>
   </url>

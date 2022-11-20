@@ -13,7 +13,7 @@
       
       <guid>/conclusion/conclusion.html</guid>
       <description>We have:
-Created a SageMaker Notebook instance Explored different built-in algorithms Analyzed strategies to distribute data for parallel training Trained a model using a custom script Built and deployed a custom model </description>
+Created a Notebook for exploratory analysis Creaetd an ETL to prepare training data Trained the model with Hyperparameter Optimization Putted &amp;ldquo;new data&amp;rdquo; through a preprocessing pipeline to get it ready for prediction Automatized batch predictions for new data using a combination of CloudWatch, Step Functions, Lambda, Glue and SageMaker. </description>
     </item>
     
   </channel>
