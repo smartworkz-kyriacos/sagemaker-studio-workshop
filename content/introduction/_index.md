@@ -1,9 +1,10 @@
 ---
-title: SageMaker Studio
-weight: "5"
+title: "Introduction"
+weight: 5
 chapter: true
-
+draft: false
 ---
+
 # Sagemaker and Step Functions 
 
 In this workshop you will explore the development cycle of machine learning model on AWS. In the first part, you will find a sample project fully developed in an ml.m4.4xlarge SageMaker notebook instance. On purpose, the notebooks are divided in different stages
