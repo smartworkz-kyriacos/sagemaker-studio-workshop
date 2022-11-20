@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cleanup on Amazon SageMaker Workshop</title>
+    <link>https://sagemaker-workshop.com/cleanup.html</link>
+    <description>Recent content in Cleanup on Amazon SageMaker Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://sagemaker-workshop.com/cleanup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SageMaker Resources</title>
+      <link>https://sagemaker-workshop.com/cleanup/sagemaker.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sagemaker-workshop.com/cleanup/sagemaker.html</guid>
+      <description>To avoid charges for resources you no longer need when you&amp;rsquo;re done with this workshop, you can delete them or, in the case of your notebook instance, stop them. Here are the resources you should consider:
+Endpoints: these are the clusters of one or more instances serving inferences from your models. If you did not delete them from within a notebook, you can delete them via the SageMaker console. To do so:</description>
+    </item>
+    
+    <item>
+      <title>CloudFormation Stacks</title>
+      <link>https://sagemaker-workshop.com/cleanup/workspace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sagemaker-workshop.com/cleanup/workspace.html</guid>
+      <description>To delete all the underlying resources, assume the Account Admin Role and navigate to CloudFormation.
+If the &amp;ldquo;view nested&amp;rdquo; button is checked, click on it, so you only see the root stacks. You should see a root stack associated with the Notebook, one associated with the DS Environment and a secure-ds-core stack which builds the core environment with the Shared Services VPC. Delete this one last.
+Step by Step Instructions</description>
+    </item>
+    
+  </channel>
+</rss>

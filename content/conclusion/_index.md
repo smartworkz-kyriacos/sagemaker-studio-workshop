@@ -1,7 +1,7 @@
----
-title: "Conclusion"
-chapter: true
-weight: 90
----
++++
+title = "Conclusion"
+chapter = true
+weight = 100
++++
 
-# Conclusion
+# What Have We Accomplished?
