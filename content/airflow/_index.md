@@ -1,8 +1,8 @@
----
++++
 title: "Airflow Integration"
 chapter: true
 weight: 10
----
++++
 
 # Getting Started
 
