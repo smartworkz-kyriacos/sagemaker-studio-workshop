@@ -1,0 +1,68 @@
+languageCode = "en-us"
+ignoreFiles = [ "\\.files/README.md$",  ]
+defaultContentLanguage = "en"
+title = "Amazon SageMaker Workshop"
+theme = "learn"
+uglyurls = true
+googleAnalytics = "UA-44634850-4"
+sectionPagesMenu = "main"
+relativeURLs = true
+
+[blackfriday]
+hrefTargetBlank = true
+
+[params]
+editURL = "https://github.com/mpdominguez/sagemaker-workshop/edit/master/content/"
+themeVariant = "mine"
+showVisitedLinks = false
+author = "Martin Dominguez, Maria Gaska"
+description = "Amazon SageMaker Workshop"
+disableSearch = false
+disableAssetsBusting = false
+disableLanguageSwitchingButton = true
+disableShortcutsTitle=true
+disableInlineCopyToClipBoard = true
+ghrepo = "https://github.com/mpdominguez/sagemaker-workshop/"
+branch = "master"
+template_bucket = "sagemakerworkshop.com"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "tango"
+
+
+
+#
+
+[menu]
+  [[menu.main]]
+    identifier = "Prerequisites"
+    name = "This is the Mu track"
+    title = "Workshop using Mu"
+    url = "/mu/"
+    weight = -110
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-bookmark'></i> More Resources"
+url = "/more_resources"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-users'></i> Authors"
+url = "/authors"
+weight = 20
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> GitHub Project"
+url = "https://github.com/mpdominguez/sagemaker-workshop"
+weight = 30
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-envelope'></i> Have questions?"
+url = "mailto:sagemakerworkshop@amazon.com"
+weight = 40
+
+
+[outputs]
+home = [ "HTML", "JSON"]
+page = [ "HTML" ]
