@@ -1,0 +1,13 @@
+---
+label: Blog-subchapter
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: boolean
+  name: chapter
+  label: chapter
+- type: number
+  name: weight
+  label: weight
