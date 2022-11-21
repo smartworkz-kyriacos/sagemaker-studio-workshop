@@ -21,6 +21,7 @@ pages:
 - content/introduction/architecture.md
 - content/introduction/benefits.md
 - content/introduction/lab-1.1-studio-on-boarding.md
+- content/introduction/lab-1.2-set-up-dependencies.md
 - content/introduction/mlops-best-practises.md
 - content/introduction/pipelines.md
 - content/introduction/workflows.md
