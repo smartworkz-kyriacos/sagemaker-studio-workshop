@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Lab 1.6 Instructions to Rub Examples"
+title = "Lab 1.6 Instructions to Run Examples"
 weight = 11
 
 +++
