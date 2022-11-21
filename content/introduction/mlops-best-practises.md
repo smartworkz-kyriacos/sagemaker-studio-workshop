@@ -74,6 +74,8 @@ With on-demand instances, we pay for computing capacity by the hour or the secon
 
 Finally, Amazon EC2 Spot Instances allow us to request spare Amazon EC2 compute capacity for up to 90% off the on-demand price. Spot Instances can cover flexible, fault-tolerant workloads such as model training jobs that are not time-sensitive. Figure 1-2 shows the resulting mix of Savings Plans, on-demand instances, and Spot Instances.
 
+![](/images/cost-optimization.png)
+
 _Figure 1-2. Optimize cost by choosing a mix of Savings Plans, on-demand instances, and Spot Instances._
 
 With many of the managed services, we can benefit from the “only pay for what you use” model. For example, with Amazon SageMaker, we only pay for the time our model trains, or we run our automatic model tuning. Start developing models with smaller datasets to iterate more quickly and frugally. Once we have a well-performing model, we can scale up to train with the full dataset. Another important aspect is to right-size the model training and model hosting instances.
