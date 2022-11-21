@@ -18,6 +18,7 @@ pages:
 - content/build/Ingest Data/import-to-s3.md
 - content/build/Ingest Data/lab-2.1.6-redshift-cluster.md
 - content/build/Ingest Data/lab-2.1.7-athena-to-redshift.md
+- content/build/Ingest Data/lab-2.1.8-redshift-spectrum.md
 - content/build/Ingest Data/overview.md
 - content/build/Ingest Data/register-s3-with-athena.md
 - content/introduction/ai-services.md
