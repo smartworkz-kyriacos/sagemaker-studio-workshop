@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Workflows"
+title = "1.3 Workflows"
 weight = 3
 
 +++
