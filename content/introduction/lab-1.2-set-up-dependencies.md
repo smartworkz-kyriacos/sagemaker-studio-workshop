@@ -4,6 +4,24 @@ title = "Lab 1.2 Set up Dependencies"
 weight = 8
 
 +++
+#### Fetch the workshop code
+
+Once you've created your notebook environment, open it by clicking either **Open Studio** (for SageMaker Studio) or **Open JupyterLab** (for Notebook Instance).
+
+To fetch the workshop code, first open a **System Terminal** (Studio has two terminal options: System and Image)
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/setup/Studio-Launcher-SystemTerm-Highlight.png "SageMaker Studio launcher screen with system terminal highlighted")
+
+**If you're running in a notebook instance**
+
+In a notebook instance, you'll have to run the following command first to move to the Jupyter root folder (the one visible in the folder tree in the left sidebar):
+
+    cd ~/SageMaker
+
+Then, run the command below to clone the repository:
+
+    git clone https://github.com/smartworkz-kyriakos/sagemaker-studio.git
+
 Start the "Data Science" Kernel, The kernel powers all of our notebook interactions. Click on "No Kernel" in the Upper Right
 
 ![](/images/select_kernel.png)
@@ -20,43 +38,12 @@ Confirm the Kernel is Started in Upper Right
 
 Use `Shift+Enter` to run each cell of every notebook
 
-**Follow Us On Twitter**
-
-    %%html
-    
-    <a href="https://twitter.com/cfregly" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @cfreglya>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
-
-> Click This Button ^^ Above ^^
-
-    %%html
-    
-    <a href="https://twitter.com/anbarth" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @anbartha>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
-
-> Click This Button ^^ Above ^^
-
-**Star Our GitHub Repo**
-
-    %%html
-    
-    <a class="github-button" href="https://github.com/data-science-on-aws/workshop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star data-science-on-aws/workshop on GitHub">Stara>
-    <script async defer src="https://buttons.github.io/buttons.js">script>
-
-> Click This Button ^^ Above ^^Visit our Website
-
-    %%html
-    
-    <iframe src="https://datascienceonaws.com" width="800px" height="600px"/>
-
-> Click This Button ^^ Above ^^
-
 **Setup All Workshop Dependencies**
 
 > Note: This Notebook Will Take A Few Minutes To Complete. Please Be Patient.
 
     !python --version
-
+    
     !pip list
 
 **Pip**
@@ -149,32 +136,31 @@ _Ignore any warning or error message ^^ above ^^. This is OK!_
 If you are running outside of an AWS account, you should uncomment and run the cells below.
 
     # !pip install awscli
-
+    
     # !mkdir ~/.aws
-
+    
     # %%writefile ~/.aws/credentials
     
     # [default]
     # aws_access_key_id = 
     # aws_secret_access_key =  
     
-
+    
     # %%writefile ~/.aws/config
     
     # [default]
     # region= # us-east-1
-    
 
 **Summarize**
 
     !python --version
-
+    
     !pip list
-
+    
     setup_dependencies_passed = True
-
+    
     %store setup_dependencies_passed
-
+    
     %store
 
 **Shutting Down Kernel To Release Resources**
