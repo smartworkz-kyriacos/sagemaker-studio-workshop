@@ -22,9 +22,7 @@ Confirm the Kernel is Started in Upper Right
 
 ![](/images/confirm_kernel_started.png)
 
-NOTE: YOU CAN NOT CONTINUE UNTIL THE KERNEL IS STARTED
-
-\### PLEASE WAIT UNTIL THE KERNEL IS STARTED BEFORE CONTINUING!!!
+> NOTE: YOU CAN NOT CONTINUE UNTIL THE KERNEL IS STARTED
 
 Use `Shift+Enter` to run each cell of every notebook
 
@@ -35,14 +33,14 @@ Use `Shift+Enter` to run each cell of every notebook
     <a href="https://twitter.com/cfregly" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @cfreglya>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
 
-Click This Button ^^ Above ^^
+> Click This Button ^^ Above ^^
 
     %%html
     
     <a href="https://twitter.com/anbarth" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @anbartha>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
 
-Click This Button ^^ Above ^^
+> Click This Button ^^ Above ^^
 
 **Star Our GitHub Repo**
 
@@ -51,13 +49,13 @@ Click This Button ^^ Above ^^
     <a class="github-button" href="https://github.com/data-science-on-aws/workshop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star data-science-on-aws/workshop on GitHub">Stara>
     <script async defer src="https://buttons.github.io/buttons.js">script>
 
-Click This Button ^^ Above ^^Visit our Website
+> Click This Button ^^ Above ^^Visit our Website
 
     %%html
     
     <iframe src="https://datascienceonaws.com" width="800px" height="600px"/>
 
-Click This Button ^^ Above ^^
+> Click This Button ^^ Above ^^
 
 **Shutting Down Kernel To Release Resources**
 
@@ -75,8 +73,7 @@ Click This Button ^^ Above ^^
         // NoOp
     }    
     script>
-    
-    
+
     %%javascript
     
     try {
