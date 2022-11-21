@@ -6,7 +6,7 @@ weight = 3
 +++
 Data science pipelines and workflows involve many complex, multidisciplinary, and iterative steps. Let’s take a typical machine learning model development workflow as an example. We start with data preparation, then move to model training and tuning. Eventually, we deploy our model (or application) into a production environment. Each of those steps consists of several subtasks as shown in Figure 1-1.
 
-![](/images/workflow.png)
+![](/images/workflows.png)
 
 _Figure 1-1. A typical machine learning workflow involves many complex, multidiscipli‐ nary, and iterative steps._
 
