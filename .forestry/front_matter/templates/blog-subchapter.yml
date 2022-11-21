@@ -11,3 +11,5 @@ fields:
 - type: number
   name: weight
   label: weight
+pages:
+- content/test/test.md
