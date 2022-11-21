@@ -9,7 +9,6 @@ weight = 1
 In \[ \]:
 
     %store -r ingest_create_athena_table_parquet_passed
-    
 
 In \[ \]:
 
@@ -19,12 +18,10 @@ In \[ \]:
         print("++++++++++++++++++++++++++++++++++++++++++++++")
         print("[ERROR] YOU HAVE TO RUN ALL PREVIOUS NOTEBOOKS.  You did not convert into Parquet data.")
         print("++++++++++++++++++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(ingest_create_athena_table_parquet_passed)
-    
 
 In \[ \]:
 
@@ -34,7 +31,6 @@ In \[ \]:
         print("++++++++++++++++++++++++++++++++++++++++++++++")
     else:
         print("[OK]")
-    
 
 **Visualize Amazon Customer Reviews Dataset**
 
@@ -69,7 +65,6 @@ In \[ \]:
     
     %matplotlib inline
     %config InlineBackend.figure_format='retina'
-    
 
 In \[ \]:
 
@@ -80,30 +75,25 @@ In \[ \]:
     bucket = sess.default_bucket()
     role = sagemaker.get_execution_role()
     region = boto3.Session().region_name
-    
 
 In \[ \]:
 
     # Set Athena database & table
     database_name = "dsoaws"
     table_name = "amazon_reviews_parquet"
-    
 
 In \[ \]:
 
     from pyathena import connect
-    
 
 In \[ \]:
 
     # Set S3 staging directory -- this is a temporary directory used for Athena queries
     s3_staging_dir = "s3://{0}/athena/staging".format(bucket)
-    
 
 In \[ \]:
 
     conn = connect(region_name=region, s3_staging_dir=s3_staging_dir)
-    
 
 **Set Seaborn Parameters**
 
@@ -130,7 +120,6 @@ In \[ \]:
             "ytick.labelsize": 10,
         }
     )
-    
 
 **Helper Code to Display Values on Bars**
 
@@ -149,7 +138,6 @@ In \[ \]:
                 _show_on_plot(ax)
         else:
             _show_on_plot(axs)
-    
 
 **1. Which Product Categories are Highest Rated by Average Rating?**
 
@@ -166,7 +154,6 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
@@ -174,7 +161,6 @@ In \[ \]:
     
     df = pd.read_sql(statement, conn)
     df.head(5)
-    
 
 In \[ \]:
 
@@ -184,7 +170,6 @@ In \[ \]:
     
     # Store average star ratings
     average_star_ratings = df
-    
 
 **Visualization for a Subset of Product Categories**
 
@@ -212,13 +197,12 @@ In \[ \]:
     
     # Show graphic
     plt.show(barplot)
-    
 
 **Visualization for All Product Categories**
 
 If you run this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c5-01.png =80%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c5-01.png)
 
 **2. Which Product Categories Have the Most Reviews?**
 
@@ -235,13 +219,11 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df.head()
-    
 
 In \[ \]:
 
@@ -251,7 +233,6 @@ In \[ \]:
     # Store max ratings
     max_ratings = df["count_star_rating"].max()
     print(max_ratings)
-    
 
 **Visualization for a Subset of Product Categories**
 
@@ -284,13 +265,12 @@ In \[ \]:
     
     # Show the barplot
     plt.show(barplot)
-    
 
 **Visualization for All Product Categories**
 
 If you run this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c5-02.png =80%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c5-02.png)
 
 **3. When did each product category become available in the Amazon catalogue based on the date of the first review?**
 
@@ -307,13 +287,11 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df.head()
-    
 
 In \[ \]:
 
@@ -321,7 +299,6 @@ In \[ \]:
     import datetime as datetime
     
     dates = pd.to_datetime(df["first_review_date"])
-    
 
 In \[ \]:
 
@@ -339,7 +316,6 @@ In \[ \]:
         series = df["year"].value_counts().sort_index()
         # new_series = series.reindex(range(1,21)).fillna(0).astype(int)
         return series.index, series.values
-    
 
 In \[ \]:
 
@@ -347,7 +323,6 @@ In \[ \]:
     print(new_df)
     
     X, Y = get_x_y(new_df)
-    
 
 **Visualization for a Subset of Product Categories**
 
@@ -372,13 +347,12 @@ In \[ \]:
     
     # fig.savefig('first_reviews_per_year.png', dpi=300)
     plt.show()
-    
 
 **Visualization for All Product Categories**
 
 If you run this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c4-04.png =90%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c4-04.png)
 
 **4. What is the breakdown of ratings (1-5) per product category?**
 
@@ -397,13 +371,11 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
 **Prepare for Stacked Percentage Horizontal Bar Plot Showing the Proportion of Star Ratings per Product Category**
 
@@ -419,7 +391,6 @@ In \[ \]:
     # Calculate total number of star ratings
     total = df_sum["count_reviews"].sum()
     print(total)
-    
 
 In \[ \]:
 
@@ -437,19 +408,16 @@ In \[ \]:
     
     # Check if distribution has been created succesfully
     print(distribution)
-    
 
 In \[ \]:
 
     # Check if distribution keys are set correctly to product categories
     print(distribution.keys())
-    
 
 In \[ \]:
 
     # Check if star rating distributions are set correctly
     print(distribution.items())
-    
 
 In \[ \]:
 
@@ -459,7 +427,6 @@ In \[ \]:
     average_star_ratings.iloc[:, 0]
     for index, value in average_star_ratings.iloc[:, 0].items():
         sorted_distribution[value] = distribution[value]
-    
 
 In \[ \]:
 
@@ -468,7 +435,6 @@ In \[ \]:
     )
     df_sorted_distribution_pct.columns=['5', '4', '3', '2', '1']
     df_sorted_distribution_pct
-    
 
 **Visualization for a Subset of Product Categories**
 
@@ -508,15 +474,14 @@ In \[ \]:
     plt.tight_layout()
     
     plt.show()
-    
 
-## Visualization for All Product Categories
+**Visualization for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
+If you run this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c5-04.png =80%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c5-04.png)
 
-# 5. How Many Reviews per Star Rating? (5, 4, 3, 2, 1)
+**5. How Many Reviews per Star Rating? (5, 4, 3, 2, 1)**
 
 In \[ \]:
 
@@ -532,19 +497,17 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
-## Results for All Product Categories
+**Results for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/star_rating_count_all.png =25%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/star_rating_count_all.png)
 
 In \[ \]:
 
@@ -556,19 +519,18 @@ In \[ \]:
     plt.ylabel("Review Count")
     
     plt.show(chart)
-    
 
-## Results for All Product Categories
+**Results for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/star_rating_count_all_bar_chart.png =60%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/star_rating_count_all_bar_chart.png)
 
-# 6. How Did Star Ratings Change Over Time?
+**6. How Did Star Ratings Change Over Time?**
 
 Is there a drop-off point for certain product categories throughout the year?
 
-## Average Star Rating Across All Product Categories
+**Average Star Rating Across All Product Categories**
 
 In \[ \]:
 
@@ -583,20 +545,17 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
 In \[ \]:
 
     df["year"] = pd.to_datetime(df["year"], format="%Y").dt.year
-    
 
-## Visualization for a Subset of Product Categories
+**Visualization for a Subset of Product Categories**
 
 In \[ \]:
 
@@ -620,15 +579,14 @@ In \[ \]:
     
     # fig.savefig('average-rating.png', dpi=300)
     plt.show()
-    
 
-## Visualization for All Product Categories
+**Visualization for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
+If you run this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c4-06.png =90%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c4-06.png)
 
-## Average Star Rating Per Product Categories Across Time
+**Average Star Rating Per Product Categories Across Time**
 
 In \[ \]:
 
@@ -643,15 +601,13 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
-## Visualization
+**Visualization**
 
 In \[ \]:
 
@@ -670,7 +626,6 @@ In \[ \]:
                 ax=ax,
                 label=category,
             )
-    
 
 In \[ \]:
 
@@ -692,15 +647,14 @@ In \[ \]:
     
     # fig.savefig('average_rating_category_all_data.png', dpi=300)
     plt.show()
-    
 
-## Visualization for All Product Categories
+**Visualization for All Product Categories**
 
-If you ran this same query across all product categories, you would see the following visualization:
+If you run this same query across all product categories, you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/average_rating_category_all_data.png =90%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/average_rating_category_all_data.png)
 
-# 7. Which Star Ratings (1-5) are Most Helpful?
+**7. Which Star Ratings (1-5) are Most Helpful?**
 
 In \[ \]:
 
@@ -716,21 +670,19 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
-## Results for All Product Categories
+**Results for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/star_rating_helpful_all.png =25%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/star_rating_helpful_all.png)
 
-## Visualization for a Subset of Product Categories
+**Visualization for a Subset of Product Categories**
 
 In \[ \]:
 
@@ -743,15 +695,14 @@ In \[ \]:
     
     # chart.get_figure().savefig('helpful-votes.png', dpi=300)
     plt.show(chart)
-    
 
-## Visualization for All Product Categories
+**Visualization for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
+If you run this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c4-08.png =70%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/c4-08.png)
 
-# 8. Which Products have Most Helpful Reviews? How Long are the Most Helpful Reviews?
+**8. Which Products have the most Helpful Reviews? How Long are the Most Helpful Reviews?**
 
 In \[ \]:
 
@@ -769,21 +720,19 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
-## Results for All Product Categories
+**Results for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/most_helpful_all.png =90%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/most_helpful_all.png)
 
-# 9. What is the Ratio of Positive (5, 4) to Negative (3, 2 ,1) Reviews?
+**9. What is the Ratio of Positive (5, 4) to Negative (3, 2,1) Reviews?**
 
 In \[ \]:
 
@@ -804,21 +753,19 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
-## Results for All Product Categories
+**Results for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/ratio_all.png =25%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/ratio_all.png)
 
-# 10. Which Customers are Abusing the Review System by Repeatedly Reviewing the Same Product? What Was Their Average Star Rating for Each Product?
+**10. Which Customers are Abusing the Review System by Repeatedly Reviewing the Same Product? What Was Their Average Star Rating for Each Product?**
 
 In \[ \]:
 
@@ -836,21 +783,19 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
-## Result for All Product Categories
+**Result for All Product Categories**
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/athena-abuse-all.png =80%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/athena-abuse-all.png)
 
-# 11. What is the distribution of review lengths (number of words)?
+**11. What is the distribution of review lengths (number of words)?**
 
 In \[ \]:
 
@@ -859,28 +804,24 @@ In \[ \]:
     FROM dsoaws.amazon_reviews_parquet
     """
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df
-    
 
 In \[ \]:
 
     summary = df["num_words"].describe(percentiles=[0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00])
     summary
-    
 
 In \[ \]:
 
     df["num_words"].plot.hist(xticks=[0, 16, 32, 64, 128, 256], bins=100, range=[0, 256]).axvline(
         x=summary["80%"], c="red"
     )
-    
 
-# Release Resources
+**Release Resources**
 
 In \[ \]:
 
@@ -898,7 +839,6 @@ In \[ \]:
         // NoOp
     }    
     script>
-    
 
 In \[ \]:
 
