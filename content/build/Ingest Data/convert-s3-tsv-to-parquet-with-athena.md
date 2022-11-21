@@ -4,8 +4,7 @@ title = "Lab 2.1.4 Convert to Parquet"
 weight = 5
 
 +++
-#   
-Convert TSV Data To Parquet with Athena
+**Convert TSV Data To Parquet with Athena**
 
 In this notebook, we will show you how you can easily convert that data now into Apache Parquet file format.
 
@@ -57,14 +56,14 @@ In \[ \]:
         print("[OK]")
     
 
-# Import PyAthena
+**Import PyAthena**
 
 In \[ \]:
 
     from pyathena import connect
     
 
-# Create Parquet Files from TSV Table
+**Create Parquet Files from TSV Table**
 
 As you can see from the query below, we’re also adding a new `year` column to our dataset by converting the `review_date` string to a date format, and then cast the year out of the date. Let’s store the year value as an integer. And let's partition the Parquet data by `Product Category`.
 
@@ -90,7 +89,7 @@ In \[ \]:
     conn = connect(region_name=region, s3_staging_dir=s3_staging_dir)
     
 
-# Execute Statement
+**Execute Statement**
 
 _This can take a few minutes. Please be patient._
 
@@ -129,7 +128,7 @@ In \[ \]:
     pd.read_sql(statement, conn)
     
 
-# Load partitions by running `MSCK REPAIR TABLE`
+**Load partitions by running `MSCK REPAIR TABLE`**
 
 As a last step, we need to load the Parquet partitions. To do so, just issue the following SQL command:
 
@@ -148,7 +147,7 @@ In \[ \]:
     df.head(5)
     
 
-# Show the Partitions
+**Show the Partitions**
 
 In \[ \]:
 
@@ -163,7 +162,7 @@ In \[ \]:
     df_partitions.head(5)
     
 
-# Show the Tables
+**Show the Tables**
 
 In \[ \]:
 
@@ -187,7 +186,7 @@ In \[ \]:
     %store ingest_create_athena_table_parquet_passed
     
 
-# Run Sample Query
+**Run Sample Query**
 
 In \[ \]:
 
@@ -217,7 +216,7 @@ In \[ \]:
         print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     
 
-# Review the New Athena Table in the Glue Catalog
+**Review the New Athena Table in the Glue Catalog**
 
 In \[ \]:
 
@@ -236,14 +235,14 @@ In just a few steps we have set up Amazon Athena to connect to our Amazon Custom
 
 You might have noticed that our second sample query finished in a fraction of the time compared to the one before we ran on the TSV table. We sped up our query results by leveraging our data being stored as Parquet and partitioned by `product_category`.
 
-# Store Variables for the Next Notebooks
+**Store Variables for the Next Notebooks**
 
 In \[ \]:
 
     %store
     
 
-# Release Resources
+**Release Resources**
 
 In \[ \]:
 
