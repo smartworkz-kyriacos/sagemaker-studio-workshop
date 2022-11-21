@@ -64,7 +64,7 @@ Let's start by demonstrating how to use and automatically tune the hyperparamete
 
 #### Navigate to the notebook
 
-You can navigate to the first folder builtin_algorithm_hpo_tabular and open the_first noteook by double_ clicking on the SageMaker XGBoost HPO.ipynb notebook.
+You can navigate to the first folder builtin_algorithm__po_tabular and open the_first note_ook by double_ clicking on the SageMaker XGBoost HPO.ipynb notebook.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook1.png)
 
@@ -123,7 +123,7 @@ Whichever you choose, you'll see the folder contains two notebooks. The first "L
 
 #### Navigate to the "local" notebook
 
-From your chosen folder in the JupyterLab directory structure (above), open the first notebook by double clicking on the `Headline Classifier Local.ipynb` file.
+From your chosen folder in the JupyterLab directory structure (above), open the first notebook by double-clicking on the `Headline Classifier Local.ipynb` file.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook2.png)
 
@@ -145,7 +145,7 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 
 #### Key takeaways
 
-* You should see that notebooks are structurally similar but the show of pattern of moving to the SageMaker SDK for training and deployment.
+* You should see that notebooks are structurally similar but they show of pattern of moving to the SageMaker SDK for training and deployment.
 * Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training costs low whenever possible
 
 #### **Lab 4. SageMaker Migration Challenge (MNIST)**
@@ -154,7 +154,7 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 
 ***
 
-Now that you have a good grasp on the building your own machine learning models with the Amazon SageMaker SDK, it's time to implement it yourself! In this challenge, you'll use what you've learned to migrate an existing notebook that performs classification of MNIST DIGITS images using Keras to Amazon SageMaker model training and deploy it as a real-time inference endpoint deployment.
+Now that you have a good grasp on building your own machine learning models with the Amazon SageMaker SDK, it's time to implement it yourself! In this challenge, you'll use what you've learned to migrate an existing notebook that performs classification of MNIST DIGITS images using Keras to Amazon SageMaker model training and deploy it as a real-time inference endpoint deployment.
 
 #### Prerequisites
 
@@ -171,7 +171,7 @@ If that doesn't sound like you, you might prefer to check out:
 
 #### Navigate to the first notebook and run the training locally!
 
-You can navigate to the folder migration_challenge_keras_image and open the first notebook by double clicking on the SageMaker Local Notebook.ipynb notebook. You can run all the cells to train a machine learning model locally on the instance.
+You can navigate to the folder migration_challenge_keras_image and open the first no_ebook by double_ clicking on the SageMaker Local Notebook.ipynb notebook. You can run all the cells to_train a machine_ learning model locally on the instance.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook6.png)
 
@@ -195,6 +195,20 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 * You can find the solution in the solution branch of the [GitHub repository](https://github.com/aws-samples/sagemaker-workshop-101/tree/solution/migration_challenge_keras_image).
 
 #### Well done!
+
+After that, if you're looking for further ideas and inspiration visit :
+
+Amazon SageMaker Examples (over 200!) [https://github.com/aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples")
+
+AI and Machine Learning on AWS ressources [https://aws.amazon.com/machine-learning/](https://aws.amazon.com/machine-learning/ "https://aws.amazon.com/machine-learning/")
+
+Open Source at AWS [https://aws.github.io/](https://aws.github.io/ "https://aws.github.io/")
+
+AWS Labs @ GitHub [https://github.com/awslabs](https://github.com/awslabs "https://github.com/awslabs")
+
+AWS Samples @ GitHub [https://github.com/aws-samples](https://github.com/aws-samples "https://github.com/aws-samples")
+
+For support and development, reach out to certified AWS Partners, AWS Professional Services or your AWS account team.
 
 Start the "Data Science" Kernel, The kernel powers all of our notebook interactions. Click on "No Kernel" in the Upper Right
 
