@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Lab 2.2.2 Prepare for Bias Analysis"
+title = "Lab 2.2.2 Prepare for Bias"
 weight = 13
 
 +++
