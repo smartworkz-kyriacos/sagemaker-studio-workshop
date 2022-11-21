@@ -73,3 +73,33 @@ The text of the review.
 The date the review was written.
 
 The dataset is shared in a public Amazon S3 bucket and is available in two file formats:
+
+• TSV, a text format: _s3://amazon-reviews-pds/tsv_
+
+• Parquet, an optimized columnar binary format: _s3://amazon-reviews-pds/parquet_
+
+The Parquet dataset is partitioned (divided into subfolders) by the column product_category to further improve query performance. With this, we can use a WHERE clause on product_category in our SQL queries to only read data specific to that category.
+
+We can use the AWS Command Line Interface (AWS CLI) to list the S3 bucket content using the following CLI commands:
+
+    aws s3 ls s3://amazon-reviews-pds/tsv
+
+    aws s3 ls s3://amazon-reviews-pds/parquet
+
+In the first step, let’s copy the TSV data from Amazon’s public S3 bucket into a privately hosted S3 bucket to simulate that process, as shown in Figure 4-5.
+
+![](/images/s3-import.png)
+
+_Figure 4-5. We copy the dataset from the public S3 bucket to a private S3 bucket._
+
+We can use the AWS CLI tool again to perform the following steps.
+
+1\. Create a new private S3 bucket:
+
+    aws s3 mb s3://data-science-on-aws
+
+2\. Copy the content of the public S3 bucket to our newly created private S3 bucket as follows (only include the files starting with amazon_reviews_us_, i.e., skipping any index, multilingual, and sample data files in that directory):
+
+    aws s3 cp --recursive s3://amazon-reviews-pds/tsv/ \ s3://data-science-on-aws/amazon-reviews-pds/tsv/ \ --exclude "*" --include "amazon_reviews_us_*"
+
+We are now ready to use Amazon Athena to register and query the data and transform the TSV files into Parquet.
