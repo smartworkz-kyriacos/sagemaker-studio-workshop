@@ -39,3 +39,43 @@ Detect data drift and model drift—and take appropriate action such as model re
 ### _Automate machine learning workflows_
 
 Build consistent, automated pipelines to reduce human error and free up time to focus on the hard problems. Pipelines can include human-approval steps for approving models before pushing them to production.
+
+## Security
+
+Security and compliance is a shared responsibility policy between AWS and the customer. AWS ensures the security “of” the cloud, while the customer is responsible for security “in” the cloud.
+
+The most common security considerations for building secure data science projects in the cloud touch the areas of access management, compute and network isolation, encryption, governance, and auditability.
+
+We need deep security and access control capabilities around our data. We should restrict access to data-labelling jobs, data-processing scripts, models, inference end-points, and batch prediction jobs.
+
+We should also implement a data governance strategy that ensures the integrity, security, and availability of our datasets. Implement and enforce data lineage, which monitors and tracks the data transformations applied to our training data. Ensure data is encrypted at rest and in motion. Also, we should enforce regulatory compliance where needed.
+
+We will discuss best practices to build secure data science and machine learning applications on AWS in more detail in Chapter 12.
+
+## Reliability
+
+Reliability refers to the ability of a system to recover from infrastructure or service disruptions, acquire computing resources dynamically to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
+
+We should automate change tracking and versioning for our training data. This way, we can re-create the exact version of a model in the event of a failure. We will build once and use the model artefacts to deploy the model across multiple AWS accounts and environments.
+
+## Performance Efficiency
+
+_Performance efficiency_ refers to the efficient use of computing resources to meet requirements and how to maintain that efficiency as demand changes and technologies evolve.
+
+We should choose the right computer for our machine learning workload. For example, we can leverage GPU-based instances to more efficiently train deep learning models using a larger queue depth, higher arithmetic logic units, and increased register counts.
+
+Know the latency and network bandwidth performance requirements of models, and deploy each model closer to customers, if needed. There are situations where we might want to deploy our models “at the edge” to improve performance or comply with data privacy regulations. “Deploying at the edge” refers to running the model on the device itself to run the predictions locally. We also want to continuously monitor key performance metrics of our model to spot performance deviations early.
+
+## **Cost Optimization**
+
+We can optimize cost by leveraging different Amazon EC2 instance pricing options. For example, Savings Plans offer significant savings over on-demand instance prices, in exchange for a commitment to use a specific amount of computing power for a given amount of time. Savings Plans are a great choice for known/steady state workloads such as stable inference workloads.
+
+With on-demand instances, we pay for computing capacity by the hour or the second depending on which instances we run. On-demand instances are best for new or stateful spiky workloads such as short-term model training jobs.
+
+Finally, Amazon EC2 Spot Instances allow us to request spare Amazon EC2 compute capacity for up to 90% off the on-demand price. Spot Instances can cover flexible, fault-tolerant workloads such as model training jobs that are not time-sensitive. Figure 1-2 shows the resulting mix of Savings Plans, on-demand instances, and Spot Instances.
+
+_Figure 1-2. Optimize cost by choosing a mix of Savings Plans, on-demand instances, and Spot Instances._
+
+With many of the managed services, we can benefit from the “only pay for what you use” model. For example, with Amazon SageMaker, we only pay for the time our model trains, or we run our automatic model tuning. Start developing models with smaller datasets to iterate more quickly and frugally. Once we have a well-performing model, we can scale up to train with the full dataset. Another important aspect is to right-size the model training and model hosting instances.
+
+Many times, model training benefits from GPU acceleration, but model inference might not need the same acceleration. In fact, most machine learning workloads are actually predictions. While the model may take several hours or days to train, the deployed model likely runs 24 hours a day, 7 days a week across thousands of prediction servers supporting millions of customers. We should decide whether our use case requires a 24 × 7 real-time endpoint or a batch transformation on Spot Instances in the evenings.
