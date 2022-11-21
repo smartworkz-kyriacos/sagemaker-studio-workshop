@@ -218,22 +218,3 @@ If you see an error like the following, just re-run the command again until it w
     
 
 > _Note: Just re-run the command again until it works._
-
-**Learning Objectives. Attendees will learn how to do the following:**
-
-* Ingest data into S3 using Amazon Athena and the Parquet data format
-* Visualize data with pandas, and matplotlib on SageMaker notebooks
-* Detect statistical data bias with SageMaker Clarify
-* Perform feature engineering on a raw dataset using Scikit-Learn and SageMaker Processing Jobs
-* Store and share features using SageMaker Feature Store
-* Train and evaluate a custom BERT model using TensorFlow, Keras, and SageMaker Training Jobs
-* Evaluate the model using SageMaker Processing Jobs
-* Track model artefacts using Amazon SageMaker ML Lineage Tracking
-* Run model bias and explainability analysis with SageMaker Clarify
-* Register and version models using SageMaker Model Registry
-* Deploy a model to a REST endpoint using SageMaker Hosting and SageMaker Endpoints
-* Automate ML workflow steps by building end-to-end model pipelines using SageMaker Pipelines, Airflow, AWS Step Functions, Kubeflow Pipelines, TFX, and MLflow
-* Perform automated machine learning (AutoML) to find the best model from just your dataset with low-code
-* Find the best hyper-parameters for your custom model using SageMaker Hyper-parameter Tuning Jobs
-* Deploy multiple model variants into a live, production A/B test to compare online performance, live-shift prediction traffic, and autoscale the winning variant using SageMaker Hosting and SageMaker Endpoints
-* Setup a streaming analytics and continuous machine learning application using Amazon Kinesis and SageMaker
