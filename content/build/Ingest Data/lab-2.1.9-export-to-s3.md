@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "Lab 2.1.9 Export to S3"
-weight = nil
+weight = 10
 
 +++
 **Using Redshift Data Lake Export**
