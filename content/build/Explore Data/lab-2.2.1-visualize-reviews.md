@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "Lab 2.2.1 Visualize Reviews"
-weight = 1
+weight = 12
 
 +++
 **_Pre-Requisite: Make sure you have run the notebooks in the `SETUP` and `INGEST` sections._**
