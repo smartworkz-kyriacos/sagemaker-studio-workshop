@@ -12,6 +12,7 @@ fields:
   name: weight
   label: weight
 pages:
+- content/build/Explore Data/2.2-explore-data.md
 - content/build/Ingest Data/2.1.5-query-with-data-wrangler.md
 - content/build/Ingest Data/convert-s3-tsv-to-parquet-with-athena.md
 - content/build/Ingest Data/create-athen-database.md
