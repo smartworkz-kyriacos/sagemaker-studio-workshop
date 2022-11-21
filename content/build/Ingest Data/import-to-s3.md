@@ -20,9 +20,12 @@ Your **business intelligence team and data analysts** might also want to have a 
 * insert TSV data into Amazon Redshift, but also be able to combine the data warehouse queries with the data that’s still in our S3 data lake via **Amazon Redshift Spectrum**.
 * You can also use Amazon Redshift’s data lake export functionality to unload data back into our S3 data lake in Parquet file format.
 
-**Amazon Customer Reviews Dataset**
+**We have chosen the** [**Amazon Customer Reviews Dataset**](https://s3.amazonaws.com/amazon-reviews-pds/readme.html) **as our main dataset.**
 
-[https://s3.amazonaws.com/amazon-reviews-pds/readme.html](https://s3.amazonaws.com/amazon-reviews-pds/readme.html "https://s3.amazonaws.com/amazon-reviews-pds/readme.html")
+The dataset is shared in a public Amazon S3 bucket, and is available in two file formats:
+
+* Tab-separated value (TSV), a text format - `s3://amazon-reviews-pds/tsv/`
+* Parquet, an optimized columnar binary format - `s3://amazon-reviews-pds/parquet/`
 
 **Dataset Columns:**
 
@@ -30,7 +33,7 @@ Your **business intelligence team and data analysts** might also want to have a 
 * `customer_id`: Random identifier that can be used to aggregate reviews written by a single author.
 * `review_id`: A unique ID for the review.
 * `product_id`: The Amazon Standard Identification Number (ASIN). [`http://www.amazon.com/dp/`](https://s3.amazonaws.com/amazon-reviews-pds/readme.html "https://s3.amazonaws.com/amazon-reviews-pds/readme.html") links to the product's detail page.
-* `product_parent`: The parent of that ASIN. Multiple ASINs (color or format variations of the same product) can roll up into a single parent.
+* `product_parent`: The parent of that ASIN. Multiple ASINs (colour or format variations of the same product) can roll up into a single parent.
 * `product_title`: Title description of the product.
 * `product_category`: Broad product category that can be used to group reviews (in this case digital videos).
 * `star_rating`: The review's rating (1 to 5 stars).
@@ -44,14 +47,7 @@ Your **business intelligence team and data analysts** might also want to have a 
 
 **Copy TSV Data To S3**
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/write_tsv_to_s3.png =45%x)
-
-**We have chosen the** [**Amazon Customer Reviews Dataset**](https://s3.amazonaws.com/amazon-reviews-pds/readme.html) **as our main dataset.**
-
-The dataset is shared in a public Amazon S3 bucket, and is available in two file formats:
-
-* Tab-separated value (TSV), a text format - `s3://amazon-reviews-pds/tsv/`
-* Parquet, an optimized columnar binary format - `s3://amazon-reviews-pds/parquet/`
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/write_tsv_to_s3.png)
 
 The Parquet dataset is partitioned (divided into subfolders) by the column `product_category` to further improve query performance. With this, you can use a `WHERE` clause on product_category in your SQL queries to only read data specific to that category.
 
@@ -60,23 +56,20 @@ We can use the AWS Command Line Interface (CLI) to list the S3 bucket content us
 In \[ \]:
 
     !aws s3 ls s3://amazon-reviews-pds/tsv/
-    
 
 In \[ \]:
 
     !aws s3 ls s3://amazon-reviews-pds/parquet/
-    
 
 **To Simulate an Application Writing Into Our Data Lake, We Copy the Public TSV Dataset to a Private S3 Bucket in our Account**
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/copy_data_to_s3.png =60%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/copy_data_to_s3.png)
 
 **Check Pre-Requisites from an earlier notebook**
 
 In \[ \]:
 
     %store -r setup_dependencies_passed
-    
 
 In \[ \]:
 
@@ -86,17 +79,14 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup Dependencies.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(setup_dependencies_passed)
-    
 
 In \[ \]:
 
     %store -r setup_s3_bucket_passed
-    
 
 In \[ \]:
 
@@ -106,17 +96,14 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup S3 Bucket.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(setup_s3_bucket_passed)
-    
 
 In \[ \]:
 
     %store -r setup_iam_roles_passed
-    
 
 In \[ \]:
 
@@ -126,12 +113,10 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup IAM Roles.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(setup_iam_roles_passed)
-    
 
 In \[ \]:
 
@@ -147,7 +132,6 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup IAM Roles.")
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
@@ -162,19 +146,16 @@ In \[ \]:
     account_id = boto3.client("sts").get_caller_identity().get("Account")
     
     sm = boto3.Session().client(service_name="sagemaker", region_name=region)
-    
 
 **Set S3 Source Location (Public S3 Bucket)**
 
 In \[ \]:
 
     s3_public_path_tsv = "s3://amazon-reviews-pds/tsv"
-    
 
 In \[ \]:
 
     %store s3_public_path_tsv
-    
 
 **Set S3 Destination Location (Our Private S3 Bucket)**
 
@@ -182,12 +163,10 @@ In \[ \]:
 
     s3_private_path_tsv = "s3://{}/amazon-reviews-pds/tsv".format(bucket)
     print(s3_private_path_tsv)
-    
 
 In \[ \]:
 
     %store s3_private_path_tsv
-    
 
 **Copy Data From the Public S3 Bucket to our Private S3 Bucket in this Account**
 
@@ -198,7 +177,6 @@ In \[ \]:
     !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Digital_Software_v1_00.tsv.gz"
     !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz"
     !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Gift_Card_v1_00.tsv.gz"
-    
 
 _Make sure ^^^^ this ^^^^ S3 COPY command above runs successfully. We will need those data files for the rest of this workshop._
 
@@ -207,12 +185,10 @@ _Make sure ^^^^ this ^^^^ S3 COPY command above runs successfully. We will need 
 In \[ \]:
 
     print(s3_private_path_tsv)
-    
 
 In \[ \]:
 
     !aws s3 ls $s3_private_path_tsv/
-    
 
 In \[ \]:
 
@@ -225,14 +201,12 @@ In \[ \]:
             )
         )
     )
-    
 
 **Store Variables for the Next Notebooks**
 
 In \[ \]:
 
     %store
-    
 
 **Release Resources**
 
