@@ -4,8 +4,6 @@ title = "Architecture"
 weight = 1
 
 +++
-## Studio Architecture
-
 Studio and one of its components, Studio notebooks, have been built to meet such requirements. The Studio IDE has been built to unify all the tools needed for ML development. Developers can write code, track experiments, visualize data, and perform debugging and monitoring all within a single, integrated visual interface, which significantly boosts developer productivity. The following screenshot shows what the IDE looks like.
 
 ![](/images/2-3172.jpg)
