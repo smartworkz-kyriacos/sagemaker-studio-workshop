@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Create Athen Database"
+title = "Create Athena Database"
 weight = 2
 
 +++
