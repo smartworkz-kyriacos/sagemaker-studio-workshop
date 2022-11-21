@@ -4,9 +4,6 @@ title = "Benefits"
 weight = 2
 
 +++
-
-## Benefits of Cloud Computing
-
 Cloud computing enables the on-demand delivery of IT resources via the internet with pay-as-you-go pricing. So instead of buying, owning, and maintaining our own data centres and servers, we can acquire technology such as compute power, storage, databases, and other services on an as-needed basis. Similar to a power company sending electricity instantly when we flip a light switch in our home, the cloud provisions IT resources on-demand with the click of a button or invocation of an API.
 
 The benefits of cloud computing in the context of data science projects on AWS include:
