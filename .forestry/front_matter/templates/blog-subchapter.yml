@@ -15,6 +15,7 @@ pages:
 - content/build/Explore Data/lab-2.2.1-prepare-for-bias-analysis.md
 - content/build/Explore Data/lab-2.2.1-visualize-reviews.md
 - content/build/Explore Data/lab-2.2.3-ad-hoc.md
+- content/build/Explore Data/lab-2.2.4-processing-job.md
 - content/build/Ingest Data/2.1.5-query-with-data-wrangler.md
 - content/build/Ingest Data/convert-s3-tsv-to-parquet-with-athena.md
 - content/build/Ingest Data/create-athen-database.md
