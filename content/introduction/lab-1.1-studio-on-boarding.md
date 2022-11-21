@@ -21,8 +21,8 @@ The labs in this workshop assume you have:
 
 The preferred notebook environment for completing the exercises is **SageMaker Studio**.
 
-* You can find detailed guidance on how to set up SageMaker Studio [here in the SageMaker Developer Guide ](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html).
-* For simple initial testing, you may find it easiest to [onboard with IAM ](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-iam.html). Configuring a SageMaker Studio domain involves a few high-level design decisions, but you can always delete your test domain and create a new one later if you need to.
+* You can find detailed guidance on how to set up SageMaker Studio [here in the SageMaker Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html).
+* For simple initial testing, you may find it easiest to [onboard with IAM](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-iam.html). Configuring a SageMaker Studio domain involves a few high-level design decisions, but you can always delete your test domain and create a new one later if you need to.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/setup/Domain-Users-Custom.png "Screenshot of SageMaker Studio Console listing users")
 
@@ -85,13 +85,13 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 
 ***
 
-In this lab, we will demonstrate how to use Amazon SageMaker to develop, train, tune and deploy a Scikit-Learn based ML model (Random Forest). More info on Scikit-Learn can be found here [https://scikit-learn.org/stable/index.html](https://scikit-learn.org/stable/index.html "https://scikit-learn.org/stable/index.html")[ ](https://scikit-learn.org/stable/index.html). We use the Boston Housing dataset, present in Scikit-Learn: [https://scikit-learn.org/stable/datasets/index.html#boston-dataset](https://scikit-learn.org/stable/datasets/index.html#boston-dataset "https://scikit-learn.org/stable/datasets/index.html#boston-dataset")
+In this lab, we will demonstrate how to use Amazon SageMaker to develop, train, tune and deploy a Scikit-Learn-based ML model (Random Forest). More info on Scikit-Learn can be found here [https://scikit-learn.org/stable/index.html](https://scikit-learn.org/stable/index.html "https://scikit-learn.org/stable/index.html"). We use the Boston Housing dataset, present in Scikit-Learn: [https://scikit-learn.org/stable/datasets/index.html#boston-dataset](https://scikit-learn.org/stable/datasets/index.html#boston-dataset "https://scikit-learn.org/stable/datasets/index.html#boston-dataset")
 
 #### Navigate to the notebook
 
 First, navigate back to the sagemaker-workshop-101 in the Jupyter Lab directory structure.
 
-You can now navigate to the folder custom_sklearn_rf and open the first notebook by double clicking on the Sklearn_on_SageMaker_end2end.ipynb notebook.
+You can now navigate to the folder custom_sklearn_rf and open the first notebook b _double_ clicking on the Sklearn_on_SageMaker_end2end.ipynb notebook.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook4.png)
 
@@ -179,7 +179,7 @@ You can navigate to the folder migration_challenge_keras_image and open the firs
 
 You are now ready for the challenge!
 
-You can navigate to the folder migration_challenge_keras_i_age and open te first noebook by double_ clicking on the SageMaker Instructions.ipynb notebook.
+You can navigate to the folder migration_challenge_kera__i_age andopen te first no_ebook by double_ clicking on the SageMaker Instructions.ipynb notebook.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook5.png)
 
@@ -200,7 +200,7 @@ After that, if you're looking for further ideas and inspiration visit :
 
 Amazon SageMaker Examples (over 200!) [https://github.com/aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples")
 
-AI and Machine Learning on AWS ressources [https://aws.amazon.com/machine-learning/](https://aws.amazon.com/machine-learning/ "https://aws.amazon.com/machine-learning/")
+AI and Machine Learning on AWS resources [https://aws.amazon.com/machine-learning/](https://aws.amazon.com/machine-learning/ "https://aws.amazon.com/machine-learning/")
 
 Open Source at AWS [https://aws.github.io/](https://aws.github.io/ "https://aws.github.io/")
 
@@ -209,81 +209,3 @@ AWS Labs @ GitHub [https://github.com/awslabs](https://github.com/awslabs "https
 AWS Samples @ GitHub [https://github.com/aws-samples](https://github.com/aws-samples "https://github.com/aws-samples")
 
 For support and development, reach out to certified AWS Partners, AWS Professional Services or your AWS account team.
-
-Start the "Data Science" Kernel, The kernel powers all of our notebook interactions. Click on "No Kernel" in the Upper Right
-
-![](/images/select_kernel.png)
-
-Select the `Data Science` Kernel
-
-![](/images/select_data_science_kernel.png)
-
-Confirm the Kernel is Started in Upper Right
-
-![](/images/confirm_kernel_started.png)
-
-> NOTE: YOU CAN NOT CONTINUE UNTIL THE KERNEL IS STARTED
-
-Use `Shift+Enter` to run each cell of every notebook
-
-**Follow Us On Twitter**
-
-    %%html
-    
-    <a href="https://twitter.com/cfregly" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @cfreglya>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
-
-> Click This Button ^^ Above ^^
-
-    %%html
-    
-    <a href="https://twitter.com/anbarth" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @anbartha>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
-
-> Click This Button ^^ Above ^^
-
-**Star Our GitHub Repo**
-
-    %%html
-    
-    <a class="github-button" href="https://github.com/data-science-on-aws/workshop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star data-science-on-aws/workshop on GitHub">Stara>
-    <script async defer src="https://buttons.github.io/buttons.js">script>
-
-> Click This Button ^^ Above ^^Visit our Website
-
-    %%html
-    
-    <iframe src="https://datascienceonaws.com" width="800px" height="600px"/>
-
-> Click This Button ^^ Above ^^
-
-**Shutting Down Kernel To Release Resources**
-
-    %%html
-    
-    <p><b>Shutting down your kernel for this notebook to release resources.b>p>
-    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernelbutton>
-            
-    <script>
-    try {
-        els = document.getElementsByClassName("sm-command-button");
-        els[0].click();
-    }
-    catch(err) {
-        // NoOp
-    }    
-    script>
-
-> `Shift+Enter`
-
-    %%javascript
-    
-    try {
-        Jupyter.notebook.save_checkpoint();
-        Jupyter.notebook.session.delete();
-    }
-    catch(err) {
-        // NoOp
-    }
-
-> `Shift+Enter`
