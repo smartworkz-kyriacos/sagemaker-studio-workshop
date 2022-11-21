@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "MLOps Best Practises"
-weight = nil
+weight = 6
 
 +++
 The field of machine learning operations (MLOps) has emerged over the past decade to describe the unique challenges of operating “software plus data” systems like AI and machine learning. With MLOps, we are developing the end-to-end architecture for automated model training, model hosting, and pipeline monitoring. Using a complete MLOps strategy from the beginning, we are building up expertise, reducing human error, de-risking our project, and freeing up time to focus on the hard data science challenges.
