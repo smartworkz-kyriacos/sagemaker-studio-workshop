@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Benefits"
+title = "1.2 Benefits"
 weight = 2
 
 +++
