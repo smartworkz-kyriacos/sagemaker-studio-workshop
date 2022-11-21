@@ -5,8 +5,8 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: directory
-  path: content/test
-  label: Test
+  path: content/build
+  label: Build
   create: all
   match: "**/*"
 - type: directory
