@@ -189,12 +189,10 @@ You can now follow the instructions in the notebook to keep going.
 
 To ensure all resources are deleted and they won't keep incurring costs afterwards, be sure to run the clean-up cells at the end.
 
-#### Key takeaways
+**Key takeaways**
 
 * SageMaker downloads S3 data into the container’s local filesystem: Your Python script doesn’t need to talk to S3, you just need to figure out what local folder to look for your data in.
 * You can find the solution in the solution branch of the [GitHub repository](https://github.com/aws-samples/sagemaker-workshop-101/tree/solution/migration_challenge_keras_image).
-
-#### Well done!
 
 After that, if you're looking for further ideas and inspiration visit :
 
@@ -209,3 +207,34 @@ AWS Labs @ GitHub [https://github.com/awslabs](https://github.com/awslabs "https
 AWS Samples @ GitHub [https://github.com/aws-samples](https://github.com/aws-samples "https://github.com/aws-samples")
 
 For support and development, reach out to certified AWS Partners, AWS Professional Services or your AWS account team.
+
+**Follow Us On Twitter**
+
+    %%html
+    
+    <a href="https://twitter.com/cfregly" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @cfreglya>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
+
+> Click This Button ^^ Above ^^
+
+    %%html
+    
+    <a href="https://twitter.com/anbarth" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @anbartha>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
+
+> Click This Button ^^ Above ^^
+
+**Star Our GitHub Repo**
+
+    %%html
+    
+    <a class="github-button" href="https://github.com/data-science-on-aws/workshop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star data-science-on-aws/workshop on GitHub">Stara>
+    <script async defer src="https://buttons.github.io/buttons.js">script>
+
+> Click This Button ^^ Above ^^Visit our Website
+
+    %%html
+    
+    <iframe src="https://datascienceonaws.com" width="800px" height="600px"/>
+
+> Click This Button ^^ Above ^^
