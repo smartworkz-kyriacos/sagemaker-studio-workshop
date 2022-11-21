@@ -12,4 +12,5 @@ fields:
   name: weight
   label: weight
 pages:
+- content/introduction/architecture.md
 - content/test/test.md
