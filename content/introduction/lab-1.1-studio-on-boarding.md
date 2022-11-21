@@ -91,7 +91,7 @@ In this lab, we will demonstrate how to use Amazon SageMaker to develop, train, 
 
 First, navigate back to the sagemaker-workshop-101 in the Jupyter Lab directory structure.
 
-You can now navigate to the folder custom_sklearn_rf and open the first notebook b _double_ clicking on the Sklearn_on_SageMaker_end2end.ipynb notebook.
+You can now navigate to the folder custom_sklearn_rf and open the first notebook b _doublelicking_ on the Sklearn_on_SageMaker_end2end.ipynb notebook.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook4.png)
 
