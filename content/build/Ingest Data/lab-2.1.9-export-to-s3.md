@@ -12,7 +12,7 @@ You can specify one or more partition columns so that unloaded data is automatic
 
 For example, you can choose to unload our customer reviews data and partition it by `product_category`. This enables your queries to take advantage of partition pruning and skip scanning non-relevant partitions, improving query performance and minimizing cost.
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_unload_parquet.png =60%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_unload_parquet.png)
 
 In \[ \]:
 
@@ -29,7 +29,6 @@ In \[ \]:
     
     redshift = boto3.client('redshift')
     secretsmanager = boto3.client('secretsmanager')
-    
 
 In \[ \]:
 
@@ -38,7 +37,6 @@ In \[ \]:
     
     # Set S3 paths for Parquet unload
     s3_path_parquet_unload = 's3://{}/{}'.format(bucket, parquet_prefix_unload)
-    
 
 **Get Redshift credentials**
 
@@ -51,7 +49,6 @@ In \[ \]:
     
     master_user_name = cred[0]['username']
     master_user_pw = cred[1]['password']
-    
 
 **Redshift configuration parameters**
 
@@ -68,7 +65,6 @@ In \[ \]:
     schema_athena = 'athena'
     
     table_name_tsv = 'amazon_reviews_tsv'
-    
 
 **Please Wait for Cluster Status `Available`**
 
@@ -85,11 +81,10 @@ In \[ \]:
         response = redshift.describe_clusters(ClusterIdentifier=redshift_cluster_identifier)
         cluster_status = response['Clusters'][0]['ClusterStatus']
         print(cluster_status)
-    
 
 **Get Redshift endpoint address & IAM Role**
 
-# In \[ \]:
+In \[ \]:
 
     # Set Redshift endpoint address & IAM Role
     response = redshift.describe_clusters(ClusterIdentifier=redshift_cluster_identifier)
@@ -99,7 +94,6 @@ In \[ \]:
     
     print(redshift_endpoint_address)
     print(iam_role)
-    
 
 **Create Redshift Connection**
 
@@ -112,7 +106,6 @@ In \[ \]:
         database=database_name_redshift,
         db_user=master_user_name,
     )
-    
 
 **Unload Parquet Data From Redshift To S3**
 
@@ -139,31 +132,26 @@ In \[ \]:
                 con=con_redshift,
             )
         print("Done.")
-    
 
 **The following `UNLOAD` the command can take some time to complete. Please be patient.**
 
 In \[ \]:
 
     unload_redshift_table(wr, con_redshift, 'amazon_reviews_tsv', 2014, 2015, s3_path_parquet_unload, iam_role)
-    
 
 **List the S3 Directory**
 
 In \[ \]:
 
     print(s3_path_parquet_unload)
-    
 
 In \[ \]:
 
     !aws s3 ls $s3_path_parquet_unload/2014/
-    
 
 In \[ \]:
 
     !aws s3 ls $s3_path_parquet_unload/2015/
-    
 
 In \[ \]:
 
