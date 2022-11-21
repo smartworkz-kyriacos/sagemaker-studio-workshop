@@ -11,5 +11,14 @@ fields:
 - type: number
   name: weight
   label: weight
+- name: test-label
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: test-label
 pages:
 - content/test/test-title.md
