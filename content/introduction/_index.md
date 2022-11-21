@@ -4,7 +4,7 @@ weight: "5"
 chapter: true
 
 ---
-## SageMaker Studio
+# SageMaker Studio
 
 In this workshop, you will explore the development cycle of the machine learning model on AWS. A sample project fully developed in a SageMaker notebook instance is included. The notebooks are divided into different stages:
 
