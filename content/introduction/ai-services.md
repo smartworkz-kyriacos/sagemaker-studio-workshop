@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "1.6 AI Services"
-weight = 7
+weight = 6
 
 +++
 We know that data science projects involve many complex, multidisciplinary, and iterative steps. We need access to a machine-learning development environment that supports the model prototyping stage and equally provides a smooth transition to prepare our model for production. We will likely want to experiment with various machine learning frameworks and algorithms and develop custom model training and inference code.
