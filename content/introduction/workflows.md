@@ -8,7 +8,7 @@ Data science pipelines and workflows involve many complex, multidisciplinary, an
 
 ![](/images/workflows.png)
 
-_Figure 1-1. A typical machine learning workflow involves many complex, multidiscipli‐ nary, and iterative steps._
+Figure 1-1. Iterative steps of a typical machine learning workflow
 
 If we are using AWS, our raw data is likely already in Amazon Simple Storage Service (Amazon S3) and stored as CSV, Apache Parquet, or the equivalent. We can start training models quickly using the Amazon AI or automated machine learning (AutoML) services to establish baseline model performance by pointing directly to our dataset and clicking a single “train” button. We dive deep into the AI Services and AutoML in Chapters 2 and 3.
 
