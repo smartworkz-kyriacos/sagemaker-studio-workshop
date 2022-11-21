@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Lab 1.4 Update IAM Roles and Policies"
+title = "Lab 1.4 IAM Roles and Policies"
 weight = 10
 
 +++
