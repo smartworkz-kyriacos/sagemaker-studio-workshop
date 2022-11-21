@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "Lab 2.1.7 Athena to Redshift"
-weight = 7
+weight = 8
 
 +++
 **Load TSV Data From S3/Athena into Redshift**
