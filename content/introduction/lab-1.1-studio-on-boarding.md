@@ -141,12 +141,60 @@ In the same folder, you will find a second notebook `Headline Classifier SageMak
 
 You can now follow the instructions in the notebook to keep going.
 
+To ensure all resources are deleted and they won't keep incurring costs afterwards, be sure to run the clean-up cells at the end.
+
+#### Key takeaways
+
+* You should see that notebooks are structurally similar but the show of pattern of moving to the SageMaker SDK for training and deployment.
+* Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training costs low whenever possible
+
+**Lab 4. SageMaker Migration Challenge (MNIST)**
+
+**Estimated Duration: 1-2 hours**
+
+***
+
+Now that you have a good grasp on the building your own machine learning models with the Amazon SageMaker SDK, it's time to implement it yourself! In this challenge, you'll use what you've learned to migrate an existing notebook that performs classification of MNIST DIGITS images using Keras to Amazon SageMaker model training and deploy it as a real-time inference endpoint deployment.
+
+#### Prerequisites
+
+This practice exercise is intended to be delivered with in-person support, and assumes you:
+
+* Have had a high-level introduction to the SageMaker workflow, and:
+* Are familiar with using the AWS Console to access Amazon SageMaker and Amazon S3
+* Are familiar with configuring SageMaker Notebook Instance Execution Roles with appropriate Amazon S3 access
+
+If that doesn't sound like you, you might prefer to check out:
+
+* The official [Introductory Amazon SageMaker Tutorial](https://aws.amazon.com/getting-started/tutorials/build-train-deploy-machine-learning-model-sagemaker/)
+* The ["Get Started with the Amazon SageMaker Console" ](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)page in the [Amazon SageMaker Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+
+#### Navigate to the first notebook and run the training locally!
+
+You can navigate to the folder migration_challenge_keras_image and open the first notebook by double clicking on the SageMaker Local Notebook.ipynb notebook. You can run all the cells to train a machine learning model locally on the instance.
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook6.png)
+
+#### Navigate to the second notebook with the challenge instructions
+
+You are now ready for the challenge!
+
+You can navigate to the folder migration_challenge_keras_image and open the first notebook by double clicking on the SageMaker Instructions.ipynb notebook.
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook5.png)
+
+#### Follow the notebook instructions
+
+You can now follow the instructions in the notebook to keep going.
+
 To ensure all resources are deleted and they wont keep incurring cost afterwards, be sure to run the clean up cells at the end.
 
 #### Key takeaways
 
-* You should see that notebooks are structurally similar but showing of pattern of moving to the SageMaker SDK for training and deployement.
-* Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training cost low whenever possible
+* SageMaker downloads S3 data into the container’s local filesystem: Your Python script doesn’t need to talk to S3, you just need to figure out what local folder to look for your data in.
+* You can find the solution in the solution branch of the [github repository ](https://github.com/aws-samples/sagemaker-workshop-101/tree/solution/migration_challenge_keras_image).
+
+#### Well done!
 
 Start the "Data Science" Kernel, The kernel powers all of our notebook interactions. Click on "No Kernel" in the Upper Right
 
