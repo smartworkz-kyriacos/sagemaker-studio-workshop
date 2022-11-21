@@ -4,9 +4,11 @@ weight: "5"
 chapter: true
 
 ---
-# SageMaker Studio
+## SageMaker Studio
 
-In this workshop, you will explore the development cycle of the machine learning model on AWS. In the first part, you will find a sample project fully developed in an ml.m4.4xlarge SageMaker notebook instance. On purpose, the notebooks are divided into different stages
+In this workshop, you will explore the development cycle of the machine learning model on AWS. A sample project fully developed in a SageMaker notebook instance is included. 
+
+The notebooks are divided into different stages
 
 * Exploratory analysis
 * ETL to prepare training data
@@ -26,7 +28,7 @@ Studio notebooks are one-click Jupyter notebooks that can be spun up quickly. Th
 
 In this post, we take a closer look at how Studio notebooks have been designed to improve the productivity of data scientists and developers.
 
-## Single-host Jupyter architecture
+### Single-host Jupyter architecture
 
 Let’s first understand how Jupyter notebooks are set up and accessed. Jupyter notebooks are by default hosted on a single machine and can be accessed via any web browser. The following diagram illustrates how it works if set up on an [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2) (Amazon EC2 instance).
 
