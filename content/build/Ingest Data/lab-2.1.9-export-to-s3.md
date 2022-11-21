@@ -82,7 +82,7 @@ In \[ \]:
         cluster_status = response['Clusters'][0]['ClusterStatus']
         print(cluster_status)
 
-**Get Redshift endpoint address & IAM Role**
+**Get the Redshift endpoint address & IAM Role**
 
 In \[ \]:
 
