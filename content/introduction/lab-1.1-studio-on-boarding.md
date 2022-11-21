@@ -99,6 +99,48 @@ You can now navigate to the folder custom_sklearn_rf and open the first notebook
 
 You can now follow the instructions in the notebook to keep going.
 
+To ensure all resources are deleted and they won't keep incurring costs afterwards, be sure to run the clean-up cells at the end.
+
+#### Key takeaways
+
+* You should see that notebooks are structurally similar but a show pattern of moving to the SageMaker SDK for training and deployment.
+* Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training costs low whenever possible
+
+**Lab 3. Custom Deep Learning on SageMaker (NLP)**
+
+**Estimated Duration: 1 hour**
+
+***
+
+In this lab, we will demonstrate how to bring your own deep learning algorithm, using SageMaker's pre-built container environments as a base. The use case we will be working on is classifying news headline text.
+
+You can choose to follow this lab with either:
+
+* **TensorFlow**, in the `custom_tensorflow_keras_nlp` folder, or
+* **PyTorch**, in the `pytorch_alternatives/custom_pytorch_nlp` folder
+
+Whichever you choose, you'll see the folder contains two notebooks. The first "Local" notebook is a classic example of training and testing a model within the notebook itself. In the second "SageMaker" notebook, you'll see how to train the same model through the SageMaker APIs and deploy it to an inference endpoint.
+
+#### Navigate to the "local" notebook
+
+From your chosen folder in the JupyterLab directory structure (above), open the first notebook by double clicking on the `Headline Classifier Local.ipynb` file.
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook2.png)
+
+#### Follow the notebook instructions
+
+You can now follow the instructions in the notebook to keep going.
+
+#### Once you are done with the first notebook, navigate to the second one
+
+In the same folder, you will find a second notebook `Headline Classifier SageMaker.ipynb`.
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook3.png)
+
+#### Follow the notebook instructions
+
+You can now follow the instructions in the notebook to keep going.
+
 To ensure all resources are deleted and they wont keep incurring cost afterwards, be sure to run the clean up cells at the end.
 
 #### Key takeaways
