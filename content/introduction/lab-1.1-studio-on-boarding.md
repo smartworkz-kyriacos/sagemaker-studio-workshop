@@ -10,7 +10,7 @@ weight = 7
 
 _Note: This workshop requires SageMaker Studio and will not work properly in classic SageMaker Notebooks._
 
-Before starting the exercises, you'll need to get set up with a SageMaker notebook environment and clone in the [workshop code repository](https://github.com/aws-samples/sagemaker-101-workshop).
+> Before starting the exercises, you'll need to get set up with a SageMaker notebook environment and clone in the [workshop code repository](https://github.com/aws-samples/sagemaker-101-workshop).
 
 The labs in this workshop assume you have:
 
@@ -26,7 +26,7 @@ The preferred notebook environment for completing the exercises is **SageMaker S
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/setup/Domain-Users-Custom.png "Screenshot of SageMaker Studio Console listing users")
 
-**If you're not able** to use Studio, you can instead set up a [SageMaker Notebook Instance ](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-setup-working-env.html). We'd recommend an instance type of `ml.t3.medium`. Once your notebook instance is created, you can click **Open JupyterLab** for a roughly similar user experience to SageMaker Studio.
+**If you're not able** to use Studio, you can instead set up a [SageMaker Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-setup-working-env.html). We'd recommend an instance type of `ml.t3.medium`. Once your notebook instance is created, you can click **Open JupyterLab** for a roughly similar user experience to SageMaker Studio.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/setup/NBI-List-Custom.png "Screenshot of SageMaker Console listing notebook instances")
 
