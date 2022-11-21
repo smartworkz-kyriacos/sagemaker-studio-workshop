@@ -4,8 +4,6 @@ title = "Pipelines"
 weight = 5
 
 +++
-## Pipelines
-
 Amazon SageMaker Pipelines are the standard, full-featured, and most complete way to implement AI and machine learning pipelines on Amazon SageMaker. SageMaker Pipelines have integration with SageMaker Feature Store, SageMaker Data Wrangler, SageMaker Processing Jobs, SageMaker Training Jobs, SageMaker Hyper-Parameter Tuning Jobs, SageMaker Model Registry, SageMaker Batch Transform, and Sage‐ Maker Model Endpoints, which we discuss throughout the book. We will dive deep into managed SageMaker Pipelines in Chapter 10 along with discussions on how to build pipelines with AWS Step Functions, Kubeflow Pipelines, Apache Airflow, MLflow, TFX, and human-in-the-loop workflows.
 
 ### Step Functions
@@ -16,7 +14,7 @@ Step Functions, a managed AWS service, is a great option for building complex wo
 
 Kubeflow is a relatively new ecosystem built on Kubernetes that includes an orchestration subsystem called _Kubeflow Pipeline_s. With Kubeflow, we can restart failed pipelines, schedule pipeline runs, analyze training metrics, and track pipeline lineage. We will dive deeper into managing a Kubeflow cluster on Amazon Elastic Kubernetes Service (Amazon EKS) in Chapter 10.
 
-### Apache Airflow 
+### Apache Airflow
 
 Apache Airflow is a very mature and popular option primarily built to orchestrate data engineering and extract-transform-load (ETL) pipelines. We can use Airflow to author workflows as directed acyclic graphs of tasks. The Airflow scheduler executes our tasks on an array of workers while following the specified dependencies. We can visualize pipelines running in production, monitor progress, and troubleshoot issues when needed via the Airflow user interface. We will dive deeper into Amazon Man‐ aged Workflows for Apache Airflow (Amazon MWAA) in Chapter 10.
 
