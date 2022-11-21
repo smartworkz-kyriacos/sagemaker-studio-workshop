@@ -4,8 +4,6 @@ title = "Workflows"
 weight = 3
 
 +++
-## Workflows
-
 Data science workflows involve many complex, multidisciplinary, and iterative steps. Let’s take a typical machine learning model development workflow as an example. We start with data preparation and then move to model training and tuning. Eventually, we deploy our model (or application) into a production environment. Each of those steps consists of several subtasks as shown in Figure 1-1.
 
 ![](/images/workflows.png)
