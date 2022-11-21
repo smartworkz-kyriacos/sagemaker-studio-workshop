@@ -1,7 +1,7 @@
 +++
 chapter = false
-title = "   Overview"
-weight = 20
+title = "Overview"
+weight = 1
 
 +++
 #### **Data Ingestion and Data Lakes with Amazon S3 and AWS Lake Formation**
