@@ -46,7 +46,11 @@ Data lakes provide a perfect base for data science and machine learning, as they
 
 5\. Make data available for analytics.
 
+**Lake Formation**
+
 Each of those steps involves a range of tools and technologies. While we can build a data lake manually from the ground up, there are cloud services available to help us streamline this process, i.e., AWS Lake Formation.
+
+![](/images/lake-formation.png)
 
 _Figure 4-3. Building a data lake involves many steps._
 
