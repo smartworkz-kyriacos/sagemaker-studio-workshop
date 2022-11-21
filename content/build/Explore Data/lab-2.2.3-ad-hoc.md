@@ -4,8 +4,7 @@ title = "Lab 2.2.3 Ad-Hoc"
 weight = 13
 
 +++
-**  
-Run Ad-Hoc Data Bias Analysis**
+**Run Ad-Hoc Data Bias Analysis**
 
 **Run Bias Analysis In The Notebook using `smclarify`**
 
@@ -14,7 +13,6 @@ Run Ad-Hoc Data Bias Analysis**
 In \[ \]:
 
     !pip install -q smclarify==0.1
-    
 
 In \[ \]:
 
@@ -23,39 +21,32 @@ In \[ \]:
     from collections import defaultdict
     import pandas as pd
     import seaborn as sns
-    
 
 **Read Dataset From S3**
 
 In \[ \]:
 
     %store -r bias_data_s3_uri
-    
 
 In \[ \]:
 
     print(bias_data_s3_uri)
-    
 
 In \[ \]:
 
     %store -r balanced_bias_data_s3_uri
-    
 
 In \[ \]:
 
     print(balanced_bias_data_s3_uri)
-    
 
 In \[ \]:
 
     !aws s3 cp $bias_data_s3_uri ./data-clarify/
-    
 
 In \[ \]:
 
     !aws s3 cp $balanced_bias_data_s3_uri ./data-clarify/
-    
 
 **Analyze Unbalanced Data**
 
@@ -63,12 +54,10 @@ In \[ \]:
 
     df = pd.read_csv("./data-clarify/amazon_reviews_us_giftcards_software_videogames.csv")
     df.shape
-    
 
 In \[ \]:
 
     sns.countplot(data=df, x="star_rating", hue="product_category")
-    
 
 **Calculate Bias Metrics on Unbalanced Data**
 
@@ -87,7 +76,6 @@ In \[ \]:
         data=df["star_rating"], 
         positive_label_values=[5, 4]
     )
-    
 
 **Run SageMaker Clarify Bias Report**
 
@@ -100,7 +88,6 @@ In \[ \]:
         stage_type=report.StageType.PRE_TRAINING, 
         metrics=["CI", "DPL", "KL", "JS", "LP", "TVD", "KS"]
     )
-    
 
 **Balance the data**
 
@@ -109,14 +96,12 @@ In \[ \]:
     df_grouped_by = df.groupby(["product_category", "star_rating"])[["product_category", "star_rating"]]
     df_balanced = df_grouped_by.apply(lambda x: x.sample(df_grouped_by.size().min()).reset_index(drop=True))
     df_balanced.shape
-    
 
 In \[ \]:
 
     import seaborn as sns
     
     sns.countplot(data=df_balanced, x="star_rating", hue="product_category")
-    
 
 **Calculate Bias Metrics on Balanced Data**
 
@@ -137,7 +122,6 @@ In \[ \]:
         data=df_balanced["star_rating"], 
         positive_label_values=[5, 4]
     )
-    
 
 **Run SageMaker Clarify Bias Report**
 
@@ -150,7 +134,6 @@ In \[ \]:
         stage_type=report.StageType.PRE_TRAINING, 
         metrics=["CI", "DPL", "KL", "JS", "LP", "TVD", "KS"]
     )
-    
 
 In \[ \]:
 
@@ -168,7 +151,6 @@ In \[ \]:
         // NoOp
     }    
     script>
-    
 
 In \[ \]:
 
