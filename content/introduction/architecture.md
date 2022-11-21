@@ -14,7 +14,7 @@ On the **Components and registries** menu, you can access a set of purpose-built
 
 Now, let’s understand how Studio notebooks are designed, with the help of a highly simplified version of the following architecture diagram (click for an enlarged view).
 
-[![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/3-3172.jpg =800x594)](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/3-3172-large.jpg)
+![](/images/3-3172.jpg)
 
 A Studio domain is a logical aggregation of an [Amazon Elastic File System](https://aws.amazon.com/efs/) (Amazon EFS) volume, a list of users authorized to access the domain, and configurations related to security, application, networking, and more. A domain promotes collaboration between users where they can share notebooks and other artefacts with other users in the same domain.
 
@@ -45,11 +45,11 @@ Multiple kernel types can be run in each app, provided all the kernels have the 
 
 You can also change these instance types if you require more computing and memory for your notebooks. When a notebook is opened in Studio, it shows the CPU and memory of the EC2 instance (highlighted in yellow) on which the notebook is running.
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/4-3172.jpg =800x142)
+![](/images/4-3172.jpg)
 
 You can choose the highlighted area and choose a different instance type, as shown in the following screenshot.
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/5-3172.jpg =800x613)
+![](/images/5-3172.jpg)
 
 Some instances are of fast launch type, whereas some are not. The fast launch types are simply pooled to offer a fast start experience. You can also check [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/) to learn about all the different instance types supported by Studio.
 
@@ -63,7 +63,7 @@ Besides using notebooks and interactively running code in notebook cells with ke
 
 The following screenshot shows a terminal session running on a KernelGateway app with a Python3 (Data Science) kernel running on an ml.t3.medium instance.
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/6-3172.jpg =800x300)
+![](/images/6-3172.jpg)
 
 From the screenshot, we can see the Amazon EFS volume mounted (highlighted in yellow) and also the [Amazon Elastic Block Store](https://aws.amazon.com/ebs/) (Amazon EBS) volume attached to the container’s ephemeral storage (highlighted in green). We can see the Amazon EFS volume is up to 8 EB and Amazon EBS storage size is around 83 GB, of which around 11 GB has been used.
 
@@ -71,7 +71,7 @@ From the screenshot, we can see the Amazon EFS volume mounted (highlighted in ye
 
 The following screenshot shows the system terminal. Again, different volumes are mounted with the Amazon EFS volume (highlighted in yellow) and the Amazon EBS volume (highlighted in green):
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/7-3172.jpg =800x300)
+![](/images/7-3172.jpg)
 
 The Amazon EFS volume is the same as on an image terminal. However, the Amazon EFS volume mount point here is different from that of the KernelGateway container. Here, out of a total of 83 GB of Amazon EBS volume size, 9 GB has been used.
 
@@ -81,11 +81,11 @@ From a storage perspective, each user gets their own private home directories cr
 
 Studio’s Amazon EFS file system can also be mounted by different clients: for example, you can mount the file system to an EC2 instance and run vulnerability scans over the home directories. The following screenshot shows the [describe-domain](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/describe-domain.html) API call, which returns details about the Amazon EFS ID mounted (highlighted).
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/8-3172.jpg =800x425)
+![](/images/8-3172.jpg)
 
 You can use the same Amazon EFS ID to [mount the file system on an EC2 instance](https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html). After the mount is successful, we can also verify the content of the volume. The following screenshot shows the contents of the Studio Amazon EFS volume, mounted on an EC2 instance.
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/9-3172.jpg =800x278)
+![](/images/9-3172.jpg)
 
 Studio also uses [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) (Amazon S3) to store notebook snapshots and metadata to enable notebook sharing. Apart from that, when you open a notebook in Studio, an Amazon EBS volume is attached to the instance where the notebook is running. The Amazon EBS volume gets deleted if you delete all the apps running on the instance.
 
