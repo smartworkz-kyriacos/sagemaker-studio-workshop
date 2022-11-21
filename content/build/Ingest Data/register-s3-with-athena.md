@@ -26,12 +26,10 @@ In \[ \]:
 In \[ \]:
 
     ingest_create_athena_table_tsv_passed = False
-    
 
 In \[ \]:
 
     %store -r ingest_create_athena_db_passed
-    
 
 In \[ \]:
 
@@ -61,7 +59,6 @@ In \[ \]:
 In \[ \]:
 
     %store -r s3_private_path_tsv
-    
 
 In \[ \]:
 
@@ -77,14 +74,12 @@ In \[ \]:
 In \[ \]:
 
     print(s3_private_path_tsv)
-    
 
 **Import PyAthena**
 
 In \[ \]:
 
     from pyathena import connect
-    
 
 **Create Athena Table from Local TSV Files**
 
@@ -110,7 +105,6 @@ In \[ \]:
 
     # Set S3 staging directory -- this is a temporary directory used for Athena queries
     s3_staging_dir = "s3://{0}/athena/staging".format(bucket)
-    
 
 In \[ \]:
 
@@ -122,7 +116,6 @@ In \[ \]:
 In \[ \]:
 
     conn = connect(region_name=region, s3_staging_dir=s3_staging_dir)
-    
 
 In \[ \]:
 
@@ -156,7 +149,6 @@ In \[ \]:
     import pandas as pd
     
     pd.read_sql(statement, conn)
-    
 
 **Verify The Table Has Been Created Successfully**
 
@@ -166,18 +158,15 @@ In \[ \]:
     
     df_show = pd.read_sql(statement, conn)
     df_show.head(5)
-    
 
 In \[ \]:
 
     if table_name_tsv in df_show.values:
         ingest_create_athena_table_tsv_passed = True
-    
 
 In \[ \]:
 
     %store ingest_create_athena_table_tsv_passed
-    
 
 **Run A Sample Query**
 
@@ -191,13 +180,11 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
     df = pd.read_sql(statement, conn)
     df.head(5)
-    
 
 In \[ \]:
 
@@ -207,7 +194,6 @@ In \[ \]:
         print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         print("[ERROR] YOUR DATA HAS NOT BEEN REGISTERED WITH ATHENA. LOOK IN PREVIOUS CELLS TO FIND THE ISSUE.")
         print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    
 
 **Review the New Athena Table in the Glue Catalog**
 
@@ -229,7 +215,6 @@ In \[ \]:
 In \[ \]:
 
     %store
-    
 
 **Release Resources**
 
