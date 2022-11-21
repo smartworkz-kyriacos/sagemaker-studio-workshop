@@ -164,7 +164,7 @@ In \[ \]:
     sm = boto3.Session().client(service_name="sagemaker", region_name=region)
     
 
-# Set S3 Source Location (Public S3 Bucket)
+**Set S3 Source Location (Public S3 Bucket)**
 
 In \[ \]:
 
