@@ -17,10 +17,10 @@ pages:
 - content/build/Ingest Data/import-to-s3.md
 - content/build/Ingest Data/overview.md
 - content/build/Ingest Data/register-s3-with-athena.md
-- content/introduction/Lab 1.1 SageMaker On-boarding/lab-1.1.0-overview.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
 - content/introduction/benefits.md
+- content/introduction/lab-1.1-studio-on-boarding.md
 - content/introduction/mlops-best-practises.md
 - content/introduction/pipelines.md
 - content/introduction/workflows.md
