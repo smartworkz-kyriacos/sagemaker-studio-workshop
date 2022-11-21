@@ -54,6 +54,58 @@ Once done, you should see the workshop code in the folder sidebar UI as shown be
 
 Congratulations, you're now ready to tackle the labs!
 
+**Lab 1. SageMaker Built-In Algorithms and Hyperparameter Optimization**
+
+**Estimated Duration: 1 hour**
+
+***
+
+Let's start by demonstrating how to use and automatically tune the hyperparameters of a pre-built, SageMaker-provided algorithm. We are going to apply the built-in XGBoost algorithm to tabular data.
+
+#### Navigate to the notebook
+
+You can navigate to the first folder builtin_algorithm_hpo_tabular and open the_first noteook by double_ clicking on the SageMaker XGBoost HPO.ipynb notebook.
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook1.png)
+
+#### Follow the notebook instructions
+
+You can now follow the instructions in the notebook to keep going.
+
+To ensure all resources are deleted and they won't keep incurring costs afterwards, be sure to run the clean-up cells at the end.
+
+#### Key takeaways
+
+* Built-in algorithms do a lot for us (e.g. already implemented with parallelism, GPU acceleration, different input/output modes, hyperparameters, and metrics) and are a simple way to start! Use them to establish a baseline.
+* Refer to the ["Use Amazon SageMaker Built-in Algorithms" documentation ](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html)to find all the information you need to use the built-in algorithms, notably around parameters. You can also find information common to all algorithms, such as [Common data formats](https://docs.aws.amazon.com/sagemaker/latest/dg/common-info-all-im-models.html).
+
+**Lab 2. (Optional) Using Scikit-Learn on SageMaker**
+
+**Estimated Duration: 1 hour**
+
+***
+
+In this lab, we will demonstrate how to use Amazon SageMaker to develop, train, tune and deploy a Scikit-Learn based ML model (Random Forest). More info on Scikit-Learn can be found here [https://scikit-learn.org/stable/index.html](https://scikit-learn.org/stable/index.html "https://scikit-learn.org/stable/index.html")[ ](https://scikit-learn.org/stable/index.html). We use the Boston Housing dataset, present in Scikit-Learn: [https://scikit-learn.org/stable/datasets/index.html#boston-dataset](https://scikit-learn.org/stable/datasets/index.html#boston-dataset "https://scikit-learn.org/stable/datasets/index.html#boston-dataset")
+
+#### Navigate to the notebook
+
+First, navigate back to the sagemaker-workshop-101 in the Jupyter Lab directory structure.
+
+You can now navigate to the folder custom_sklearn_rf and open the first notebook by double clicking on the Sklearn_on_SageMaker_end2end.ipynb notebook.
+
+![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook4.png)
+
+#### Follow the notebook instructions
+
+You can now follow the instructions in the notebook to keep going.
+
+To ensure all resources are deleted and they wont keep incurring cost afterwards, be sure to run the clean up cells at the end.
+
+#### Key takeaways
+
+* You should see that notebooks are structurally similar but showing of pattern of moving to the SageMaker SDK for training and deployement.
+* Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training cost low whenever possible
+
 Start the "Data Science" Kernel, The kernel powers all of our notebook interactions. Click on "No Kernel" in the Upper Right
 
 ![](/images/select_kernel.png)
