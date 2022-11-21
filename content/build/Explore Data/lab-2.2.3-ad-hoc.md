@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "Lab 2.2.3 Ad-Hoc"
-weight = 13
+weight = 14
 
 +++
 **Run Ad-Hoc Data Bias Analysis**
