@@ -1,7 +1,7 @@
 +++
 chapter = false
 title = "Pipelines"
-weight = nil
+weight = 5
 
 +++
 ## Pipelines
