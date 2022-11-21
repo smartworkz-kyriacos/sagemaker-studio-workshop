@@ -30,7 +30,7 @@ In this post, we take a closer look at how Studio notebooks have been designed t
 
 Let’s first understand how Jupyter notebooks are set up and accessed. Jupyter notebooks are by default hosted on a single machine and can be accessed via any web browser. The following diagram illustrates how it works if set up on an [Amazon Elastic Compute Cloud](http://aws.amazon.com/ec2) (Amazon EC2 instance).
 
-![](Machine learning (ML) is highly iterative and complex in nature, and requires data scientists to explore multiple ways in which a business problem can be solved. Data scientists have to use tools that support interactive experimentation so you can run code, review its outputs, and annotate it, which makes it easy to work and collaborate with other teammates.
+!\[\](Machine learning (ML) is highly iterative and complex in nature, and requires data scientists to explore multiple ways in which a business problem can be solved. Data scientists have to use tools that support interactive experimentation so you can run code, review its outputs, and annotate it, which makes it easy to work and collaborate with other teammates.
 
 Amazon SageMaker Studio is the first fully integrated development environment (IDE) for ML. It provides a single, web-based visual interface where you can perform all ML development steps required to build, train, tune, debug, deploy, and monitor models. It gives data scientists all the tools you need to take ML models from experimentation to production without leaving the IDE.
 
@@ -40,8 +40,6 @@ In this post, we take a closer look at how Studio notebooks have been designed t
 
 Single-host Jupyter architecture
 Let’s first understand how Jupyter notebooks are set up and accessed. Jupyter notebooks are by default hosted on a single machine and can be accessed via any web browser. The following diagram illustrates how it works if set up on an Amazon Elastic Compute Cloud (Amazon EC2 instance).
-
-
 
 You can access the Jupyter notebooks by opening the browser and entering the URL of the Jupyter server, which makes an HTTPS/WSS call to the machine where the Jupyter server is hosted. The machine runs a notebook server that receives the request and uses zeromq to communicate with the kernel process.
 
