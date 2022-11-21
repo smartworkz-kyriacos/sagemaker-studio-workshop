@@ -13,6 +13,7 @@ fields:
   label: weight
 pages:
 - content/build/Ingest Data/create-athen-database.md
+- content/build/Ingest Data/import-to-s3.md
 - content/build/Ingest Data/overview.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
