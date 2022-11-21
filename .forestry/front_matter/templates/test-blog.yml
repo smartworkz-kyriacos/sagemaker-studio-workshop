@@ -23,5 +23,3 @@ fields:
   showOnly:
     field: chapter
     value: false
-pages:
-- content/test/test-title.md
