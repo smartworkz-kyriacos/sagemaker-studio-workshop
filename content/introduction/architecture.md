@@ -8,7 +8,7 @@ weight = 1
 
 Studio and one of its components, Studio notebooks, have been built to meet such requirements. The Studio IDE has been built to unify all the tools needed for ML development. Developers can write code, track experiments, visualize data, and perform debugging and monitoring all within a single, integrated visual interface, which significantly boosts developer productivity. The following screenshot shows what the IDE looks like.
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/08/30/2-3172.jpg =800x396)
+![](/images/2-3172.jpg)
 
 On the **Components and registries** menu, you can access a set of purpose-built functionalities that simplify your ML development experience with [Amazon SageMaker](https://aws.amazon.com/sagemaker/); for example, you can review model versions registered in [SageMaker Model Registry](https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html), or track the runs of ML pipelines run with [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines/).
 
