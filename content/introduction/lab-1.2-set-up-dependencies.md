@@ -1,6 +1,6 @@
 +++
 chapter = false
 title = "Lab 1.2 Set up Dependencies"
-weight = 2
+weight = 8
 
 +++
