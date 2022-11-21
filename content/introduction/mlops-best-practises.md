@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "MLOps Best Practises"
+title = "1.5 MLOps Best Practices"
 weight = 6
 
 +++
