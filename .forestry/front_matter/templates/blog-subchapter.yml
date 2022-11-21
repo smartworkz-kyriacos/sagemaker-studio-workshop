@@ -15,6 +15,7 @@ pages:
 - content/build/Ingest Data/create-athen-database.md
 - content/build/Ingest Data/import-to-s3.md
 - content/build/Ingest Data/overview.md
+- content/build/Ingest Data/register-s3-with-athena.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
 - content/introduction/benefits.md
