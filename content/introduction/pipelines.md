@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Pipelines"
+title = "1.4 Pipelines"
 weight = 5
 
 +++
