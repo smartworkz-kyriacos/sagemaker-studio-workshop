@@ -4,3 +4,81 @@ title = "Lab 1.1 Studio On-boarding"
 weight = 7
 
 +++
+### Overview: AWS AI/ML Stack
+
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/01_introduction/img/aws_ml_stack.png =90%x)_Note: This workshop requires SageMaker Studio and will not work properly in classic SageMaker Notebooks._
+
+Start the "Data Science" Kernel, The kernel powers all of our notebook interactions. Click on "No Kernel" in the Upper Right
+
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/01_introduction/img/select_kernel.png)Select the `Data Science` Kernel
+
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/01_introduction/img/select_data_science_kernel.png)Confirm the Kernel is Started in Upper Right
+
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/01_introduction/img/confirm_kernel_started.png)NOTE: YOU CAN NOT CONTINUE UNTIL THE KERNEL IS STARTED
+
+\### PLEASE WAIT UNTIL THE KERNEL IS STARTED BEFORE CONTINUING!!!
+
+Use `Shift+Enter` to run each cell of every notebook
+
+**Follow Us On Twitter**
+
+    %%html
+    
+    <a href="https://twitter.com/cfregly" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @cfreglya>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
+    
+
+Click This Button ^^ Above ^^
+
+    %%html
+    
+    <a href="https://twitter.com/anbarth" class="twitter-follow-button" data-size="large" data-lang="en" data-show-count="false">Follow @anbartha>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">script>
+    
+
+Click This Button ^^ Above ^^
+
+**Star Our GitHub Repo**
+
+    %%html
+    
+    <a class="github-button" href="https://github.com/data-science-on-aws/workshop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star data-science-on-aws/workshop on GitHub">Stara>
+    <script async defer src="https://buttons.github.io/buttons.js">script>
+    
+
+Click This Button ^^ Above ^^Visit our Website
+
+    %%html
+    
+    <iframe src="https://datascienceonaws.com" width="800px" height="600px"/>
+    
+
+Click This Button ^^ Above ^^
+
+**Shutting Down Kernel To Release Resources**
+
+    %%html
+    
+    <p><b>Shutting down your kernel for this notebook to release resources.b>p>
+    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernelbutton>
+            
+    <script>
+    try {
+        els = document.getElementsByClassName("sm-command-button");
+        els[0].click();
+    }
+    catch(err) {
+        // NoOp
+    }    
+    script>
+    
+
+    %%javascript
+    
+    try {
+        Jupyter.notebook.save_checkpoint();
+        Jupyter.notebook.session.delete();
+    }
+    catch(err) {
+        // NoOp
+    }
