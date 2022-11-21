@@ -91,7 +91,7 @@ In this lab, we will demonstrate how to use Amazon SageMaker to develop, train, 
 
 First, navigate back to the sagemaker-workshop-101 in the Jupyter Lab directory structure.
 
-You can now navigate to the folder custom_sklearn_rf and open the first notebook b _doublelicking_ on the Sklearn_on_SageMaker_end2end.ipynb notebook.
+You can now navigate to the folder custom_sklearn_rf and open the first notebook b_doublelicking_ on the Sklearn_on_SageMaker_end2end.ipynb notebook.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook4.png)
 
@@ -194,7 +194,7 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 * SageMaker downloads S3 data into the container’s local filesystem: Your Python script doesn’t need to talk to S3, you just need to figure out what local folder to look for your data in.
 * You can find the solution in the solution branch of the [GitHub repository](https://github.com/aws-samples/sagemaker-workshop-101/tree/solution/migration_challenge_keras_image).
 
-After that, if you're looking for further ideas and inspiration visit :
+**After that, if you're looking for further ideas and inspiration visit :**
 
 Amazon SageMaker Examples (over 200!) [https://github.com/aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples")
 
@@ -238,3 +238,34 @@ For support and development, reach out to certified AWS Partners, AWS Profession
     <iframe src="https://datascienceonaws.com" width="800px" height="600px"/>
 
 > Click This Button ^^ Above ^^
+
+**Release Resources**
+
+    %%html
+    
+    <p><b>Shutting down your kernel for this notebook to release resources.b>p>
+    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernelbutton>
+            
+    <script>
+    try {
+        els = document.getElementsByClassName("sm-command-button");
+        els[0].click();
+    }
+    catch(err) {
+        // NoOp
+    }    
+    script>
+
+> `Shift+Enter`
+
+    %%javascript
+    
+    try {
+        Jupyter.notebook.save_checkpoint();
+        Jupyter.notebook.session.delete();
+    }
+    catch(err) {
+        // NoOp
+    }
+
+> `Shift+Enter`
