@@ -54,7 +54,7 @@ Once done, you should see the workshop code in the folder sidebar UI as shown be
 
 Congratulations, you're now ready to tackle the labs!
 
-**Lab 1. SageMaker Built-In Algorithms and Hyperparameter Optimization**
+#### **Lab 1. SageMaker Built-In Algorithms and Hyperparameter Optimization**
 
 **Estimated Duration: 1 hour**
 
@@ -79,7 +79,7 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 * Built-in algorithms do a lot for us (e.g. already implemented with parallelism, GPU acceleration, different input/output modes, hyperparameters, and metrics) and are a simple way to start! Use them to establish a baseline.
 * Refer to the ["Use Amazon SageMaker Built-in Algorithms" documentation ](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html)to find all the information you need to use the built-in algorithms, notably around parameters. You can also find information common to all algorithms, such as [Common data formats](https://docs.aws.amazon.com/sagemaker/latest/dg/common-info-all-im-models.html).
 
-**Lab 2. (Optional) Using Scikit-Learn on SageMaker**
+#### **Lab 2. (Optional) Using Scikit-Learn on SageMaker**
 
 **Estimated Duration: 1 hour**
 
@@ -106,7 +106,7 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 * You should see that notebooks are structurally similar but a show pattern of moving to the SageMaker SDK for training and deployment.
 * Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training costs low whenever possible
 
-**Lab 3. Custom Deep Learning on SageMaker (NLP)**
+#### **Lab 3. Custom Deep Learning on SageMaker (NLP)**
 
 **Estimated Duration: 1 hour**
 
@@ -148,7 +148,7 @@ To ensure all resources are deleted and they won't keep incurring costs afterwar
 * You should see that notebooks are structurally similar but the show of pattern of moving to the SageMaker SDK for training and deployment.
 * Think about using [Managed Spot Training ](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html)to keep training costs low whenever possible
 
-**Lab 4. SageMaker Migration Challenge (MNIST)**
+#### **Lab 4. SageMaker Migration Challenge (MNIST)**
 
 **Estimated Duration: 1-2 hours**
 
@@ -179,7 +179,7 @@ You can navigate to the folder migration_challenge_keras_image and open the firs
 
 You are now ready for the challenge!
 
-You can navigate to the folder migration_challenge_keras_image and open the first notebook by double clicking on the SageMaker Instructions.ipynb notebook.
+You can navigate to the folder migration_challenge_keras_i_age and open te first noebook by double_ clicking on the SageMaker Instructions.ipynb notebook.
 
 ![](https://static.us-east-1.prod.workshops.aws/public/38e35409-78ba-461d-9d90-2d96bfd20791/static/images/sagemaker101/notebook5.png)
 
@@ -187,12 +187,12 @@ You can navigate to the folder migration_challenge_keras_image and open the firs
 
 You can now follow the instructions in the notebook to keep going.
 
-To ensure all resources are deleted and they wont keep incurring cost afterwards, be sure to run the clean up cells at the end.
+To ensure all resources are deleted and they won't keep incurring costs afterwards, be sure to run the clean-up cells at the end.
 
 #### Key takeaways
 
 * SageMaker downloads S3 data into the container’s local filesystem: Your Python script doesn’t need to talk to S3, you just need to figure out what local folder to look for your data in.
-* You can find the solution in the solution branch of the [github repository ](https://github.com/aws-samples/sagemaker-workshop-101/tree/solution/migration_challenge_keras_image).
+* You can find the solution in the solution branch of the [GitHub repository](https://github.com/aws-samples/sagemaker-workshop-101/tree/solution/migration_challenge_keras_image).
 
 #### Well done!
 
