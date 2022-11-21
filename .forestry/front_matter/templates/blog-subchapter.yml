@@ -12,6 +12,7 @@ fields:
   name: weight
   label: weight
 pages:
+- content/build/igest.md
 - content/build/preliminaries.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
