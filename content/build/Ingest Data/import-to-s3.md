@@ -4,73 +4,75 @@ title = "Lab 2.1.1 Import TSV to S3"
 weight = 2
 
 +++
-**Import Data into the S3 Data Lake**
+**Ingesting Data Into The Cloud**
 
-We are now ready to import our data into S3. We have chosen the [Amazon Customer](https://oreil.ly/jvgLz) [Reviews Dataset ](https://oreil.ly/jvgLz)as the primary dataset for this workshop.
+In this section, we will describe a typical scenario in which an application writes data into an Amazon S3 Data Lake and the data needs to be accessed by both the data science/machine learning team, as well as the business intelligence/data analyst team as shown in the figure below.
 
-The Amazon Customer Reviews Dataset consists of more than 150+ million customer reviews of products across 43 different product categories on the Amazon.com website from 1995 until 2015
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/ingest_overview.png =80%x)
 
-Here is the schema for the dataset:
+As a **data scientist or machine learning engineer**, you want to have access to all of the raw data, and be able to quickly explore it. We will show you how to leverage **Amazon Athena** as an interactive query service to analyze data in Amazon S3 using standard SQL, without moving the data.
 
-**_marketplace_**
+* In the first step, we will register the TSV data in our S3 bucket with Athena, and then run some ad-hoc queries on the dataset.
+* We will also show how you can easily convert the TSV data into the more query-optimized, columnar file format Apache Parquet.
 
-Two-letter country code (in this case all “US”).
+Your **business intelligence team and data analysts** might also want to have a subset of the data in a data warehouse which they can then transform, and query with their standard SQL clients to create reports and visualize trends. We will show you how to leverage **Amazon Redshift**, a fully managed data warehouse service, to
 
-**_customer_id_**
+* insert TSV data into Amazon Redshift, but also be able to combine the data warehouse queries with the data that’s still in our S3 data lake via **Amazon Redshift Spectrum**.
+* You can also use Amazon Redshift’s data lake export functionality to unload data back into our S3 data lake in Parquet file format.
 
-A random identifier can be used to aggregate reviews written by a single author.
+**Amazon Customer Reviews Dataset**
 
-**_review_id_**
+[https://s3.amazonaws.com/amazon-reviews-pds/readme.html](https://s3.amazonaws.com/amazon-reviews-pds/readme.html "https://s3.amazonaws.com/amazon-reviews-pds/readme.html")
 
-A unique ID for the review.
+**Dataset Columns:**
 
-**_product_id_**
+* `marketplace`: 2-letter country code (in this case all "US").
+* `customer_id`: Random identifier that can be used to aggregate reviews written by a single author.
+* `review_id`: A unique ID for the review.
+* `product_id`: The Amazon Standard Identification Number (ASIN). [`http://www.amazon.com/dp/`](https://s3.amazonaws.com/amazon-reviews-pds/readme.html "https://s3.amazonaws.com/amazon-reviews-pds/readme.html") links to the product's detail page.
+* `product_parent`: The parent of that ASIN. Multiple ASINs (color or format variations of the same product) can roll up into a single parent.
+* `product_title`: Title description of the product.
+* `product_category`: Broad product category that can be used to group reviews (in this case digital videos).
+* `star_rating`: The review's rating (1 to 5 stars).
+* `helpful_votes`: Number of helpful votes for the review.
+* `total_votes`: Number of total votes the review received.
+* `vine`: Was the review written as part of the [Vine](https://www.amazon.com/gp/vine/help) program?
+* `verified_purchase`: Was the review from a verified purchase?
+* `review_headline`: The title of the review itself.
+* `review_body`: The text of the review.
+* `review_date`: The date the review was written.
 
-The Amazon Standard Identification Number (ASIN).
+**Release Resources**
 
-**_product_parent_**
+In \[ \]:
 
-The parent of that ASIN. Multiple ASINs (colour or format variations of the same product) can roll up into a single product parent.
+    %%html
+    
+    <p><b>Shutting down your kernel for this notebook to release resources.b>p>
+    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernelbutton>
+            
+    <script>
+    try {
+        els = document.getElementsByClassName("sm-command-button");
+        els[0].click();
+    }
+    catch(err) {
+        // NoOp
+    }    
+    script>
+    
 
-**_product_title_**
+In \[ \]:
 
-Title description of the product.
-
-**_product_category_**
-
-A broad product category that can be used to group reviews.
-
-**_star_rating_**
-
-The review’s rating of 1 to 5 stars, where 1 is the worst and 5 is the best.
-
-**_helpful_votes_**
-
-Several helpful votes for the review.
-
-**_total_votes_**
-
-The number of total votes the review received.
-
-**_vine_**
-
-Was the review written as part of the Vine program?
-
-**_verified_purchase_**
-
-Was the review from a verified purchase?
-
-**_review_headline_**
-
-The title of the review itself.
-
-**_review_body_**
-
-The text of the review.
-
-**_review_date_**
-
-The date the review was written.
+    %%javascript
+    
+    try {
+        Jupyter.notebook.save_checkpoint();
+        Jupyter.notebook.session.delete();
+    }
+    catch(err) {
+        // NoOp
+    }
 
 The dataset is shared in a public Amazon S3 bucket and is available in two file formats:
 
