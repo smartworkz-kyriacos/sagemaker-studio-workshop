@@ -13,7 +13,7 @@ Learning Objectives for the Book Examples
 Attendees will learn how to do the following:
 
 * Ingest data into S3 using Amazon Athena and the Parquet data format
-* Visualize data with pandas, matplotlib on SageMaker notebooks
+* Visualize data with pandas, and matplotlib on SageMaker notebooks
 * Detect statistical data bias with SageMaker Clarify
 * Perform feature engineering on a raw dataset using Scikit-Learn and SageMaker Processing Jobs
 * Store and share features using SageMaker Feature Store
