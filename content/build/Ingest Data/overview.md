@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "2.1.1 Overview"
+title = "2.1.1 Lab Overview"
 weight = 1
 
 +++
