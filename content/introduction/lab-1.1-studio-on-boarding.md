@@ -1,7 +1,7 @@
 +++
 chapter = false
-title = "Lab 1.3 Studio On-boarding"
-weight = 9
+title = "Lab 1.4 Studio On-boarding"
+weight = 10
 
 +++
 ### Overview
