@@ -1,6 +1,6 @@
 +++
 chapter = true
 title = "_index"
-weight = nil
+weight = 10
 
 +++
