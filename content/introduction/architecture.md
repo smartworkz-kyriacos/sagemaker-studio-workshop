@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Architecture"
+title = "1.1 Architecture"
 weight = 1
 
 +++
