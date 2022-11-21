@@ -14,5 +14,6 @@ fields:
 pages:
 - content/introduction/architecture.md
 - content/introduction/benefits.md
+- content/introduction/pipelines.md
 - content/introduction/workflows.md
 - content/test/test.md
