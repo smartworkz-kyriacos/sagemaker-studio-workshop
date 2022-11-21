@@ -66,7 +66,7 @@ We should choose the right computer for our machine learning workload. For examp
 
 Know the latency and network bandwidth performance requirements of models, and deploy each model closer to customers, if needed. There are situations where we might want to deploy our models “at the edge” to improve performance or comply with data privacy regulations. “Deploying at the edge” refers to running the model on the device itself to run the predictions locally. We also want to continuously monitor key performance metrics of our model to spot performance deviations early.
 
-## **Cost Optimization**
+## Cost Optimization
 
 We can optimize cost by leveraging different Amazon EC2 instance pricing options. For example, Savings Plans offer significant savings over on-demand instance prices, in exchange for a commitment to use a specific amount of computing power for a given amount of time. Savings Plans are a great choice for known/steady state workloads such as stable inference workloads.
 
