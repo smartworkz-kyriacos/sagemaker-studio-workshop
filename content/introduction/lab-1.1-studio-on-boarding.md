@@ -74,6 +74,8 @@ Use `Shift+Enter` to run each cell of every notebook
     }    
     script>
 
+> `Shift+Enter`
+
     %%javascript
     
     try {
@@ -83,3 +85,5 @@ Use `Shift+Enter` to run each cell of every notebook
     catch(err) {
         // NoOp
     }
+
+> `Shift+Enter`
