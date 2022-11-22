@@ -1,7 +1,7 @@
 +++
 chapter = true
 title = "2. Build"
-weight = "10"
+weight = "20"
 
 +++
 # Build
