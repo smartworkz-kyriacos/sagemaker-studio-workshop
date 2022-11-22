@@ -1,7 +1,7 @@
 ---
 title: SageMaker
 chapter: true
-weight: "200"
+weight: "100"
 
 ---
 # Getting Started
