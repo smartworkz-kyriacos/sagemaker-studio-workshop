@@ -35,7 +35,6 @@ pages:
 - content/deploy/lab-4.2-autoscale.md
 - content/deploy/lab-4.3-ab-testing.md
 - content/deploy/lab-4.4-pipelines.md
-- content/deploy/lab-4.7-personalize.md
 - content/deploy/lab-4.8-personalize.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
