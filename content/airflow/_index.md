@@ -1,7 +1,7 @@
 ---
 title: Airflow Integration
 chapter: true
-weight: "220"
+weight: "120"
 
 ---
 # Getting Started
