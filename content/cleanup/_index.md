@@ -1,7 +1,7 @@
 ---
 title: 7. Cleanup
 chapter: true
-weight: "110"
+weight: "70"
 
 ---
 # Cleanup
