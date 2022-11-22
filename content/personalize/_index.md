@@ -1,7 +1,7 @@
 ---
 title: Amazon Personalize
 chapter: true
-weight: "230"
+weight: "130"
 
 ---
 # Getting Started
