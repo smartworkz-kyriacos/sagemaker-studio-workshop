@@ -1,5 +1,5 @@
 ---
-title: 1. SageMaker Studio
+title: 1. Studio
 weight: "10"
 chapter: true
 
