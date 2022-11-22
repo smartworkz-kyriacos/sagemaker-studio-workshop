@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "Lab 4.4 Pipelines"
-weight = 5
+title = "Lab 4.5 Pipelines"
+weight = 6
 
 +++
