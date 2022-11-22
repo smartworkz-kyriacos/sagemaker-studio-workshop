@@ -4,3 +4,74 @@ title = "2.3 Train"
 weight = 25
 
 +++
+# SageMaker Containers
+
+When running a training job, SageMaker reads input data from Amazon S3, uses that data to train a model, and finally writes the model artefacts back to Amazon S3. Figure 7-1 illustrates how SageMaker uses containers for training and inference. Starting from the bottom left, training data from S3 is made available to the Model Training instance container, which is pulled from Amazon Elastic Container Registry. The training job persists model artefacts back to the output S3 location designated in the training job configuration. When we are ready to deploy a model, SageMaker spins up new ML instances and pulls in these model artefacts to use for batch or real-time model inference.
+
+_Figure 7-1. SageMaker containers, inputs, and outputs. Source:_ [_Amazon SageMaker Workshop_](https://oreil.ly/eu9G1)_._
+
+![](/images/containers.png)
+
+Much like a software framework, SageMaker provides multiple “hot spots” for our training script to leverage. There are two hot spots worth highlighting: input/output data locations and environment variables.
+
+SageMaker provides our container with locations for our training input and output files. For example, a typical training job reads data files, trains the model, and writes out a model file. Some AI and machine learning frameworks support model checkpointing in case our training job fails or we decide to use a previous checkpoint with better predictive performance than our latest model. In this case, the job can restart from where it left off. This input, output, and checkpoint files must move in and out of the ephemeral Docker container from/to more durable storage like S3. Otherwise, when the training job ends and the Docker container goes away, the data is lost.
+
+While seemingly simple, this mapping is a very critical piece in the training performance puzzle. If this layer mapping is not optimized, our training times will suffer greatly. Later, we will discuss a SageMaker feature called Pipe Mode that specifically optimizes the movement of data at this layer. Figure 7-2 shows the mapping of the file located inside the Docker container to the S3 location outside the container.
+
+![](/images/filelocations.png)
+
+variables that SageMaker passes through to our script from a Jupyter notebook, script, pipeline, etc.:
+
+**SM_MODEL_DIR**
+
+The directory containing the training or processing script as well as dependent libraries and assets (_/opt/ml/model_)
+
+**SM_INPUT_DIR**
+
+The directory containing input data (_/opt/ml/input_)
+
+**SM_INPUT_CONFIG_DIR**
+
+The directory containing the input configuration _(/opt/ml/input/config)_
+
+**SM_CHANNELS**
+
+S3 locations for splits of data, including “train,” “validation,” and “test”
+
+**SM_OUTPUT_DATA_DIR**
+
+Directory to store evaluation results and other non-training-related output assets (_/opt/ml/output/data_)
+
+**SM_HPS**
+
+Model hyper-parameters used by the algorithm
+
+**SM_CURRENT_HOST**
+
+The unique hostname for the current instance
+
+**SM_HOSTS**
+
+Hostnames of all instances in the cluster
+
+**SM_NUM_GPUS**
+
+Number of GPUs of the current instance
+
+**SM_NUM_CPUS**
+
+Number of CPUs of the current instance
+
+**SM_LOG_LEVEL**
+
+Logging level used by the training scripts
+
+**SM_USER_ARGS**
+
+Additional arguments specified by the user and parsed by the training or pro‐ cessing script
+
+The _DIR variables map is the local file paths internal to the Docker container running our training code. These map to external input and output file locations in S3, for example, provided by SageMaker and specified by the user when the training job is started. However, our training script references the local paths when reading input or writing output.
+
+_Figure 7-2. The container filelocations are mapped to S3 locations._
+
+SageMaker automatically provides our container with many predefined environment variables, such as the number of GPUs available to the container and the log level. Our training script can use these SageMaker-injected environment variables to mod‐ ify the behavior of our training job accordingly. Here is a subset of the environment
