@@ -1,6 +1,6 @@
 +++
 chapter = false
-title = "1.6 AI Services"
+title = "1.6 AI/MLServices"
 weight = 6
 
 +++
