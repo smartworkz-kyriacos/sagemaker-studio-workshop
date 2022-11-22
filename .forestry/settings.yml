@@ -40,6 +40,11 @@ sections:
   create: all
   match: "**/*"
 - type: directory
+  path: content/start
+  label: Start
+  create: all
+  match: "**/*"
+- type: directory
   path: content/personalize
   label: Personalize
   create: all
