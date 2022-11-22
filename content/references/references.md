@@ -1,6 +1,6 @@
 +++
 chapter = true
-title = "References"
+title = "8. References"
 weight = 120
 
 +++
