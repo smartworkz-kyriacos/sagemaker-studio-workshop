@@ -6,7 +6,7 @@ webhook_url:
 sections:
 - type: directory
   path: content/train
-  label: Build
+  label: Train
   create: all
   match: "**/*"
 - type: directory
