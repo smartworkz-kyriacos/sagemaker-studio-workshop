@@ -50,3 +50,4 @@ pages:
 - content/train/3.7-shap.md
 - content/train/lab-3.3-convert-to-pytorch.md
 - content/train/lab-3.4-metrics.md
+- content/train/lab-3.8-tuning.md
