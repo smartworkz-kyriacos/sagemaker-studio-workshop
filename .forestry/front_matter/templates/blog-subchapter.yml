@@ -36,6 +36,7 @@ pages:
 - content/deploy/lab-4.3-ab-testing.md
 - content/deploy/lab-4.4-pipelines.md
 - content/deploy/lab-4.6-airflow.md
+- content/deploy/lab-4.7-personalize.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
 - content/introduction/benefits.md
