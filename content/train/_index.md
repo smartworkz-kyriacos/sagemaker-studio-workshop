@@ -1,6 +1,6 @@
 +++
 chapter = true
-title = "3 Train"
+title = "3. Train"
 weight = "30"
 
 +++
