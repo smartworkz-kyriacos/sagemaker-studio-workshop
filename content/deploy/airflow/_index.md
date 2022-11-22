@@ -1,5 +1,5 @@
 ---
-title: Airflow Integration
+title: Lab 4.7 Airflow
 chapter: true
 weight: "120"
 
