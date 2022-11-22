@@ -42,3 +42,4 @@ pages:
 - content/introduction/workflows.md
 - content/train/3.1-overview.md
 - content/train/3.2-which-algorithm.md
+- content/train/3.3-bert-model.md
