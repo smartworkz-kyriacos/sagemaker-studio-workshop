@@ -30,6 +30,7 @@ pages:
 - content/build/Prepare Data/2.3.1-feature-store-ad-hoc.md
 - content/build/Prepare Data/2.3.2-feature-store-processing-job.md
 - content/deploy/4.1-overview.md
+- content/deploy/lab-4.1-rest.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
 - content/introduction/benefits.md
