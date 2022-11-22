@@ -1,7 +1,7 @@
 ---
 title: Step Functions
 chapter: true
-weight: "220"
+weight: "210"
 
 ---
 # Implementation with Step Functions 
