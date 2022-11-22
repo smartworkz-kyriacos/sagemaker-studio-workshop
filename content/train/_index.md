@@ -1,7 +1,7 @@
 +++
 chapter = true
-title = "2.3 Train"
-weight = 25
+title = "3 Train"
+weight = "20"
 
 +++
 # SageMaker Containers
