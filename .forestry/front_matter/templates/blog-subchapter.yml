@@ -41,3 +41,4 @@ pages:
 - content/introduction/mlops-best-practises.md
 - content/introduction/pipelines.md
 - content/introduction/workflows.md
+- content/security/5.security.md
