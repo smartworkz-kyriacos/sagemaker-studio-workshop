@@ -12,6 +12,7 @@ fields:
   name: weight
   label: weight
 pages:
+- content/appendix/9.appendix.md
 - content/build/Explore Data/lab-2.2.1-prepare-for-bias-analysis.md
 - content/build/Explore Data/lab-2.2.1-visualize-reviews.md
 - content/build/Explore Data/lab-2.2.3-ad-hoc.md
