@@ -4,8 +4,6 @@ title = "2.2 Explore Data"
 weight = 20
 
 +++
-**Explore The Data**
-
 In this chapter, we will use the SageMaker Studio integrated development environment (IDE) as our main workspace for data analysis and the model development life cycle. SageMaker Studio provides fully managed Jupyter Notebook servers. With just a couple of clicks, we can provision the SageMaker Studio IDE and start using Jupyter notebooks to run ad hoc data analysis and launch Apache Spark-based data-quality jobs.
 
 ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/05_explore/img/explore-data-ml.png)
