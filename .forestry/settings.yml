@@ -5,6 +5,26 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: directory
+  path: content/appendix
+  label: Appendix
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/references
+  label: References
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/security
+  label: Security
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/deploy
+  label: Deploy
+  create: all
+  match: "**/*"
+- type: directory
   path: content/train
   label: Train
   create: all
