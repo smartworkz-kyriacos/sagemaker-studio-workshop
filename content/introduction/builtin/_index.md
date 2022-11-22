@@ -1,6 +1,6 @@
 +++
 chapter = true
-title = "Built-in Algorithms"
+title = "Lab 1.6 Built-in Algorithms"
 weight = 30
 
 +++
