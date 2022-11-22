@@ -1,5 +1,5 @@
 ---
-title: 1. Introduction
+title: 1. SageMaker Studio
 weight: "10"
 chapter: true
 
