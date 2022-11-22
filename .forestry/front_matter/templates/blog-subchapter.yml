@@ -32,6 +32,7 @@ pages:
 - content/deploy/4.1-overview.md
 - content/deploy/lab-4.1-rest.md
 - content/deploy/lab-4.2-autoscale.md
+- content/deploy/lab-4.3-ab-testing.md
 - content/introduction/ai-services.md
 - content/introduction/architecture.md
 - content/introduction/benefits.md
