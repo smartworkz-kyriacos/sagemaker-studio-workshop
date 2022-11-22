@@ -40,3 +40,4 @@ pages:
 - content/introduction/mlops-best-practises.md
 - content/introduction/pipelines.md
 - content/introduction/workflows.md
+- content/train/3.1-overview.md
