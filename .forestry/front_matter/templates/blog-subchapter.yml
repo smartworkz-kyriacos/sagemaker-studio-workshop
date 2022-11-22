@@ -45,3 +45,4 @@ pages:
 - content/train/3.3-bert-model.md
 - content/train/3.4-ad-hoc.md
 - content/train/3.5-processing-job.md
+- content/train/lab-3.3-convert-to-pytorch.md
