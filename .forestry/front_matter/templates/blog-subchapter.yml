@@ -30,6 +30,7 @@ pages:
 - content/build/Prepare Data/2.3.1-feature-store-ad-hoc.md
 - content/build/Prepare Data/2.3.2-feature-store-processing-job.md
 - content/deploy/4.1-overview.md
+- content/deploy/4.4-bandit-testing.md
 - content/deploy/lab-4.1-rest.md
 - content/deploy/lab-4.2-autoscale.md
 - content/deploy/lab-4.3-ab-testing.md
