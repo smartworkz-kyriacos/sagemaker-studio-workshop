@@ -1,5 +1,5 @@
 ---
-title: Step Functions
+title: Lab 4.6 Step Functions
 chapter: true
 weight: "110"
 
