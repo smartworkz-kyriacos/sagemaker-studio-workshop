@@ -1,5 +1,5 @@
 ---
-title: Amazon Personalize
+title: Lab 4.8 Personalize
 chapter: true
 weight: "130"
 
