@@ -1,9 +1,9 @@
 ---
-title: "Amazon Personalize"
+title: Amazon Personalize
 chapter: true
-weight: 10
----
+weight: "230"
 
+---
 # Getting Started
 Amazon Personalize is a machine learning service that makes it easy for developers to create individualized recommendations for customers using their applications.
 
