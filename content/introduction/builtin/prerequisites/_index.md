@@ -1,7 +1,7 @@
 +++
 chapter = true
 title = "Prerequisites"
-weight = "9"
+weight = "8"
 
 +++
 In this module, we'll go through the prerequisites for the workshop, and set up a Cloud9 workspace for the workshop:
