@@ -4,31 +4,6 @@ title = "Lab 1.1 Instructions"
 weight = 7
 
 +++
-Throughout these examples, you will build an end-to-end AI/ML pipeline for natural language processing with Amazon SageMaker. You will train and tune a text classifier to predict the star rating (1 is bad, 5 is good) for product reviews using the state-of-the-art [BERT](https://arxiv.org/abs/1810.04805) model for language representation. To build our BERT-based NLP text classifier, you will use a product reviews dataset where each record contains some review text and a star rating (1-5). You will also get hands-on with advanced model training and deployment techniques such as hyper-parameter tuning, A/B testing, and auto-scaling. Lastly, you will set up a real-time, streaming analytics and data science pipeline to perform window-based aggregations and anomaly detection.
-
-![](/images/outline.png)
-
-Learning Objectives for the Book Examples
-
-Attendees will learn how to do the following:
-
-* Ingest data into S3 using Amazon Athena and the Parquet data format
-* Visualize data with pandas, and matplotlib on SageMaker notebooks
-* Detect statistical data bias with SageMaker Clarify
-* Perform feature engineering on a raw dataset using Scikit-Learn and SageMaker Processing Jobs
-* Store and share features using SageMaker Feature Store
-* Train and evaluate a custom BERT model using TensorFlow, Keras, and SageMaker Training Jobs
-* Evaluate the model using SageMaker Processing Jobs
-* Track model artefacts using Amazon SageMaker ML Lineage Tracking
-* Run model bias and explainability analysis with SageMaker Clarify
-* Register and version models using SageMaker Model Registry
-* Deploy a model to a REST endpoint using SageMaker Hosting and SageMaker Endpoints
-* Automate ML workflow steps by building end-to-end model pipelines using SageMaker Pipelines, Airflow, AWS Step Functions, Kubeflow Pipelines, TFX, and MLflow
-* Perform automated machine learning (AutoML) to find the best model from just your dataset with low-code
-* Find the best hyper-parameters for your custom model using SageMaker Hyper-parameter Tuning Jobs
-* Deploy multiple model variants into a live, production A/B test to compare online performance, live-shift prediction traffic, and autoscale the winning variant using SageMaker Hosting and SageMaker Endpoints
-* Setup a streaming analytics and continuous machine learning application using Amazon Kinesis and SageMaker
-
 **Instructions to Run the Examples**
 
 **0. Create an AWS Account if you don't already have one**
@@ -119,3 +94,28 @@ If you see an error like the following, just re-run the command again until it w
     remove the file manually to continue.
 
 > _Note: Just re-run the command again until it works._
+
+Throughout these examples, you will build an end-to-end AI/ML pipeline for natural language processing with Amazon SageMaker. You will train and tune a text classifier to predict the star rating (1 is bad, 5 is good) for product reviews using the state-of-the-art [BERT](https://arxiv.org/abs/1810.04805) model for language representation. To build our BERT-based NLP text classifier, you will use a product reviews dataset where each record contains some review text and a star rating (1-5). You will also get hands-on with advanced model training and deployment techniques such as hyper-parameter tuning, A/B testing, and auto-scaling. Lastly, you will set up a real-time, streaming analytics and data science pipeline to perform window-based aggregations and anomaly detection.
+
+![](/images/outline.png)
+
+Learning Objectives for the Book Examples
+
+Attendees will learn how to do the following:
+
+* Ingest data into S3 using Amazon Athena and the Parquet data format
+* Visualize data with pandas, and matplotlib on SageMaker notebooks
+* Detect statistical data bias with SageMaker Clarify
+* Perform feature engineering on a raw dataset using Scikit-Learn and SageMaker Processing Jobs
+* Store and share features using SageMaker Feature Store
+* Train and evaluate a custom BERT model using TensorFlow, Keras, and SageMaker Training Jobs
+* Evaluate the model using SageMaker Processing Jobs
+* Track model artefacts using Amazon SageMaker ML Lineage Tracking
+* Run model bias and explainability analysis with SageMaker Clarify
+* Register and version models using SageMaker Model Registry
+* Deploy a model to a REST endpoint using SageMaker Hosting and SageMaker Endpoints
+* Automate ML workflow steps by building end-to-end model pipelines using SageMaker Pipelines, Airflow, AWS Step Functions, Kubeflow Pipelines, TFX, and MLflow
+* Perform automated machine learning (AutoML) to find the best model from just your dataset with low-code
+* Find the best hyper-parameters for your custom model using SageMaker Hyper-parameter Tuning Jobs
+* Deploy multiple model variants into a live, production A/B test to compare online performance, live-shift prediction traffic, and autoscale the winning variant using SageMaker Hosting and SageMaker Endpoints
+* Setup a streaming analytics and continuous machine learning application using Amazon Kinesis and SageMaker
