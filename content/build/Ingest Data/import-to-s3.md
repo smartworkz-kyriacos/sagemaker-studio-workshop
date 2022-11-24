@@ -272,7 +272,7 @@ s3_private_path_tsv = "s3://{}/amazon-reviews-pds/tsv".format(bucket)
 print(s3_private_path_tsv)
 ```
 
-    s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
+    s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv
 
 ```python
 %store s3_private_path_tsv
@@ -290,9 +290,9 @@ As the full dataset is pretty large, let's just copy 3 files into our bucket to 
 !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Gift_Card_v1_00.tsv.gz"
 ```
 
-    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Software_v1_00.tsv.gz to s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Software_v1_00.tsv.gz
-    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz to s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz
-    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Gift_Card_v1_00.tsv.gz to s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv/amazon_reviews_us_Gift_Card_v1_00.tsv.gz
+    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Software_v1_00.tsv.gz to s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Software_v1_00.tsv.gz
+    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz to s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz
+    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Gift_Card_v1_00.tsv.gz to s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv/amazon_reviews_us_Gift_Card_v1_00.tsv.gz
 
 _Make sure ^^^^ this ^^^^ S3 COPY command above runs successfully. We will need those data files for the rest of this workshop._
 
@@ -302,7 +302,7 @@ _Make sure ^^^^ this ^^^^ S3 COPY command above runs successfully. We will need 
 print(s3_private_path_tsv)
 ```
 
-    s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
+    s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv
 
 ```python
 !aws s3 ls $s3_private_path_tsv/
@@ -324,7 +324,7 @@ display(
 )
 ```
 
-<b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-522208047117/amazon-reviews-pds/?region=us-east-1&tab=overview">S3 Bucket</a></b>
+<b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/?region=us-east-1&tab=overview">S3 Bucket</a></b>
 
 ### Store Variables for the Next Notebooks
 
