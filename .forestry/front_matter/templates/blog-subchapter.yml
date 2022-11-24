@@ -35,6 +35,7 @@ pages:
 - content/deploy/Lab 4.5 Pipelines/evaluate.md
 - content/deploy/Lab 4.5 Pipelines/overview.md
 - content/deploy/Lab 4.5 Pipelines/pipeline.md
+- content/deploy/Lab 4.5 Pipelines/register.md
 - content/deploy/Lab 4.5 Pipelines/shap.md
 - content/deploy/lab-4.1-rest.md
 - content/deploy/lab-4.2-autoscale.md
