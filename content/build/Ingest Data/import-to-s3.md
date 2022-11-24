@@ -4,7 +4,7 @@ title = "Lab 2.1.1 Import TSV to S3"
 weight = 2
 
 +++
-**Ingesting Data Into The Cloud**
+## Ingesting Data Into The Cloud
 
 In this section, we will describe a typical scenario in which an application writes data into an Amazon S3 Data Lake and the data needs to be accessed by both the data science/machine learning team, as well as the business intelligence/data analyst team as shown in the figure below.
 
@@ -45,7 +45,7 @@ The dataset is shared in a public Amazon S3 bucket, and is available in two file
 * `review_body`: The text of the review.
 * `review_date`: The date the review was written.
 
-**Copy TSV Data To S3**
+### Copy TSV Data To S3
 
 ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/write_tsv_to_s3.png)
 
@@ -53,196 +53,335 @@ The Parquet dataset is partitioned (divided into subfolders) by the column `prod
 
 We can use the AWS Command Line Interface (CLI) to list the S3 bucket content using the following CLI commands:
 
-In \[ \]:
+```python
+!aws s3 ls s3://amazon-reviews-pds/tsv/
+```
 
-    !aws s3 ls s3://amazon-reviews-pds/tsv/
+    2017-11-24 13:22:50          0 
+    2017-11-24 13:48:03  241896005 amazon_reviews_multilingual_DE_v1_00.tsv.gz
+    2017-11-24 13:48:17   70583516 amazon_reviews_multilingual_FR_v1_00.tsv.gz
+    2017-11-24 13:48:34   94688992 amazon_reviews_multilingual_JP_v1_00.tsv.gz
+    2017-11-24 13:49:14  349370868 amazon_reviews_multilingual_UK_v1_00.tsv.gz
+    2017-11-24 13:48:47 1466965039 amazon_reviews_multilingual_US_v1_00.tsv.gz
+    2017-11-24 13:49:53  648641286 amazon_reviews_us_Apparel_v1_00.tsv.gz
+    2017-11-24 13:56:36  582145299 amazon_reviews_us_Automotive_v1_00.tsv.gz
+    2017-11-24 14:04:02  357392893 amazon_reviews_us_Baby_v1_00.tsv.gz
+    2017-11-24 14:08:11  914070021 amazon_reviews_us_Beauty_v1_00.tsv.gz
+    2017-11-24 14:17:41 2740337188 amazon_reviews_us_Books_v1_00.tsv.gz
+    2017-11-24 14:45:50 2692708591 amazon_reviews_us_Books_v1_01.tsv.gz
+    2017-11-24 15:10:21 1329539135 amazon_reviews_us_Books_v1_02.tsv.gz
+    2017-11-24 15:22:13  442653086 amazon_reviews_us_Camera_v1_00.tsv.gz
+    2017-11-24 15:27:13 2689739299 amazon_reviews_us_Digital_Ebook_Purchase_v1_00.tsv.gz
+    2017-11-24 15:49:13 1294879074 amazon_reviews_us_Digital_Ebook_Purchase_v1_01.tsv.gz
+    2017-11-24 15:59:24  253570168 amazon_reviews_us_Digital_Music_Purchase_v1_00.tsv.gz
+    2017-11-24 16:01:47   18997559 amazon_reviews_us_Digital_Software_v1_00.tsv.gz
+    2017-11-24 16:01:53  506979922 amazon_reviews_us_Digital_Video_Download_v1_00.tsv.gz
+    2017-11-24 16:06:31   27442648 amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz
+    2017-11-24 16:06:42  698828243 amazon_reviews_us_Electronics_v1_00.tsv.gz
+    2017-11-24 16:12:44  148982796 amazon_reviews_us_Furniture_v1_00.tsv.gz
+    2017-11-24 16:13:52   12134676 amazon_reviews_us_Gift_Card_v1_00.tsv.gz
+    2017-11-24 16:13:59  401337166 amazon_reviews_us_Grocery_v1_00.tsv.gz
+    2017-11-24 19:55:29 1011180212 amazon_reviews_us_Health_Personal_Care_v1_00.tsv.gz
+    2017-11-24 20:30:55  193168458 amazon_reviews_us_Home_Entertainment_v1_00.tsv.gz
+    2017-11-24 20:37:56  503339178 amazon_reviews_us_Home_Improvement_v1_00.tsv.gz
+    2017-11-24 20:55:43 1081002012 amazon_reviews_us_Home_v1_00.tsv.gz
+    2017-11-24 21:47:51  247022254 amazon_reviews_us_Jewelry_v1_00.tsv.gz
+    2017-11-24 21:59:56  930744854 amazon_reviews_us_Kitchen_v1_00.tsv.gz
+    2017-11-24 23:41:48  486772662 amazon_reviews_us_Lawn_and_Garden_v1_00.tsv.gz
+    2017-11-24 23:59:42   60320191 amazon_reviews_us_Luggage_v1_00.tsv.gz
+    2017-11-25 00:01:59   24359816 amazon_reviews_us_Major_Appliances_v1_00.tsv.gz
+    2017-11-25 00:02:45  557959415 amazon_reviews_us_Mobile_Apps_v1_00.tsv.gz
+    2017-11-25 00:22:19   22870508 amazon_reviews_us_Mobile_Electronics_v1_00.tsv.gz
+    2017-11-25 00:23:06 1521994296 amazon_reviews_us_Music_v1_00.tsv.gz
+    2017-11-25 00:58:36  193389086 amazon_reviews_us_Musical_Instruments_v1_00.tsv.gz
+    2017-11-25 01:03:14  512323500 amazon_reviews_us_Office_Products_v1_00.tsv.gz
+    2017-11-25 07:21:21  448963100 amazon_reviews_us_Outdoors_v1_00.tsv.gz
+    2017-11-25 07:32:46 1512903923 amazon_reviews_us_PC_v1_00.tsv.gz
+    2017-11-25 08:10:33   17634794 amazon_reviews_us_Personal_Care_Appliances_v1_00.tsv.gz
+    2017-11-25 08:11:02  515815253 amazon_reviews_us_Pet_Products_v1_00.tsv.gz
+    2017-11-25 08:22:26  642255314 amazon_reviews_us_Shoes_v1_00.tsv.gz
+    2017-11-25 08:39:15   94010685 amazon_reviews_us_Software_v1_00.tsv.gz
+    2017-11-27 10:36:58  872478735 amazon_reviews_us_Sports_v1_00.tsv.gz
+    2017-11-25 08:52:11  333782939 amazon_reviews_us_Tools_v1_00.tsv.gz
+    2017-11-25 09:06:08  838451398 amazon_reviews_us_Toys_v1_00.tsv.gz
+    2017-11-25 09:42:13 1512355451 amazon_reviews_us_Video_DVD_v1_00.tsv.gz
+    2017-11-25 10:50:22  475199894 amazon_reviews_us_Video_Games_v1_00.tsv.gz
+    2017-11-25 11:07:59  138929896 amazon_reviews_us_Video_v1_00.tsv.gz
+    2017-11-25 11:14:07  162973819 amazon_reviews_us_Watches_v1_00.tsv.gz
+    2017-11-26 15:24:07 1704713674 amazon_reviews_us_Wireless_v1_00.tsv.gz
+    2022-02-17 08:46:18       6162 index.txt
+    2017-11-27 11:08:16      17553 sample_fr.tsv
+    2017-11-27 11:08:17      15906 sample_us.tsv
 
-In \[ \]:
+```python
+!aws s3 ls s3://amazon-reviews-pds/parquet/
+```
 
-    !aws s3 ls s3://amazon-reviews-pds/parquet/
+                               PRE product_category=Apparel/
+                               PRE product_category=Automotive/
+                               PRE product_category=Baby/
+                               PRE product_category=Beauty/
+                               PRE product_category=Books/
+                               PRE product_category=Camera/
+                               PRE product_category=Digital_Ebook_Purchase/
+                               PRE product_category=Digital_Music_Purchase/
+                               PRE product_category=Digital_Software/
+                               PRE product_category=Digital_Video_Download/
+                               PRE product_category=Digital_Video_Games/
+                               PRE product_category=Electronics/
+                               PRE product_category=Furniture/
+                               PRE product_category=Gift_Card/
+                               PRE product_category=Grocery/
+                               PRE product_category=Health_&_Personal_Care/
+                               PRE product_category=Home/
+                               PRE product_category=Home_Entertainment/
+                               PRE product_category=Home_Improvement/
+                               PRE product_category=Jewelry/
+                               PRE product_category=Kitchen/
+                               PRE product_category=Lawn_and_Garden/
+                               PRE product_category=Luggage/
+                               PRE product_category=Major_Appliances/
+                               PRE product_category=Mobile_Apps/
+                               PRE product_category=Mobile_Electronics/
+                               PRE product_category=Music/
+                               PRE product_category=Musical_Instruments/
+                               PRE product_category=Office_Products/
+                               PRE product_category=Outdoors/
+                               PRE product_category=PC/
+                               PRE product_category=Personal_Care_Appliances/
+                               PRE product_category=Pet_Products/
+                               PRE product_category=Shoes/
+                               PRE product_category=Software/
+                               PRE product_category=Sports/
+                               PRE product_category=Tools/
+                               PRE product_category=Toys/
+                               PRE product_category=Video/
+                               PRE product_category=Video_DVD/
+                               PRE product_category=Video_Games/
+                               PRE product_category=Watches/
+                               PRE product_category=Wireless/
 
-**To Simulate an Application Writing Into Our Data Lake, We Copy the Public TSV Dataset to a Private S3 Bucket in our Account**
+### To Simulate an Application Writing Into Our Data Lake, We Copy the Public TSV Dataset to a Private S3 Bucket in our Account
 
-![/images/s3-import.png](https://app.forestry.io/sites/cthvujpyr4n4ma/body-media//images/s3-import.png)
+![](/images/s3-import.png)
 
-**Check Pre-Requisites from an earlier notebook**
+### Check Pre-Requisites from an earlier notebook
 
-In \[ \]:
+```python
+%store -r setup_dependencies_passed
+```
 
-    %store -r setup_dependencies_passed
+```python
+try:
+    setup_dependencies_passed
+except NameError:
+    print("+++++++++++++++++++++++++++++++")
+    print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup Dependencies.")
+    print("+++++++++++++++++++++++++++++++")
+```
 
-In \[ \]:
+```python
+print(setup_dependencies_passed)
+```
 
-    try:
-        setup_dependencies_passed
-    except NameError:
-        print("+++++++++++++++++++++++++++++++")
-        print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup Dependencies.")
-        print("+++++++++++++++++++++++++++++++")
+    True
 
-In \[ \]:
+```python
+%store -r setup_s3_bucket_passed
+```
 
-    print(setup_dependencies_passed)
+```python
+try:
+    setup_s3_bucket_passed
+except NameError:
+    print("+++++++++++++++++++++++++++++++")
+    print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup S3 Bucket.")
+    print("+++++++++++++++++++++++++++++++")
+```
 
-In \[ \]:
+```python
+print(setup_s3_bucket_passed)
+```
 
-    %store -r setup_s3_bucket_passed
+    True
 
-In \[ \]:
+```python
+%store -r setup_iam_roles_passed
+```
 
-    try:
-        setup_s3_bucket_passed
-    except NameError:
-        print("+++++++++++++++++++++++++++++++")
-        print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup S3 Bucket.")
-        print("+++++++++++++++++++++++++++++++")
+```python
+try:
+    setup_iam_roles_passed
+except NameError:
+    print("+++++++++++++++++++++++++++++++")
+    print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup IAM Roles.")
+    print("+++++++++++++++++++++++++++++++")
+```
 
-In \[ \]:
+```python
+print(setup_iam_roles_passed)
+```
 
-    print(setup_s3_bucket_passed)
+    True
 
-In \[ \]:
+```python
+if not setup_dependencies_passed:
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup Dependencies.")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+if not setup_s3_bucket_passed:
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup S3 Bucket.")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+if not setup_iam_roles_passed:
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup IAM Roles.")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+```
 
-    %store -r setup_iam_roles_passed
+```python
+import boto3
+import sagemaker
+import pandas as pd
 
-In \[ \]:
+sess = sagemaker.Session()
+bucket = sess.default_bucket()
+role = sagemaker.get_execution_role()
+region = boto3.Session().region_name
+account_id = boto3.client("sts").get_caller_identity().get("Account")
 
-    try:
-        setup_iam_roles_passed
-    except NameError:
-        print("+++++++++++++++++++++++++++++++")
-        print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup IAM Roles.")
-        print("+++++++++++++++++++++++++++++++")
+sm = boto3.Session().client(service_name="sagemaker", region_name=region)
+```
 
-In \[ \]:
+### Set S3 Source Location (Public S3 Bucket)
 
-    print(setup_iam_roles_passed)
+```python
+s3_public_path_tsv = "s3://amazon-reviews-pds/tsv"
+```
 
-In \[ \]:
+```python
+%store s3_public_path_tsv
+```
 
-    if not setup_dependencies_passed:
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup Dependencies.")
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    if not setup_s3_bucket_passed:
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup S3 Bucket.")
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    if not setup_iam_roles_passed:
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("[ERROR] YOU HAVE TO RUN ALL NOTEBOOKS IN THE SETUP FOLDER FIRST. You are missing Setup IAM Roles.")
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    Stored 's3_public_path_tsv' (str)
 
-In \[ \]:
+### Set S3 Destination Location (Our Private S3 Bucket)
 
-    import boto3
-    import sagemaker
-    import pandas as pd
-    
-    sess = sagemaker.Session()
-    bucket = sess.default_bucket()
-    role = sagemaker.get_execution_role()
-    region = boto3.Session().region_name
-    account_id = boto3.client("sts").get_caller_identity().get("Account")
-    
-    sm = boto3.Session().client(service_name="sagemaker", region_name=region)
+```python
+s3_private_path_tsv = "s3://{}/amazon-reviews-pds/tsv".format(bucket)
+print(s3_private_path_tsv)
+```
 
-**Set S3 Source Location (Public S3 Bucket)**
+    s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
 
-In \[ \]:
+```python
+%store s3_private_path_tsv
+```
 
-    s3_public_path_tsv = "s3://amazon-reviews-pds/tsv"
+    Stored 's3_private_path_tsv' (str)
 
-In \[ \]:
-
-    %store s3_public_path_tsv
-
-**Set S3 Destination Location (Our Private S3 Bucket)**
-
-In \[ \]:
-
-    s3_private_path_tsv = "s3://{}/amazon-reviews-pds/tsv".format(bucket)
-    print(s3_private_path_tsv)
-
-In \[ \]:
-
-    %store s3_private_path_tsv
-
-**Copy Data From the Public S3 Bucket to our Private S3 Bucket in this Account**
+### Copy Data From the Public S3 Bucket to our Private S3 Bucket in this Account
 
 As the full dataset is pretty large, let's just copy 3 files into our bucket to speed things up later.
 
-In \[ \]:
+```python
+!aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Digital_Software_v1_00.tsv.gz"
+!aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz"
+!aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Gift_Card_v1_00.tsv.gz"
+```
 
-    !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Digital_Software_v1_00.tsv.gz"
-    !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz"
-    !aws s3 cp --recursive $s3_public_path_tsv/ $s3_private_path_tsv/ --exclude "*" --include "amazon_reviews_us_Gift_Card_v1_00.tsv.gz"
+    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Software_v1_00.tsv.gz to s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Software_v1_00.tsv.gz
+    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz to s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv/amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz
+    copy: s3://amazon-reviews-pds/tsv/amazon_reviews_us_Gift_Card_v1_00.tsv.gz to s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv/amazon_reviews_us_Gift_Card_v1_00.tsv.gz
 
 _Make sure ^^^^ this ^^^^ S3 COPY command above runs successfully. We will need those data files for the rest of this workshop._
 
-**List Files in our Private S3 Bucket in this Account**
+### List Files in our Private S3 Bucket in this Account
 
-In \[ \]:
+```python
+print(s3_private_path_tsv)
+```
 
-    print(s3_private_path_tsv)
+    s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
 
-In \[ \]:
+```python
+!aws s3 ls $s3_private_path_tsv/
+```
 
-    !aws s3 ls $s3_private_path_tsv/
+    2022-11-24 18:49:21   18997559 amazon_reviews_us_Digital_Software_v1_00.tsv.gz
+    2022-11-24 18:49:22   27442648 amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz
+    2022-11-24 18:49:23   12134676 amazon_reviews_us_Gift_Card_v1_00.tsv.gz
 
-In \[ \]:
+```python
+from IPython.core.display import display, HTML
 
-    from IPython.core.display import display, HTML
-    
-    display(
-        HTML(
-            'Review {}-{}/amazon-reviews-pds/?region={}&tab=overview">S3 Bucket'.format(
-                region, account_id, region
-            )
+display(
+    HTML(
+        '<b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-{}-{}/amazon-reviews-pds/?region={}&tab=overview">S3 Bucket</a></b>'.format(
+            region, account_id, region
         )
     )
+)
+```
 
-**Store Variables for the Next Notebooks**
+<b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-522208047117/amazon-reviews-pds/?region=us-east-1&tab=overview">S3 Bucket</a></b>
 
-In \[ \]:
+### Store Variables for the Next Notebooks
 
-    %store
+```python
+%store
+```
 
-**Release Resources**
+    Stored variables and their in-db values:
+    s3_private_path_tsv                   -> 's3://sagemaker-us-east-1-522208047117/amazon-revi
+    s3_public_path_tsv                    -> 's3://amazon-reviews-pds/tsv'
+    setup_dependencies_passed             -> True
+    setup_iam_roles_passed                -> True
+    setup_s3_bucket_passed                -> True
 
-In \[ \]:
+### Release Resources
 
-    %%html
-    
-    <p><b>Shutting down your kernel for this notebook to release resources.b>p>
-    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernelbutton>
-            
-    <script>
-    try {
-        els = document.getElementsByClassName("sm-command-button");
-        els[0].click();
-    }
-    catch(err) {
-        // NoOp
-    }    
-    script>
+```python
+%%html
 
-In \[ \]:
+<p><b>Shutting down your kernel for this notebook to release resources.</b></p>
+<button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
+        
+<script>
+try {
+    els = document.getElementsByClassName("sm-command-button");
+    els[0].click();
+}
+catch(err) {
+    // NoOp
+}    
+</script>
+```
 
-    %%javascript
-    
-    try {
-        Jupyter.notebook.save_checkpoint();
-        Jupyter.notebook.session.delete();
-    }
-    catch(err) {
-        // NoOp
-    }
+<p><b>Shutting down your kernel for this notebook to release resources.</b></p>
+<button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
 
-The dataset is shared in a public Amazon S3 bucket and is available in two file formats:
+<script>
+try {
+els = document.getElementsByClassName("sm-command-button");
+els\[0\].click();
+}
+catch(err) {
+// NoOp
+}  
+</script>
 
-• TSV, a text format: _s3://amazon-reviews-pds/tsv_
+```javascript
+%%javascript
 
-• Parquet, an optimized columnar binary format: _s3://amazon-reviews-pds/parquet_
+try {
+    Jupyter.notebook.save_checkpoint();
+    Jupyter.notebook.session.delete();
+}
+catch(err) {
+    // NoOp
+}
+```
 
-The Parquet dataset is partitioned (divided into subfolders) by the column product_category to further improve query performance. With this, we can use a WHERE clause on product_category in our SQL queries to only read data specific to that category.
+```python
+```
