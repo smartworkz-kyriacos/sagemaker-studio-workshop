@@ -4,11 +4,11 @@ title = "Lab 3.8 Tuning"
 weight = 11
 
 +++
-
 **Optimize Models using Automatic Model Tuning**
 ![](/images/tuning.png)
+
 > _NOTE: THIS NOTEBOOK WILL TAKE 30 MINUTES TO COMPLETE._ PLEASE BE PATIENT.
-In \[ \]:
+> In \[ \]:
 
     import boto3
     import sagemaker
@@ -20,16 +20,14 @@ In \[ \]:
     region = boto3.Session().region_name
     
     sm = boto3.Session().client(service_name="sagemaker", region_name=region)
-    
 
-# PRE-REQUISITE: _You need to have succesfully run the notebooks in the `PREPARE`section before you continue with this notebook._
+PRE-REQUISITE: _You need to have successfully run the notebooks in the `PREPAREthe` section before you continue with this notebook._
 
-# Specify the S3 Location of the Features
+**Specify the S3 Location of the Features**
 
 In \[ \]:
 
     %store -r processed_train_data_s3_uri
-    
 
 In \[ \]:
 
@@ -40,17 +38,14 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the PREPARE section before you continue.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(processed_train_data_s3_uri)
-    
 
 In \[ \]:
 
     %store -r processed_validation_data_s3_uri
-    
 
 In \[ \]:
 
@@ -61,17 +56,14 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the previous sections before you continue.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(processed_validation_data_s3_uri)
-    
 
 In \[ \]:
 
     %store -r processed_test_data_s3_uri
-    
 
 In \[ \]:
 
@@ -82,35 +74,29 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the previous sections before you continue.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(processed_test_data_s3_uri)
-    
 
 In \[ \]:
 
     print(processed_train_data_s3_uri)
     !aws s3 ls $processed_train_data_s3_uri/
-    
 
 In \[ \]:
 
     print(processed_validation_data_s3_uri)
     !aws s3 ls $processed_validation_data_s3_uri/
-    
 
 In \[ \]:
 
     print(processed_test_data_s3_uri)
     !aws s3 ls $processed_test_data_s3_uri/
-    
 
 In \[ \]:
 
     !pip list
-    
 
 In \[ \]:
 
@@ -123,21 +109,18 @@ In \[ \]:
     print(s3_input_train_data.config)
     print(s3_input_validation_data.config)
     print(s3_input_test_data.config)
-    
 
 In \[ \]:
 
     !cat src/tf_bert_reviews.py
-    
 
-# Setup Static Hyper-Parameters for Classification Layer
+**Setup Static Hyper-Parameters for Classification Layer**
 
 First, retrieve `max_seq_length` from the prepare phase.
 
 In \[ \]:
 
     %store -r max_seq_length
-    
 
 In \[ \]:
 
@@ -148,12 +131,10 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the PREPARE section before you continue.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(max_seq_length)
-    
 
 In \[ \]:
 
@@ -177,14 +158,12 @@ In \[ \]:
     run_validation = True
     run_test = True
     run_sample_predictions = True
-    
 
-# Track the Optimizations Within our Experiment
+**Track the Optimizations Within our Experiment**
 
 In \[ \]:
 
     %store -r experiment_name
-    
 
 In \[ \]:
 
@@ -195,17 +174,14 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the TRAIN section before you continue.")
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(experiment_name)
-    
 
 In \[ \]:
 
     %store -r trial_name
-    
 
 In \[ \]:
 
@@ -216,12 +192,10 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the previous TRAIN section before you continue.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(trial_name)
-    
 
 In \[ \]:
 
@@ -232,7 +206,6 @@ In \[ \]:
     
     trial = Trial.load(trial_name=trial_name)
     print(trial)
-    
 
 In \[ \]:
 
@@ -242,16 +215,14 @@ In \[ \]:
     
     optimize_trial_component_name = tracker_optimize.trial_component.trial_component_name
     print("Optimize trial component name {}".format(optimize_trial_component_name))
-    
 
-# Attach the `deploy` Trial Component and Tracker as a Component to the Trial
+**Attach the `deploy` Trial Component and Tracker as a Component of the Trial**
 
 In \[ \]:
 
     trial.add_trial_component(tracker_optimize.trial_component)
-    
 
-# Setup Dynamic Hyper-Parameter Ranges to Explore
+**Setup Dynamic Hyper-Parameter Ranges to Explore**
 
 In \[ \]:
 
@@ -265,9 +236,8 @@ In \[ \]:
         "train_batch_size": CategoricalParameter([128, 256]),
         "freeze_bert_layer": CategoricalParameter([True, False]),
     }
-    
 
-# Setup Metrics
+**Setup Metrics**
 
 In \[ \]:
 
@@ -277,7 +247,6 @@ In \[ \]:
         {"Name": "validation:loss", "Regex": "val_loss: ([0-9\\.]+)"},
         {"Name": "validation:accuracy", "Regex": "val_accuracy: ([0-9\\.]+)"},
     ]
-    
 
 In \[ \]:
 
@@ -314,9 +283,8 @@ In \[ \]:
         metric_definitions=metrics_definitions,
         #                       max_run=7200 # max 2 hours * 60 minutes seconds per hour * 60 seconds per minute
     )
-    
 
-# Setup HyperparameterTuner with Estimator and Hyper-Parameter Ranges
+**Setup HyperparameterTuner with Estimator and Hyper-Parameter Ranges**
 
 In \[ \]:
 
@@ -333,9 +301,8 @@ In \[ \]:
         strategy="Bayesian",
         early_stopping_type="Auto",
     )
-    
 
-# Start Tuning Job
+**Start Tuning Job**
 
 In \[ \]:
 
@@ -344,9 +311,8 @@ In \[ \]:
         include_cls_metadata=False,
         wait=False,
     )
-    
 
-# Check Tuning Job Status
+**Check Tuning Job Status**
 
 Re-run this cell to track the status.
 
@@ -355,7 +321,6 @@ In \[ \]:
     from pprint import pprint
     
     tuning_job_name = tuner.latest_tuning_job.job_name
-    
 
 In \[ \]:
 
@@ -368,22 +333,20 @@ In \[ \]:
             )
         )
     )
-    
 
-# _Please Wait for the ^^ Tuning Job ^^ to Complete Above_
+_Please Wait for the ^^ Tuning Job ^^ to Complete Above_
 
 In \[ \]:
 
     %%time
     
     tuner.wait()
-    
 
-# \[INFO\] _Feel free to continue to the next workshop section while this notebook is running._
+\[INFO\] _Feel free to continue to the next workshop section while this notebook is running._
 
-# Show the Tuning Job
+**Show the Tuning Job**
 
-### _Note: This will fail at first. Please wait about 15-30 seconds and re-run._
+> _Note: This will fail at first. Please wait about 15-30 seconds and re-run._
 
 In \[ \]:
 
@@ -393,21 +356,18 @@ In \[ \]:
     
     df_results = hp_results.dataframe()
     df_results.shape
-    
 
 In \[ \]:
 
     df_results.sort_values("FinalObjectiveValue", ascending=0)
-    
 
-# Show the Best Candidate
+**Show the Best Candidate**
 
 In \[ \]:
 
     df_results.sort_values("FinalObjectiveValue", ascending=0).head(1)
-    
 
-# Log the Best Hyper-Parameter and Objective Metric in the Experiment
+**Log the Best Hyper-Parameter and Objective Metric in the Experiment**
 
 Logging `learning_rate` parameter and `accuracy` metric
 
@@ -415,13 +375,11 @@ In \[ \]:
 
     best_learning_rate = df_results.sort_values("FinalObjectiveValue", ascending=0).head(1)["learning_rate"]
     print(best_learning_rate)
-    
 
 In \[ \]:
 
     best_accuracy = df_results.sort_values("FinalObjectiveValue", ascending=0).head(1)["FinalObjectiveValue"]
     print(best_accuracy)
-    
 
 In \[ \]:
 
@@ -429,7 +387,6 @@ In \[ \]:
     
     # must save after logging
     tracker_optimize.trial_component.save()
-    
 
 In \[ \]:
 
@@ -437,9 +394,8 @@ In \[ \]:
     
     # must save after logging
     tracker_optimize.trial_component.save()
-    
 
-# Show Experiment Analytics
+**Show Experiment Analytics**
 
 In \[ \]:
 
@@ -455,31 +411,26 @@ In \[ \]:
     
     df_lineage = lineage_table.dataframe()
     df_lineage.shape
-    
 
 In \[ \]:
 
     df_lineage
-    
 
-# Pass `tuning_job_name` to the Next Notebook
+**Pass `tuning_job_name` to the Next Notebook**
 
 In \[ \]:
 
     print(tuning_job_name)
-    
 
 In \[ \]:
 
     %store tuning_job_name
-    
 
 In \[ \]:
 
     %store
-    
 
-# Release Resources
+**Release Resources**
 
 In \[ \]:
 
@@ -497,7 +448,6 @@ In \[ \]:
         // NoOp
     }    
     script>
-    
 
 In \[ \]:
 
