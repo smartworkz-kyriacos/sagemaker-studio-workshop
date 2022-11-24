@@ -10,7 +10,7 @@ We need to understand the application and business context to choose between rea
 
 If our application requires low latency, then we should deploy the model as a real-time API to provide super-fast predictions on single prediction requests over HTTPS. We can deploy, scale, and compare our model prediction servers with SageMaker Endpoints.
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/09_deploy/img/sagemaker-architecture.png =80%x)
+
 
 In \[ \]:
 
