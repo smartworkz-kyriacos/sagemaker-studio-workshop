@@ -42,6 +42,7 @@ pages:
 - content/deploy/Lab 4.6 Streaming/firehose.md
 - content/deploy/Lab 4.6 Streaming/lambda.md
 - content/deploy/Lab 4.6 Streaming/overview.md
+- content/deploy/Lab 4.6 Streaming/reviews.md
 - content/deploy/Lab 4.6 Streaming/setup.md
 - content/deploy/Lab 4.6 Streaming/sns.md
 - content/deploy/Lab 4.6 Streaming/stream.md
