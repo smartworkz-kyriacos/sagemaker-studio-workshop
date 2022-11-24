@@ -37,6 +37,7 @@ pages:
 - content/deploy/Lab 4.5 Pipelines/pipeline.md
 - content/deploy/Lab 4.5 Pipelines/register.md
 - content/deploy/Lab 4.5 Pipelines/shap.md
+- content/deploy/Lab 4.6 Streaming/overview.md
 - content/deploy/lab-4.1-rest.md
 - content/deploy/lab-4.2-autoscale.md
 - content/deploy/lab-4.3-ab-testing.md
