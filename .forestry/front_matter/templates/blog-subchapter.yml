@@ -41,6 +41,7 @@ pages:
 - content/deploy/Lab 4.6 Streaming/lambda.md
 - content/deploy/Lab 4.6 Streaming/overview.md
 - content/deploy/Lab 4.6 Streaming/setup.md
+- content/deploy/Lab 4.6 Streaming/stream.md
 - content/deploy/lab-4.1-rest.md
 - content/deploy/lab-4.2-autoscale.md
 - content/deploy/lab-4.3-ab-testing.md
