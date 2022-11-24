@@ -205,7 +205,7 @@ In \[ \]:
     for predicted_class in predicted_classes:
         print("Predicted star_rating: {}".format(predicted_class))
 
-**Predict the `star_rating` with `review_body` Samples from our TSV's**
+**Predict the `star_rating` with `review_body` Samples from our TSVs**
 
 In \[ \]:
 
@@ -325,5 +325,290 @@ In \[ \]:
 In \[ \]:
 
     # !cat model/code/inference.py/
-    
+
 In \[ \]:
+
+**Serving PyTorch Models In Production With Amazon SageMaker and TorchServe**
+
+**Setup Your Hosting Environment**
+
+The focus of this lab is on model serving. In that vain, we have taken care of of the data preparation and model training. This lab exercise is using a [HuggingFace Transformer](https://huggingface.co/transformers/) which provides us with a general-purpose architecture for Natural Language Understanding (NLU). Specifically, we are presenting you with a [RoBERTa base](https://huggingface.co/roberta-base) transformer that was fined tuned to perform sentiment analysis. The pre-trained checkpoint loads the additional head layers and will output `positive`, `neutral`, and `negative` sentiment or text.
+
+In \[ \]:
+
+    import boto3
+    import sagemaker
+    import pandas as pd
+    
+    from sagemaker import get_execution_role
+    from sagemaker.utils import name_from_base
+    from sagemaker.pytorch.model import PyTorchModel
+    
+    from sagemaker.predictor import Predictor
+    from sagemaker.serializers import JSONLinesSerializer
+    from sagemaker.deserializers import JSONLinesDeserializer
+    
+    sess = sagemaker.Session()
+    bucket = sess.default_bucket()
+    role = sagemaker.get_execution_role()
+    region = boto3.Session().region_name
+    
+    sm = boto3.Session().client(service_name="sagemaker", region_name=region)
+    
+
+In \[ \]:
+
+    %store -r training_job_name
+    
+
+In \[ \]:
+
+    print(training_job_name)
+    
+
+In \[ \]:
+
+    %store -r transformer_pytorch_model_dir_s3_uri
+    
+
+In \[ \]:
+
+    print(transformer_pytorch_model_dir_s3_uri)
+    
+
+**Create Your Endpoint**
+
+We will now create and deploy our model. To begin, we need to construct a new PyTorchModel object which points to the pre-trained model artefacts from the above step and also points to the inference code that we wish to use. We will then call the deploy method to launch the deployment container on our TorchServe-powered Amazon SageMaker endpoint.
+
+In \[ \]:
+
+    class StarRatingPredictor(Predictor):
+        def __init__(self, endpoint_name, sagemaker_session):
+            super().__init__(
+                endpoint_name,
+                sagemaker_session=sagemaker_session,
+                serializer=JSONLinesSerializer(),
+                deserializer=JSONLinesDeserializer(),
+            )
+    
+
+In \[ \]:
+
+    import time
+    
+    timestamp = int(time.time())
+    
+    pytorch_model_name = "{}-{}-{}".format(training_job_name, "pt", timestamp)
+    
+    print(pytorch_model_name)
+    
+
+In \[ \]:
+
+    model = PyTorchModel(
+        model_data=transformer_pytorch_model_dir_s3_uri + "model.tar.gz",
+        name=pytorch_model_name,
+        role=role,
+        entry_point="inference.py",
+        source_dir="code-pytorch",
+        framework_version="1.6.0",
+        py_version="py3",
+        predictor_cls=StarRatingPredictor,
+    )
+    
+
+In \[ \]:
+
+    import time
+    
+    pytorch_endpoint_name = "{}-{}-{}".format(training_job_name, "pt", timestamp)
+    
+    print(pytorch_endpoint_name)
+    
+
+In \[ \]:
+
+    predictor = model.deploy(
+        initial_instance_count=1, instance_type="ml.m4.xlarge", endpoint_name=pytorch_endpoint_name, wait=False
+    )
+    
+
+In \[ \]:
+
+    print(predictor)
+    
+
+In \[ \]:
+
+    from IPython.core.display import display, HTML
+    
+    display(
+        HTML(
+            'Review {}#/endpoints/{}">SageMaker REST Endpoint'.format(
+                region, pytorch_endpoint_name
+            )
+        )
+    )
+    
+
+In \[ \]:
+
+    %%time
+    
+    waiter = sm.get_waiter("endpoint_in_service")
+    waiter.wait(EndpointName=pytorch_endpoint_name)
+    
+
+_Wait Until the ^^ Endpoint ^^ is Deployed_
+
+In \[ \]:
+
+    pytorch_endpoint_arn = sm.describe_endpoint(EndpointName=pytorch_endpoint_name)["EndpointArn"]
+    print(pytorch_endpoint_arn)
+    
+
+In \[ \]:
+
+    from sagemaker.lineage.visualizer import LineageTableVisualizer
+    
+    lineage_table_viz = LineageTableVisualizer(sess)
+    lineage_table_viz_df = lineage_table_viz.show(endpoint_arn=pytorch_endpoint_arn)
+    lineage_table_viz_df
+    
+
+**Perform Predictions With A TorchServe Backend Amazon SageMaker Endpoint**
+
+Here, we will pass sample strings of text to the endpoint to see the sentiment. We give you one example of each, however, feel free to play around and change the strings yourself!
+
+In \[ \]:
+
+    import json
+    
+    inputs = [{"features": ["This is great!"]}, {"features": ["This is bad."]}]
+    
+    predicted_classes = predictor.predict(inputs)
+    
+    for predicted_class in predicted_classes:
+        print("Predicted star_rating: {}".format(predicted_class))
+    
+
+**Predict the `star_rating` with `review_body` Samples from our TSVs**
+
+In \[ \]:
+
+    import csv
+    import pandas as pd
+    
+    df_reviews = pd.read_csv(
+        "./data/amazon_reviews_us_Digital_Software_v1_00.tsv.gz",
+        delimiter="\t",
+        quoting=csv.QUOTE_NONE,
+        compression="gzip",
+    )
+    
+    df_sample_reviews = df_reviews[["review_body", "star_rating"]].sample(n=50)
+    df_sample_reviews = df_sample_reviews.reset_index()
+    df_sample_reviews.shape
+    
+
+In \[ \]:
+
+    import pandas as pd
+    
+    
+    def predict(review_body):
+        inputs = [{"features": [review_body]}]
+        predicted_classes = predictor.predict(inputs)
+        return predicted_classes[0]["predicted_label"]
+    
+    
+    df_sample_reviews["predicted_class"] = df_sample_reviews["review_body"].map(predict)
+    df_sample_reviews.head(5)
+    
+
+**Pass Variables to the Next Notebook(s)**
+
+In \[ \]:
+
+    %store pytorch_endpoint_name
+    
+
+In \[ \]:
+
+    %store
+    
+
+**Release Resources**
+
+In \[ \]:
+
+    # sm.delete_endpoint(
+    #     EndpointName=pytorch_endpoint_name
+    # )
+    
+
+In \[ \]:
+
+    %%html
+    
+    <p><b>Shutting down your kernel for this notebook to release resources.b>p>
+    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernelbutton>
+            
+    <script>
+    try {
+        els = document.getElementsByClassName("sm-command-button");
+        els[0].click();
+    }
+    catch(err) {
+        // NoOp
+    }    
+    script>
+    
+
+In \[ \]:
+
+    %%javascript
+    
+    try {
+        Jupyter.notebook.save_checkpoint();
+        Jupyter.notebook.session.delete();
+    }
+    catch(err) {
+        // NoOp
+    }
+    
+
+**Internal - DO NOT RUN - WILL REMOVE SOON**
+
+In \[ \]:
+
+    # %%bash
+    
+    # aws sagemaker-runtime invoke-endpoint \
+    #     --endpoint-name "tensorflow-training-2021-01-28-01-19-50-987-pt-1611813221" \
+    #     --content-type application/jsonlines \
+    #     --accept application/jsonlines \
+    #     --body $'{"features":["Amazon gift cards are the best"]}\n{"features":["It is the worst"]}' >(cat) 1>/dev/null
+    
+
+In \[ \]:
+
+    # !rm model.tar.gz
+    # !aws s3 cp s3://sagemaker-us-east-1-835319576252/tensorflow-training-2021-01-28-01-19-50-987/output/model.tar.gz ./
+    
+
+In \[ \]:
+
+    # !rm -rf ./model
+    # !mkdir -p  ./model
+    # !tar -xvzf ./model.tar.gz -C model/
+    
+
+In \[ \]:
+
+    # !cp ./code/inference.py model/code/
+    
+
+In \[ \]:
+
+    # !cat model/code/inference.py
