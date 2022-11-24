@@ -324,8 +324,7 @@ display(
 )
 ```
 
-<b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-522208047117/amazon-reviews-pds/?region=us-east-1&tab=overview">S3 Bucket</a></b>
-
+<!---<b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-522208047117/amazon-reviews-pds/?region=us-east-1&tab=overview">S3 Bucket</a></b>--->
 
 In the respective S3 of your <your Account ID>, you should see similarly:
 
