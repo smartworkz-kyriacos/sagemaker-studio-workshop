@@ -358,19 +358,6 @@ catch(err) {
 </script>
 ```
 
-<p><b>Shutting down your kernel for this notebook to release resources.</b></p>
-<button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
-
-<script>
-try {
-els = document.getElementsByClassName("sm-command-button");
-els\[0\].click();
-}
-catch(err) {
-// NoOp
-}  
-</script>
-
 ```javascript
 %%javascript
 
@@ -381,7 +368,4 @@ try {
 catch(err) {
     // NoOp
 }
-```
-
-```python
 ```
