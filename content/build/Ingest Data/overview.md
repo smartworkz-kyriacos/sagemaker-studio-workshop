@@ -14,21 +14,17 @@ As data scientists or machine learning engineers, we want to quickly explore raw
 
 Our business intelligence team might also want to have a subset of the data in a data warehouse, which they can then transform and query with standard SQL clients to create reports and visualize trends. We will introduce Amazon Redshift, a fully managed data warehouse service, and show how to insert TSV data into Amazon Redshift, as well as combine the data warehouse queries with the less frequently accessed data that’s still in our S3 data lake via Amazon Redshift Spectrum. Our business intelligence team can also use Amazon Redshift’s data lake export functionality to unload (transformed, enriched) data back into our S3 data lake in Parquet file format.
 
-We will conclude this chapter with some tips and tricks for increasing performance using compression algorithms and reducing cost by leveraging S3 Intelligent-Tiering. In Chapter 12, we will dive deep into securing datasets, tracking data access, encrypt‐ ing data at rest, and encrypting data in transit.
+We will conclude this module with some tips and tricks for increasing performance using compression algorithms and reducing cost by leveraging S3 Intelligent-Tiering. In module 5, we will dive deep into securing datasets, tracking data access, encrypt‐ ing data at rest, and encrypting data in transit.
 
 **Data Lakes**
 
-In Chapter 3, we discussed the democratization of artificial intelligence and data science over the last few years, the explosion of data, and how cloud services provide the infrastructure agility to store and process data of any amount.
-
-Yet, to use all this data efficiently, companies are tasked to break down exist‐ ing data silos and find ways to analyze very diverse datasets, dealing with both structured and unstructured data while ensuring the highest standards of data governance, data security, and compliance with privacy regulations. These (big) data challenges set the stage for data lakes.
-
-One of the biggest advantages of data lakes is that we don’t need to predefine any schemas. We can store our raw data at scale and then decide later in which ways we need to process and analyze it. Data lakes may contain structured, semi-structured, and unstructured data. Figure 4-2 shows the centralized and secure data lake repository that enables us to store, govern, discover, and share data at any scale—even in real-time.
+One of the biggest advantages of data lakes is that we don’t need to predefine any schemas. We can store our raw data at scale and then decide later in which ways we need to process and analyze it. Data lakes may contain structured, semi-structured, and unstructured data. Figure 2-2 shows the centralized and secure data lake repository that enables us to store, govern, discover, and share data at any scale—even in real time.
 
 ![](/images/data-lake.png)
 
-_Figure 4-2. A data lake is a centralized and secure repository that enables us to store, govern, discover, and share data at any scale._
+_Figure 2-2. A data lake is a centralized and secure repository that enables us to store, govern, discover, and share data at any scale._
 
-Data lakes provide a perfect base for data science and machine learning, as they give us access to large and diverse datasets to train and deploy more accurate models. Building a data lake typically consists of the following (high-level) steps, as shown in Figure 4-3:
+Data lakes provide a perfect base for data science and machine learning, as they give us access to large and diverse datasets to train and deploy more accurate models. Building a data lake typically consists of the following (high-level) steps, as shown in Figure 2-3:
 
 1\. Set up storage.
 
@@ -40,13 +36,11 @@ Data lakes provide a perfect base for data science and machine learning, as they
 
 5\. Make data available for analytics.
 
-**Lake Formation**
-
 Each of those steps involves a range of tools and technologies. While we can build a data lake manually from the ground up, there are cloud services available to help us streamline this process, i.e., AWS Lake Formation.
 
 ![](/images/lake-formation.png)
 
-_Figure 4-3. Building a data lake involves many steps._
+_Figure 2-3. Building a data lake involves many steps._
 
 [Lake Formation ](https://oreil.ly/5HBtg)collects and catalogues data from databases and object storage, moves data into an S3-based data lake, secures access to sensitive data, and deduplicates data using machine learning.
 
@@ -54,9 +48,9 @@ Additional capabilities of Lake Formation include row-level security, column-lev
 
 S3 has become a popular choice for data lakes, as it offers many ways to ingest our data while enabling cost optimization with intelligent tiering of data, including cold storage and archiving capabilities. S3 also exposes many object-level controls for security and compliance.
 
-On top of the S3 data lake, AWS implements the Lake House Architecture. The Lake House Architecture integrates our S3 data lake with our Amazon Redshift data warehouse for a unified governance model. We will see an example of this architecture in this chapter when we run a query joining data across our Amazon Redshift data warehouse with our S3 data lake.
+On top of the S3 data lake, AWS implements the Lake House Architecture. The Lake House Architecture integrates our S3 data lake with our Amazon Redshift data warehouse for a unified governance model. We will see an example of this architecture in this module when we run a query joining data across our Amazon Redshift data warehouse with our S3 data lake.
 
-From a data analysis perspective, another key benefit of storing our data in Amazon S3 is that it shortens the “time to insight” dramatically as we can run ad hoc queries directly on the data in S3. We don’t have to go through complex transformation processes and data pipelines to get our data into traditional enterprise data warehouses, as we will see in the upcoming sections of this chapter.
+From a data analysis perspective, another key benefit of storing our data in Amazon S3 is that it shortens the “time to insight” dramatically as we can run ad hoc queries directly on the data in S3. We don’t have to go through complex transformation processes and data pipelines to get our data into traditional enterprise data warehouses, as we will see in the upcoming sections of this module.
 
 #### **Data Ingestion and Data Lakes with Amazon S3 and AWS Lake Formation**
 
@@ -66,7 +60,7 @@ A data lake is a centralized and secure repository that enables us to store, gov
 
 Data lakes may contain structured relational data as well as semi-structured and unstructured data. We can even ingest real-time data. Data lakes give data science and machine learning teams access to large and diverse datasets to train and deploy more accurate models.
 
-Amazon Simple Storage Service (Amazon S3) is object storage built to store and retrieve any amount of data from anywhere, in any format. We can organize our data with fine-tuned access controls to meet our business and compliance requirements. We will discuss security in depth in Chapter 12. Amazon S3 is designed for 99.999999999% (11 nines) of durability as well as for strong read-after-write consistency. S3 is a popular choice for data lakes in AWS.
+Amazon Simple Storage Service (Amazon S3) is object storage built to store and retrieve any amount of data from anywhere, in any format. We can organize our data with fine-tuned access controls to meet our business and compliance requirements. We will discuss security in depth in module 5. Amazon S3 is designed for 99.999999999% (11 nines) of durability as well as for strong read-after-write consistency. S3 is a popular choice for data lakes in AWS.
 
 We can leverage the AWS Lake Formation service to create our data lake. The service helps collect and catalogue data from both databases and object storage. Lake Formation not only moves our data but also cleans, classifies, and secures access to our sensitive data using machine learning algorithms.
 
@@ -90,11 +84,11 @@ AWS Data Wrangler provides optimized Python functions to perform common ETL task
     # Retrieve the data directly from Amazon S3
     df = wr.s3.read_parquet("s3://<BUCKET>/<DATASET>/"))
 
-AWS Data Wrangler also comes with additional memory optimizations, such as reading data in chunks. This is particularly helpful if we need to query large datasets. With chunking enabled, AWS Data Wrangler reads and returns every dataset file in the path as a separate pandas DataFrame. We can also set the chunk size to return the number of rows in a DataFrame equivalent to the numerical value we defined as the chunk size. For a full list of capabilities, check [the documentation](https://oreil.ly/4sGjc). We will dive deeper into AWS Data Wrangler in Chapter 5.
+AWS Data Wrangler also comes with additional memory optimizations, such as reading data in chunks. This is particularly helpful if we need to query large datasets. With chunking enabled, AWS Data Wrangler reads and returns every dataset file in the path as a separate pandas DataFrame. We can also set the chunk size to return the number of rows in a DataFrame equivalent to the numerical value we defined as the chunk size. For a full list of capabilities, check [the documentation](https://oreil.ly/4sGjc). We will dive deeper into AWS Data Wrangler in module 2.2.
 
 We can leverage managed services such as Amazon Athena to run interactive SQL queries on the data in S3 from within our notebook. Amazon Athena is a managed, serverless, dynamically scalable distributed SQL query engine designed for fast parallel queries on extremely large datasets. Athena is based on Presto, the popular open-source query engine, and requires no maintenance. With Athena, we only pay for the queries we run. And we can query data in its raw form directly in our S3 data lake without additional transformations.
 
-Amazon Athena also leverages the AWS Glue Data Catalog service to store and retrieve the schema metadata needed for our SQL queries. When we define our Athena database and tables, we point to the data location in S3. Athena then stores this table-to-S3 mapping in the AWS Glue Data Catalog. We can use PyAthena, a popular open-source library, to query Athena from our Python-based notebooks and scripts. We will dive deeper into Athena, AWS Glue Data Catalog, and PyAthena in Chapters 4 and 5.
+Amazon Athena also leverages the AWS Glue Data Catalog service to store and retrieve the schema metadata needed for our SQL queries. When we define our Athena database and tables, we point to the data location in S3. Athena then stores this table-to-S3 mapping in the AWS Glue Data Catalog. We can use PyAthena, a popular open-source library, to query Athena from our Python-based notebooks and scripts. We will dive deeper into Athena, AWS Glue Data Catalog, and PyAthena in modules 2.1 and 2.2.
 
 Amazon Redshift is a fully managed cloud data warehouse service that allows us to run complex analytic queries against petabytes of structured data. Our queries are distributed and parallelized across multiple nodes. In contrast to relational databases that are optimized to store data in rows and mostly serve transactional applications, Amazon Redshift implements columnar data storage, which is optimized for analytical applications where we are mostly interested in the summary statistics on those columns.
 
@@ -118,7 +112,7 @@ Many data science projects implement supervised learning. In supervised learning
 
 SageMaker Ground Truth provides pre-built workflows and interfaces for common data labelling tasks. We define the labelling task and assign the labelling job to either a public workforce via Amazon Mechanical Turk or a private workforce, such as our coworkers. We can also leverage third-party data labelling service providers listed on the AWS Marketplace, which are prescreened by Amazon.
 
-SageMaker Ground Truth implements active learning techniques for pre-built workflows. It creates a model to automatically label a subset of the data, based on the labels assigned by the human workforce. As the model continuously learns from the human workforce, the accuracy improves, and less data needs to be sent to the human workforce. Over time and with enough data, the SageMaker Ground Truth active-learning model is able to provide high-quality and automatic annotations that result in lower labelling costs overall. We will dive deeper into SageMaker Ground Truth in Chapter 10.
+SageMaker Ground Truth implements active learning techniques for pre-built workflows. It creates a model to automatically label a subset of the data, based on the labels assigned by the human workforce. As the model continuously learns from the human workforce, the accuracy improves, and less data needs to be sent to the human workforce. Over time and with enough data, the SageMaker Ground Truth active-learning model is able to provide high-quality and automatic annotations that result in lower labelling costs overall. We will dive deeper into SageMaker Ground Truth in module 4.5.
 
 #### **Data Transformation with AWS Glue DataBrew, SageMaker Data Wrangler, and SageMaker Processing Jobs**
 
