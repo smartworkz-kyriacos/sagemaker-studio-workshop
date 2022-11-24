@@ -6,9 +6,9 @@ weight = 4
 +++
 **Perform A/B Test using REST Endpoints**
 
-**TODO: This notebook requires that model.tar.gz already contains code/inference.py**
-
-**This won't work unless that's the case. (I can't seem to specify `entry_point` and `source_dir`._**
+> TODO: This notebook requires that model.tar.gz already contains code/inference.py
+>
+> This won't work unless that's the case. (I can't seem to specify `entry_point` and `source_dir`._
 
 You can test and deploy new models behind a single SageMaker Endpoint with a concept called “production variants.” These variants can differ by hardware (CPU/GPU), by data (comedy/drama movies), or by region (US West or Germany North). You can shift traffic between the models in your endpoint for canary rollouts and blue/green deployments. You can split traffic for A/B tests. And you can configure your endpoint to automatically scale your endpoints out or in based on a given metric like requests per second. As more requests come in, SageMaker will automatically scale the model prediction API to meet the demand.
 
