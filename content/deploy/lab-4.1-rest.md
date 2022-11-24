@@ -324,7 +324,6 @@ In \[ \]:
 
 In \[ \]:
 
-    # !cat model/code/inference.py
+    # !cat model/code/inference.py/
     
-    
-    
+In \[ \]:
