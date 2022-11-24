@@ -10,7 +10,7 @@ We need to understand the application and business context to choose between rea
 
 If our application requires low latency, then we should deploy the model as a real-time API to provide super-fast predictions on single prediction requests over HTTPS. We can deploy, scale, and compare our model prediction servers with SageMaker Endpoints.
 
-
+![](/images/sagemaker-architecture.png)
 
 In \[ \]:
 
@@ -24,12 +24,10 @@ In \[ \]:
     region = boto3.Session().region_name
     
     sm = boto3.Session().client(service_name="sagemaker", region_name=region)
-    
 
 In \[ \]:
 
     %store -r training_job_name
-    
 
 In \[ \]:
 
@@ -40,43 +38,36 @@ In \[ \]:
         print("+++++++++++++++++++++++++++++++")
         print("[ERROR] Please run the notebooks in the previous TRAIN section before you continue.")
         print("+++++++++++++++++++++++++++++++")
-    
 
 **Copy the Model to the Notebook**
 
 In \[ \]:
 
     !aws s3 cp s3://$bucket/$training_job_name/output/model.tar.gz ./model.tar.gz
-    
 
 In \[ \]:
 
     !rm -rf ./model/
-    
 
 In \[ \]:
 
     !mkdir -p ./model/
     !tar -xvzf ./model.tar.gz -C ./model/
-    
 
 In \[ \]:
 
     !saved_model_cli show --all --dir './model/tensorflow/saved_model/0/'
-    
 
 In \[ \]:
 
     !saved_model_cli run --dir './model/tensorflow/saved_model/0/' --tag_set serve --signature_def serving_default \
         --input_exprs 'input_ids=np.zeros((1,64));input_mask=np.zeros((1,64))'
-    
 
 **Show `inference.py`**
 
 In \[ \]:
 
     !pygmentize ./code/inference.py
-    
 
 **Deploy the Model**
 
@@ -97,20 +88,17 @@ In \[ \]:
     tensorflow_model_name = "{}-{}-{}".format(training_job_name, "tf", timestamp)
     
     print(tensorflow_model_name)
-    
 
 In \[ \]:
 
     from sagemaker.tensorflow.estimator import TensorFlow
     
     estimator = TensorFlow.attach(training_job_name=training_job_name)
-    
 
 In \[ \]:
 
     # requires enough disk space for tensorflow, transformers, and bert downloads
     instance_type = "ml.m4.xlarge"
-    
 
 In \[ \]:
 
@@ -124,14 +112,12 @@ In \[ \]:
         role=role,
         framework_version="2.3.1",
     )
-    
 
 In \[ \]:
 
     tensorflow_endpoint_name = "{}-{}-{}".format(training_job_name, "tf", timestamp)
     
     print(tensorflow_endpoint_name)
-    
 
 In \[ \]:
 
@@ -141,7 +127,6 @@ In \[ \]:
         instance_type=instance_type,
         wait=False,
     )
-    
 
 In \[ \]:
 
@@ -154,7 +139,6 @@ In \[ \]:
             )
         )
     )
-    
 
 _Wait Until the Endpoint is Deployed_
 
@@ -164,7 +148,6 @@ In \[ \]:
     
     waiter = sm.get_waiter("endpoint_in_service")
     waiter.wait(EndpointName=tensorflow_endpoint_name)
-    
 
 _Wait Until the ^^ Endpoint ^^ is Deployed_
 
@@ -172,7 +155,6 @@ In \[ \]:
 
     tensorflow_endpoint_arn = sm.describe_endpoint(EndpointName=tensorflow_endpoint_name)["EndpointArn"]
     print(tensorflow_endpoint_arn)
-    
 
 **Show the Experiment Tracking Lineage**
 
@@ -183,7 +165,6 @@ In \[ \]:
     lineage_table_viz = LineageTableVisualizer(sess)
     lineage_table_viz_df = lineage_table_viz.show(endpoint_arn=tensorflow_endpoint_arn)
     lineage_table_viz_df
-    
 
 **Test the Deployed Model**
 
@@ -204,7 +185,6 @@ In \[ \]:
         serializer=JSONLinesSerializer(),
         deserializer=JSONLinesDeserializer(),
     )
-    
 
 **Wait for the Endpoint to Settle Down**
 
@@ -213,7 +193,6 @@ In \[ \]:
     import time
     
     time.sleep(30)
-    
 
 **Predict the `star_rating` with Ad Hoc `review_body` Samples**
 
@@ -225,7 +204,6 @@ In \[ \]:
     
     for predicted_class in predicted_classes:
         print("Predicted star_rating: {}".format(predicted_class))
-    
 
 **Predict the `star_rating` with `review_body` Samples from our TSV's**
 
@@ -242,7 +220,6 @@ In \[ \]:
     df_sample_reviews = df_reviews[["review_body", "star_rating"]].sample(n=5)
     df_sample_reviews = df_sample_reviews.reset_index()
     df_sample_reviews.shape
-    
 
 In \[ \]:
 
@@ -257,29 +234,24 @@ In \[ \]:
     
     df_sample_reviews["predicted_class"] = df_sample_reviews["review_body"].map(predict)
     df_sample_reviews.head(5)
-    
 
 **Save for Next Notebook(s)**
 
 In \[ \]:
 
     %store tensorflow_model_name
-    
 
 In \[ \]:
 
     %store tensorflow_endpoint_name
-    
 
 In \[ \]:
 
     %store tensorflow_endpoint_arn
-    
 
 In \[ \]:
 
     %store
-    
 
 **Release Resources**
 
@@ -290,7 +262,6 @@ In \[ \]:
     # sm.delete_endpoint(
     #      EndpointName=tensorflow_endpoint_name
     # )
-    
 
 In \[ \]:
 
@@ -308,7 +279,6 @@ In \[ \]:
         // NoOp
     }    
     script>
-    
 
 In \[ \]:
 
@@ -321,7 +291,6 @@ In \[ \]:
     catch(err) {
         // NoOp
     }
-    
 
 **Internal - DO NOT RUN - WILL REMOVE SOON**
 
@@ -337,25 +306,21 @@ In \[ \]:
     #     --content-type application/jsonlines \
     #     --accept application/jsonlines \
     #     --body $'{"features":["Amazon gift cards are the best"]}\n{"features":["It is the worst"]}' >(cat) 1>/dev/null
-    
 
 In \[ \]:
 
     # !rm model.tar.gz
     # !aws s3 cp s3://sagemaker-us-east-1-835319576252/tensorflow-training-2021-01-28-01-19-50-987/output/model.tar.gz ./
-    
 
 In \[ \]:
 
     # !rm -rf ./model
     # !mkdir -p  ./model
     # !tar -xvzf ./model.tar.gz -C model/
-    
 
 In \[ \]:
 
     # !cp ./code/inference.py model/code/
-    
 
 In \[ \]:
 
