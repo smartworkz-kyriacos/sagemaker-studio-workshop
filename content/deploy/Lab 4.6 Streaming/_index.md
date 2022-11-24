@@ -1,6 +1,6 @@
 +++
 chapter = true
 title = "Lab 4.6 Streaming"
-weight = "115"
+weight = "105"
 
 +++
