@@ -4,9 +4,9 @@ title = "Lab 1.1 Instructions"
 weight = 7
 
 +++
-**Instructions to Run the Examples**
+## Instructions to Run the Examples
 
-**0. Create an AWS Account if you don't already have one**
+### 0. Create an AWS Account if you don't already have one
 
 Follow the instructions here:
 
@@ -15,11 +15,11 @@ Follow the instructions here:
 * Japanese: [https://aws.amazon.com/jp/premiumsupport/knowledge-center/create-and-activate-aws-account/](https://aws.amazon.com/jp/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/jp/premiumsupport/knowledge-center/create-and-activate-aws-account/")
 * Portuguese: [https://aws.amazon.com/pt/premiumsupport/knowledge-center/create-and-activate-aws-account/](https://aws.amazon.com/pt/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/pt/premiumsupport/knowledge-center/create-and-activate-aws-account/")
 
-**1. log in to AWS Console**
+### **1. log in to AWS Console**
 
 [![Console](https://github.com/smartworkz-kyriacos/data-science-on-aws/raw/main/img/aws_console.png)](https://github.com/smartworkz-kyriacos/data-science-on-aws/blob/main/img/aws_console.png)
 
-**2. Launch SageMaker Studio**
+### **2. Launch SageMaker Studio**
 
 In the AWS Console search bar, type `SageMaker` and select `Amazon SageMaker` to open the service console.
 
@@ -35,7 +35,7 @@ In the AWS Console search bar, type `SageMaker` and select `Amazon SageMaker` to
 
 [![Loading Studio](https://github.com/smartworkz-kyriacos/data-science-on-aws/raw/main/img/studio_loading.png)](https://github.com/smartworkz-kyriacos/data-science-on-aws/blob/main/img/studio_loading.png)
 
-**3. Update IAM Role**
+### 3. Update IAM Role
 
 Open the [AWS Management Console](https://console.aws.amazon.com/console/home)
 
@@ -49,13 +49,13 @@ Configure IAM to run the book examples.
 
 [![Back to SageMaker](https://github.com/smartworkz-kyriacos/data-science-on-aws/raw/main/img/alt_back_to_sagemaker_8.png)](https://github.com/smartworkz-kyriacos/data-science-on-aws/blob/main/img/alt_back_to_sagemaker_8.png)
 
-**4. Launch a New Terminal within Studio**
+### 4. Launch a New Terminal within Studio
 
 Click `File` > `New` > `Terminal` to launch a terminal in your Jupyter instance.
 
 [![Terminal Studio](https://github.com/smartworkz-kyriacos/data-science-on-aws/raw/main/img/studio_terminal.png)](https://github.com/smartworkz-kyriacos/data-science-on-aws/blob/main/img/studio_terminal.png)
 
-**5. Clone this GitHub Repo in the Terminal**
+### 5. Clone this GitHub Repo in the Terminal
 
 Within the Terminal, run the following:
 
@@ -73,7 +73,7 @@ If you see an error like the following, just re-run the command again until it w
 
 _Note: Just re-run the command again until it works._
 
-**6. Start the Examples!**
+### 6. Start the Examples!
 
 Navigate to `data-science-on-aws/` in SageMaker Studio and start the book examples!!
 
