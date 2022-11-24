@@ -4,8 +4,9 @@ title = "Setup"
 weight = 2
 
 +++
-#   
-Setup IAM for Kinesis
+# 
+
+**Setup IAM for Kinesis**
 
 In \[ \]:
 
@@ -20,19 +21,16 @@ In \[ \]:
     
     sts = boto3.Session().client(service_name="sts", region_name=region)
     iam = boto3.Session().client(service_name="iam", region_name=region)
-    
 
 # Create Kinesis Role
 
 In \[ \]:
 
     iam_kinesis_role_name = "DSOAWS_Kinesis"
-    
 
 In \[ \]:
 
     iam_kinesis_role_passed = False
-    
 
 In \[ \]:
 
@@ -44,7 +42,6 @@ In \[ \]:
             {"Effect": "Allow", "Principal": {"Service": "kinesisanalytics.amazonaws.com"}, "Action": "sts:AssumeRole"},
         ],
     }
-    
 
 In \[ \]:
 
@@ -70,55 +67,46 @@ In \[ \]:
             print("Unexpected error: %s" % e)
     
     time.sleep(30)
-    
 
 In \[ \]:
 
     iam_role_kinesis_name = iam_role_kinesis["Role"]["RoleName"]
     print("Role Name: {}".format(iam_role_kinesis_name))
-    
 
 In \[ \]:
 
     iam_role_kinesis_arn = iam_role_kinesis["Role"]["Arn"]
     print("Role ARN: {}".format(iam_role_kinesis_arn))
-    
 
 In \[ \]:
 
     account_id = sts.get_caller_identity()["Account"]
-    
 
 # Specify Stream Name
 
 In \[ \]:
 
     stream_name = "dsoaws-kinesis-data-stream"
-    
 
 # Specify Firehose Name
 
 In \[ \]:
 
     firehose_name = "dsoaws-kinesis-data-firehose"
-    
 
 # Specify Lambda Function Name
 
 In \[ \]:
 
     lambda_fn_name_cloudwatch = "DeliverKinesisAnalyticsToCloudWatch"
-    
 
 In \[ \]:
 
     lambda_fn_name_invoke_sm_endpoint = "InvokeSageMakerEndpointFromKinesis"
-    
 
 In \[ \]:
 
     lambda_fn_name_sns = "PushNotificationToSNS"
-    
 
 # Create Policy
 
@@ -176,7 +164,6 @@ In \[ \]:
     }
     
     print(json.dumps(kinesis_policy_doc, indent=4, sort_keys=True, default=str))
-    
 
 # Update Policy
 
@@ -189,24 +176,20 @@ In \[ \]:
     )
     
     time.sleep(30)
-    
 
 In \[ \]:
 
     print(json.dumps(response, indent=4, sort_keys=True, default=str))
-    
 
 # Create AWS Lambda IAM Role
 
 In \[ \]:
 
     iam_lambda_role_name = "DSOAWS_Lambda"
-    
 
 In \[ \]:
 
     iam_lambda_role_passed = False
-    
 
 In \[ \]:
 
@@ -217,7 +200,6 @@ In \[ \]:
             {"Effect": "Allow", "Principal": {"Service": "kinesisanalytics.amazonaws.com"}, "Action": "sts:AssumeRole"},
         ],
     }
-    
 
 In \[ \]:
 
@@ -242,19 +224,16 @@ In \[ \]:
             print("Unexpected error: %s" % e)
     
     time.sleep(30)
-    
 
 In \[ \]:
 
     iam_role_lambda_name = iam_role_lambda["Role"]["RoleName"]
     print("Role Name: {}".format(iam_role_lambda_name))
-    
 
 In \[ \]:
 
     iam_role_lambda_arn = iam_role_lambda["Role"]["Arn"]
     print("Role ARN: {}".format(iam_role_lambda_arn))
-    
 
 # Create AWS Lambda IAM Policy
 
@@ -284,12 +263,10 @@ In \[ \]:
             },
         ],
     }
-    
 
 In \[ \]:
 
     print(json.dumps(lambda_policy_doc, indent=4, sort_keys=True, default=str))
-    
 
 In \[ \]:
 
@@ -300,74 +277,60 @@ In \[ \]:
     )
     
     time.sleep(30)
-    
 
 In \[ \]:
 
     print(json.dumps(response, indent=4, sort_keys=True, default=str))
-    
 
 # Store Variables for Next Notebooks
 
 In \[ \]:
 
     %store stream_name
-    
 
 In \[ \]:
 
     %store firehose_name
-    
 
 In \[ \]:
 
     %store iam_kinesis_role_name
-    
 
 In \[ \]:
 
     %store iam_role_kinesis_arn
-    
 
 In \[ \]:
 
     %store iam_lambda_role_name
-    
 
 In \[ \]:
 
     %store iam_role_lambda_arn
-    
 
 In \[ \]:
 
     %store lambda_fn_name_cloudwatch
-    
 
 In \[ \]:
 
     %store lambda_fn_name_invoke_sm_endpoint
-    
 
 In \[ \]:
 
     %store lambda_fn_name_sns
-    
 
 In \[ \]:
 
     %store iam_kinesis_role_passed
-    
 
 In \[ \]:
 
     %store iam_lambda_role_passed
-    
 
 In \[ \]:
 
     %store
-    
 
 # Release Resources
 
@@ -387,7 +350,6 @@ In \[ \]:
         // NoOp
     }    
     script>
-    
 
 In \[ \]:
 
