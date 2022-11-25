@@ -8,7 +8,7 @@ weight = 8
 
 We can leverage our previously created table in Amazon Athena with its metadata and schema information stored in the AWS Glue Data Catalog to access our data in S3 through Redshift Spectrum. All we need to do is create an external schema in Redshift, point it to our AWS Glue Data Catalog, and point Redshift to the database we’ve created.
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_load_tsv.png =60%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_load_tsv.png)
 
 In \[ \]:
 
@@ -25,7 +25,6 @@ In \[ \]:
     
     redshift = boto3.client('redshift')
     secretsmanager = boto3.client('secretsmanager')
-    
 
 **Get Redshift Credentials**
 
@@ -38,7 +37,6 @@ In \[ \]:
     
     master_user_name = cred[0]['username']
     master_user_pw = cred[1]['password']
-    
 
 **Redshift Configuration Parameters**
 
@@ -55,7 +53,6 @@ In \[ \]:
     schema_athena = 'athena'
     
     table_name_tsv = 'amazon_reviews_tsv'
-    
 
 **Please Wait for Cluster Status `Available`**
 
@@ -72,7 +69,6 @@ In \[ \]:
         response = redshift.describe_clusters(ClusterIdentifier=redshift_cluster_identifier)
         cluster_status = response['Clusters'][0]['ClusterStatus']
         print(cluster_status)
-    
 
 **Get Redshift Endpoint Address & IAM Role**
 
@@ -83,7 +79,6 @@ In \[ \]:
     
     print('Redshift endpoint: {}'.format(redshift_endpoint_address))
     print('IAM Role: {}'.format(iam_role))
-    
 
 **Create Redshift Connection**
 
@@ -96,7 +91,6 @@ In \[ \]:
         database=database_name_redshift,
         db_user=master_user_name,
     )
-    
 
 **Redshift Spectrum**
 
@@ -126,7 +120,6 @@ In \[ \]:
     """.format(schema_athena, database_name_athena, iam_role, region_name)
     
     print(statement)
-    
 
 In \[ \]:
 
@@ -134,7 +127,6 @@ In \[ \]:
         sql=statement,
         con=con_redshift,
     )
-    
 
 **Run Sample Query on S3 Data through Redshift Spectrum**
 
@@ -148,7 +140,6 @@ In \[ \]:
     """.format(schema_athena, table_name_tsv)
     
     print(statement)
-    
 
 In \[ \]:
 
@@ -158,7 +149,6 @@ In \[ \]:
     )
     
     df.head()
-    
 
 But now, let’s actually copy some data from S3 into Amazon Redshift. Let’s pull in customer reviews data from the years 2014 and 2015.
 
@@ -176,7 +166,6 @@ In \[ \]:
         sql=statement,
         con=con_redshift,
     )
-    
 
 **Create Redshift Tables for Each Year We Wish to Load**
 
@@ -226,12 +215,10 @@ In \[ \]:
                 con=con_redshift,
             )
         print("Done.")
-    
 
 In \[ \]:
 
     create_redshift_table_tsv(wr, con_redshift, 'amazon_reviews_tsv', 2014, 2015)
-    
 
 **Insert TSV Data into New Redshift Tables**
 
@@ -281,20 +268,22 @@ In \[ \]:
     
             df.head()
         print("Done.")
-    
 
 **_The following `INSERT INTO` the command can take some time to complete. Please be patient._**
 
 In \[ \]:
 
     insert_into_redshift_table_tsv(wr, con_redshift, 'amazon_reviews_tsv', 2014, 2015)
-    
 
 You might notice that we use a date conversion to parse the year out of our `review_date` column and store it in a separate `year` the column which we then use to filter all records from 2015. This is an example of how you can simplify ETL tasks, as we’re putting our data transformation logic directly in a `SELECT` query and ingesting the result into Redshift.
 
 Another way to optimize our tables would be to create them as a sequence of time-series tables, especially when our data has a fixed retention period. Let’s say we want to store data from the last 2 years (24 months) in our data warehouse and update with new data once a month.
 
 If you create one table per month, you can easily remove old data simply by running a `DROP TABLE` command on the corresponding table. This approach is much faster than running a large-scale DELETE process and also saves you from having to run a subsequent VACUUM process to reclaim space and re-sort the rows.
+
+### Navigate to Amazon Redshift, Queries and loads
+
+![](/images/redshift-queries_loads.png)
 
 In \[ \]:
 
@@ -307,8 +296,5 @@ In \[ \]:
     catch(err) {
         // NoOp
     }
-    
 
 In \[ \]:
-
-     
