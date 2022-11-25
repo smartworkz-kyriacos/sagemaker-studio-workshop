@@ -947,7 +947,7 @@ plt.show(chart)
 
 #### Results for All Product Categories
 
-If you ran this same query across all product categories (150+ million reviews), you would see the following result:
+If you run this same query across all product categories (150+ million reviews), you would see the following result:
 
 ![png](/images/star_rating_count_all_bar_chart.png)
 
