@@ -331,22 +331,43 @@ running_processor.wait(logs=False)
 
     .............................................................!
 
-### Download Report From S3
+# Download Report From S3
 
 The class-imbalance metric should match the value calculated for the unbalanced dataset using the open source version above.
+
 
 ```python
 !aws s3 ls $bias_report_output_path/
 ```
 
+    2022-11-25 15:31:23       1960 analysis.json
+    2022-11-25 15:25:58        577 analysis_config.json
+    2022-11-25 15:31:23     302376 report.html
+    2022-11-25 15:31:23      31635 report.ipynb
+    2022-11-25 15:31:23      68235 report.pdf
+
+
+
 ```python
 !aws s3 cp --recursive $bias_report_output_path ./generated_bias_report/
 ```
+
+    download: s3://sagemaker-us-east-1-522208047117/clarify/analysis_config.json to generated_bias_report/analysis_config.json
+    download: s3://sagemaker-us-east-1-522208047117/clarify/analysis.json to generated_bias_report/analysis.json
+    download: s3://sagemaker-us-east-1-522208047117/clarify/report.ipynb to generated_bias_report/report.ipynb
+    download: s3://sagemaker-us-east-1-522208047117/clarify/report.html to generated_bias_report/report.html
+    download: s3://sagemaker-us-east-1-522208047117/clarify/report.pdf to generated_bias_report/report.pdf
+
+
 
 ```python
 from IPython.core.display import display, HTML
 
 display(HTML('<b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report</a></b>'))
+```
+
+
+<b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report
 ```
 
 ### Release Resources
