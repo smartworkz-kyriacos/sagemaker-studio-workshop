@@ -10,7 +10,7 @@ Amazon Athena is an interactive query service that makes it easy to analyze data
 
 Athena is based on Presto and supports various standard data formats, including CSV, JSON, Avro or columnar data formats such as Apache Parquet and Apache ORC.
 
-Presto is an open-source, distributed SQL query engine, developed for fast analytic queries against data of any size. It can query data where it is stored, without the need to move the data. Query execution runs in parallel over a pure memory-based architecture which makes Presto extremely fast.
+**Presto** is an open-source, distributed SQL query engine, developed for fast analytic queries against data of any size. It can query data where it is stored, without the need to move the data. Query execution runs in parallel over a pure memory-based architecture which makes Presto extremely fast.
 
 ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/athena_setup.png)
 
