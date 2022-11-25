@@ -45,6 +45,7 @@ except NameError:
 ```python
 print(s3_public_path_tsv)
 ```
+**output:**
 
     s3://amazon-reviews-pds/tsv
 
@@ -65,6 +66,7 @@ except NameError:
 ```python
 print(s3_private_path_tsv)
 ```
+**output:**
 
     s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
 
