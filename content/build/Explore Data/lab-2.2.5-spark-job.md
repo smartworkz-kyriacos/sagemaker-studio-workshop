@@ -4,17 +4,15 @@ title = "Lab 2.2.5 Spark Job"
 weight = 16
 
 +++
-NOTE:  THIS NOTEBOOK WILL TAKE 5-10 MINUTES TO COMPLETE.
+NOTE:  THIS NOTEBOOK WILL TAKE 5-10 MINUTES TO COMPLETE. PLEASE BE PATIENT.
 
-# PLEASE BE PATIENT.
+### Analyze Data Quality with SageMaker Processing Jobs and Spark
 
-# Analyze Data Quality with SageMaker Processing Jobs and Spark
-
-Typically a machine learning (ML) process consists of few steps. First, gathering data with various ETL jobs, then pre-processing the data, featurizing the dataset by incorporating standard techniques or prior knowledge, and finally training an ML model using an algorithm.
+Typically a machine learning (ML) process consists of a few steps. First, gathering data with various ETL jobs, then pre-processing the data, featurizing the dataset by incorporating standard techniques or prior knowledge, and finally training an ML model using an algorithm.
 
 Often, distributed data processing frameworks such as Spark are used to process and analyze data sets in order to detect data quality issues and prepare them for model training.
 
-In this notebook we'll use Amazon SageMaker Processing with a library called [**Deequ**](https://github.com/awslabs/deequ), and leverage the power of Spark with a managed SageMaker Processing Job to run our data processing workloads.
+In this notebook, we'll use Amazon SageMaker Processing with a library called [**Deequ**](https://github.com/awslabs/deequ), and leverage the power of Spark with a managed SageMaker Processing Job to run our data processing workloads.
 
 Here are some great resources on Deequ:
 
@@ -25,11 +23,11 @@ Here are some great resources on Deequ:
 
 ![Processing Job](./img/processing.jpg)
 
-# Amazon Customer Reviews Dataset
+### Amazon Customer Reviews Dataset
 
 https://s3.amazonaws.com/amazon-reviews-pds/readme.html
 
-### Dataset Columns:
+#### Dataset Columns:
 
 * `marketplace`: 2-letter country code (in this case all "US").
 * `customer_id`: Random identifier that can be used to aggregate reviews written by a single author.
@@ -77,7 +75,7 @@ else:
 
     [OK]
 
-# Run the Analysis Job using a SageMaker Processing Job with Spark
+#### Run the Analysis Job using a SageMaker Processing Job with Spark
 
 Next, use the Amazon SageMaker Python SDK to submit a processing job. Use the Spark container that was just built with our Spark script.
 
@@ -91,7 +89,7 @@ role = sagemaker.get_execution_role()
 region = boto3.Session().region_name
 ```
 
-# Review the Spark preprocessing script.
+### Review the Spark preprocessing script.
 
 ```python
 !pygmentize preprocess-deequ-pyspark.py
@@ -255,7 +253,7 @@ print(s3_input_data)
     2022-11-24 18:49:22   27442648 amazon_reviews_us_Digital_Video_Games_v1_00.tsv.gz
     2022-11-24 18:49:23   12134676 amazon_reviews_us_Gift_Card_v1_00.tsv.gz
 
-## Setup Output Data
+#### Setup Output Data
 
 ```python
 from time import gmtime, strftime
