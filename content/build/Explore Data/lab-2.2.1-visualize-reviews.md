@@ -7,7 +7,7 @@ weight = 11
 > _Pre-Requisite: Make sure you have run the notebooks in the `SETUP` and `INGEST` sections._
 
 ```python
-%store -r ingest_create_athena_table_parquet_passed
+%store -r ingest_create_athena_table_parquet_passedAll Product Categories
 ```
 
 ```python
@@ -928,7 +928,7 @@ vertical-align: middle;
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following result:
 
-<img src="img/star_rating_count_all.png"  width="25%" align="left">
+![png](/images/star_rating_count_all.png)
 
 ```python
 chart = df.plot.bar(
