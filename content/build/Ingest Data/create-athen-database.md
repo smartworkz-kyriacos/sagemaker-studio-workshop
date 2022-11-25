@@ -45,6 +45,7 @@ except NameError:
 ```python
 print(s3_public_path_tsv)
 ```
+
 **output:**
 
     s3://amazon-reviews-pds/tsv
@@ -66,6 +67,7 @@ except NameError:
 ```python
 print(s3_private_path_tsv)
 ```
+
 **output:**
 
     s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
@@ -218,6 +220,10 @@ if database_name in df_show.values:
     setup_dependencies_passed                  -> True
     setup_iam_roles_passed                     -> True
     setup_s3_bucket_passed                     -> True
+
+From your console, navigate to Amazon Athena, you should have similarly:
+
+![](/images/dsoaws.png)
 
 ### Release Resources
 
