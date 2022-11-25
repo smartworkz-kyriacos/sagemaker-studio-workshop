@@ -4,7 +4,7 @@ title = "Lab 2.1.3 Register S3 with Athena"
 weight = 4
 
 +++
-**Register TSV Data With Athena**
+## Register TSV Data With Athena
 
 This will create an Athena table in the **Glue Catalog** (Hive Metastore).
 
@@ -78,13 +78,13 @@ print(s3_private_path_tsv)
 
     s3://sagemaker-us-east-1-522208047117/amazon-reviews-pds/tsv
 
-# Import PyAthena
+### Import PyAthena
 
 ```python
 from pyathena import connect
 ```
 
-# Create Athena Table from Local TSV Files
+### Create Athena Table from Local TSV Files
 
 #### Dataset columns
 
@@ -144,6 +144,7 @@ TBLPROPERTIES ('compressionType'='gzip', 'skip.header.line.count'='1')""".format
 
 print(statement)
 ```
+
 **output:**
 
     CREATE EXTERNAL TABLE IF NOT EXISTS dsoaws.amazon_reviews_tsv(
@@ -170,12 +171,10 @@ import pandas as pd
 
 pd.read_sql(statement, conn)
 ```
+
 **output:**
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
+
+ <div> <style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -185,19 +184,9 @@ vertical-align: middle;
         text-align: right;
     }
 
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
+</style> <table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> </tr> </thead> <tbody> </tbody> </table> </div>
 
-# Verify The Table Has Been Created Succesfully
+### Verify The Table Has Been Created Successfully
 
 ```python
 statement = "SHOW TABLES in {}".format(database_name)
@@ -205,7 +194,10 @@ statement = "SHOW TABLES in {}".format(database_name)
 df_show = pd.read_sql(statement, conn)
 df_show.head(5)
 ```
+
 **output:**
+
+
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -248,7 +240,7 @@ if table_name_tsv in df_show.values:
 
     Stored 'ingest_create_athena_table_tsv_passed' (bool)
 
-# Run A Sample Query
+### Run A Sample Query
 
 ```python
 product_category = "Digital_Software"
@@ -260,6 +252,7 @@ statement = """SELECT * FROM {}.{}
 
 print(statement)
 ```
+
 **output:**
 
     SELECT * FROM dsoaws.amazon_reviews_tsv
@@ -269,7 +262,10 @@ print(statement)
 df = pd.read_sql(statement, conn)
 df.head(5)
 ```
+
 **output:**
+
+
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -433,6 +429,7 @@ display(
 ```python
 %store
 ```
+
 **output:**
 
     Stored variables and their in-db values:
@@ -444,7 +441,9 @@ display(
     setup_iam_roles_passed                            -> True
     setup_s3_bucket_passed                            -> True
 
+From your Amazon console Navigate to AWS Glue, Tables, View Table Details, and scroll down to see your Schemas:
 
+![](/images/aws-glue.png)
 
 # Release Resources
 
