@@ -331,10 +331,9 @@ running_processor.wait(logs=False)
 
     .............................................................!
 
-# Download Report From S3
+### Download Report From S3
 
 The class-imbalance metric should match the value calculated for the unbalanced dataset using the open source version above.
-
 
 ```python
 !aws s3 ls $bias_report_output_path/
@@ -346,8 +345,6 @@ The class-imbalance metric should match the value calculated for the unbalanced 
     2022-11-25 15:31:23      31635 report.ipynb
     2022-11-25 15:31:23      68235 report.pdf
 
-
-
 ```python
 !aws s3 cp --recursive $bias_report_output_path ./generated_bias_report/
 ```
@@ -358,36 +355,32 @@ The class-imbalance metric should match the value calculated for the unbalanced 
     download: s3://sagemaker-us-east-1-522208047117/clarify/report.html to generated_bias_report/report.html
     download: s3://sagemaker-us-east-1-522208047117/clarify/report.pdf to generated_bias_report/report.pdf
 
-
-
 ```python
 from IPython.core.display import display, HTML
 
 display(HTML('<b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report</a></b>'))
 ```
 
-
 <b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report
-```
 
-### Release Resources
-
-```python
-%%html
-
-<p><b>Shutting down your kernel for this notebook to release resources.</b></p>
-<button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
-        
-<script>
-try {
-    els = document.getElementsByClassName("sm-command-button");
-    els[0].click();
-}
-catch(err) {
-    // NoOp
-}    
-</script>
-```
+    
+    ### Release Resources
+    
+    ```python
+    %%html
+    
+    <p><b>Shutting down your kernel for this notebook to release resources.</b></p>
+    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
+            
+    <script>
+    try {
+        els = document.getElementsByClassName("sm-command-button");
+        els[0].click();
+    }
+    catch(err) {
+        // NoOp
+    }    
+    </script>
 
 ```javascript
 %%javascript
