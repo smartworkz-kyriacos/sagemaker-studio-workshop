@@ -519,8 +519,7 @@ plt.ylabel("Review Count")
 
     Text(0, 0.5, 'Review Count')
 
-​  
-![png](images/output_13_1.png)
+​![](/images/output_13_1.png)  
 ​
 
 ```python
