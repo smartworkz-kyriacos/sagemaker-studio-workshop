@@ -520,7 +520,7 @@ plt.ylabel("Review Count")
     Text(0, 0.5, 'Review Count')
 
 ​  
-![png](output_13_1.png)
+![png](/images/output_13_1.png)
 ​
 
 ```python
@@ -539,7 +539,7 @@ plt.ylabel("Review Count")
     Text(0, 0.5, 'Review Count')
 
 ​  
-![png](output_14_1.png)
+![png](/images/output_14_1.png)
 ​
 
 ```python
@@ -558,7 +558,7 @@ plt.ylabel("Review Count")
     Text(0, 0.5, 'Review Count')
 
 ​  
-![png](output_15_1.png)
+![png](/images/output_15_1.png)
 ​
 
 ### Combine Data Frames
@@ -735,7 +735,7 @@ sns.countplot(data=df, x="star_rating", hue="product_category")
     <matplotlib.axes._subplots.AxesSubplot at 0x7ff7d30b6f50>
 
 ​  
-![png](output_23_1.png)
+![png](/images/output_23_1.png)
 ​
 
 ### Balance the Dataset by Product Category and Star Rating
@@ -757,7 +757,7 @@ sns.countplot(data=df_balanced, x="star_rating", hue="product_category")
     <matplotlib.axes._subplots.AxesSubplot at 0x7ff7d2fee350>
 
 ​  
-![png](output_26_1.png)
+![png](/images/output_26_1.png)
 ​
 
 ### Write a CSV with Header
