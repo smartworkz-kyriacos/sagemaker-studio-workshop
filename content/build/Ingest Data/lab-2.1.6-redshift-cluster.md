@@ -6,25 +6,25 @@ weight = 7
 +++
 ## Create Amazon Redshift Cluster
 
-Amazon Redshift is a fully managed data warehouse which allows you to run complex analytic queries against petabytes of structured data. Your queries are distributed and parallelized across multiple physical resources, and you can easily scale your Amazon Redshift environment up and down depending on your business needs.
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_create.png)
-_Note:  This notebook requires that you are running this SageMaker Notebook Instance in a VPC with access to the Redshift cluster._
+Amazon Redshift is a fully managed data warehouse which allows you to run complex analytic queries against petabytes of structured data. Your queries are distributed and parallelized across multiple physical resources, and you can easily scale your Amazon Redshift environment up and down depending on your business needs. ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_create.png) 
+
+> _Note:  This notebook requires that you are running this SageMaker Notebook Instance in a VPC with access to the Redshift cluster._
 
 ### Data Lake vs. Data Warehouse
 
 One of the fundamental differences between data lakes and data warehouses is that while you ingest and store huge amounts of raw, unprocessed data in your data lake, you normally only load some fraction of your recent data into your data warehouse. Depending on your business and analytics use case, this might be data from the past couple of months, a year, or maybe the past 2 years.
 
-Let’s assume we want to have the past 2 years of our `Amazon Customer Reviews` data in a data warehouse to analyze customer behavior and review trends. We will use Amazon Redshift as our data warehouse.
+Let’s assume we want to have the past 2 years of our `Amazon Customer Reviews` data in a data warehouse to analyze customer behaviour and review trends. We will use Amazon Redshift as our data warehouse.
 
 ### Setup IAM Access To Read From S3 and Athena
 
-AWS Identity and Access Management (IAM) is a service that helps you to manage access to AWS resources. IAM controls who is authenticated and authorized to use resources.
+AWS Identity and Access Management (IAM) is a service that helps you to manage access to AWS resources. IAM controls who are authenticated and authorized to use resources.
 
 You can create individual IAM users for people accessing your AWS account. Each user will have a unique set of security credentials. You can also assign IAM users to IAM groups with defined access permissions (i.e. for specific job functions) and the IAM users inherit those permissions.
 
-A more preferred way to delegate access permissions is via IAM roles. In contrast to an IAM user which is uniquely associated with one person, a role can be assumed by anyone who needs it, and provides you with only temporary security credentials for the duration of the role session. AWS Service Roles control which actions a service can perform on your behalf.
+A more preferred way to delegate access permissions is via IAM roles. In contrast to an IAM user which is uniquely associated with one person, a role can be assumed by anyone who needs it and provides you with only temporary security credentials for the duration of the role session. AWS Service Roles control which actions a service can perform on your behalf.
 
-Access permissions are defined using IAM policies. It’s a standard security best practice to only grant least privilege, in other words- only grant the permissions required to perform a task.
+Access permissions are defined using IAM policies. It’s a standard security best practice to only grant the least privilege, in other words- only grant the permissions required to perform a task.
 
 ```python
 import json
@@ -416,7 +416,7 @@ except ClientError as e:
         print("Unexpected error: %s" % e)
 ```
 
-### Update Trust relationshiops to include both Redshift and SageMaker
+### Update Trust relationships to include both Redshift and SageMaker
 
 ```python
 my_redshift_to_sagemaker_assumerole = {
@@ -455,7 +455,7 @@ except ClientError as e:
 
 #### Get Security Group ID
 
-* Make sure the Redshift VPC is the same this notebook is running within
+* Make sure the Redshift VPC is the same as this notebook is running within
 * Make sure the VPC has the following 2 properties enabled
 * 
 
@@ -627,7 +627,7 @@ catch(err) {
 
 ### Navigate to Redshift in the AWS Console
 
-![Redshift Console](img/redshift-console.png)
+
 
 ```python
 ```
