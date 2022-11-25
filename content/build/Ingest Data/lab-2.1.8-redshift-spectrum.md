@@ -105,9 +105,9 @@ con_redshift = wr.data_api.redshift.connect(
 
 Amazon Redshift Spectrum directly queries data in S3, using the same SQL syntax of Amazon Redshift. You can also run queries that span both the frequently accessed data stored locally in Amazon Redshift and your full datasets stored cost-effectively in S3.
 
-To use Redshift Spectrum, your cluster needs authorization to access data catalog in Amazon Athena and your data files in Amazon S3. You provide that authorization by referencing an AWS Identity and Access Management (IAM) role that is attached to your cluster.
+To use Redshift Spectrum, your cluster needs authorization to access the data catalogue in Amazon Athena and your data files in Amazon S3. You provide that authorization by referencing an AWS Identity and Access Management (IAM) role that is attached to your cluster.
 
-To use this capability in from your Amazon SageMaker notebook:
+To use this capability from your Amazon SageMaker notebook:
 
 * Register your Athena database `dsoaws` with Redshift Spectrum
 * Query Your Data in Amazon S3
