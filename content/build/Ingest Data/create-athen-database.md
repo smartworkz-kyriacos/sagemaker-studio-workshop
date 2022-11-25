@@ -110,6 +110,8 @@ import pandas as pd
 pd.read_sql(statement, conn)
 ```
 
+**output:**
+
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -123,6 +125,8 @@ vertical-align: middle;
     .dataframe thead th {
         text-align: right;
     }
+
+**output:**
 
 </style>
 
@@ -147,6 +151,8 @@ df_show = pd.read_sql(statement, conn)
 df_show.head(5)
 ```
 
+**output:**
+
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -160,6 +166,8 @@ vertical-align: middle;
     .dataframe thead th {
         text-align: right;
     }
+
+**output:**
 
 </style>
 
@@ -200,6 +208,8 @@ if database_name in df_show.values:
 ```python
 %store
 ```
+
+**output**:
 
     Stored variables and their in-db values:
     ingest_create_athena_db_passed             -> True
