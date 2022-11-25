@@ -120,10 +120,9 @@ region = boto3.Session().region_name
     
     [37m# PySpark Deequ GitHub Repo:  https://github.com/awslabs/python-deequ[39;49;00m
 
-​  
-\[34mdef\[39;49;00m \[32mmain\[39;49;00m():
-args_iter = \[36miter\[39;49;00m(sys.argv\[\[34m1\[39;49;00m:\])
-args = \[36mdict\[39;49;00m(\[36mzip\[39;49;00m(args_iter, args_iter))
+    ​[34mdef[39;49;00m [32mmain[39;49;00m():
+    args_iter = [36miter[39;49;00m(sys.argv[[34m1[39;49;00m:])
+    args = [36mdict[39;49;00m([36mzip[39;49;00m(args_iter, args_iter))
 
         [37m# Retrieve the args and replace 's3://' with 's3a://' (used by Spark)[39;49;00m
         s3_input_data = args[[33m"[39;49;00m[33ms3_input_data[39;49;00m[33m"[39;49;00m].replace([33m"[39;49;00m[33ms3://[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33ms3a://[39;49;00m[33m"[39;49;00m)
