@@ -19,9 +19,9 @@ Here are some great resources on Deequ:
 * Blog Post:  https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/
 * Research Paper:  https://assets.amazon.science/4a/75/57047bd343fabc46ec14b34cdb3b/towards-automated-data-quality-management-for-machine-learning.pdf
 
-![Deequ](./img/deequ.png)
+![Deequ](/images/deequ.png)
 
-![Processing Job](./img/processing.jpg)
+![Processing Job](/images/processing.jpg)
 
 ### Amazon Customer Reviews Dataset
 
