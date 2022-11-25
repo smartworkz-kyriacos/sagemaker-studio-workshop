@@ -6,11 +6,11 @@ weight = 4
 +++
 **Register TSV Data With Athena**
 
-This will create an Athena table in the Glue Catalog (Hive Metastore).
+This will create an Athena table in the **Glue Catalog** (Hive Metastore).
 
 Now that we have a database, we’re ready to create a table that’s based on the `Amazon Customer Reviews Dataset`. We define the columns that map to the data, specify how the data is delimited, and provide the location in Amazon S3 for the file(s).
 
-![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/athena_register_tsv.png =60%x)
+![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/athena_register_tsv.png)
 
 In \[ \]:
 
@@ -21,7 +21,6 @@ In \[ \]:
     bucket = sess.default_bucket()
     role = sagemaker.get_execution_role()
     region = boto3.Session().region_name
-    
 
 In \[ \]:
 
@@ -39,12 +38,10 @@ In \[ \]:
         print("++++++++++++++++++++++++++++++++++++++++++++++")
         print("[ERROR] YOU HAVE TO RUN ALL PREVIOUS NOTEBOOKS.  You did not create the Athena Database.")
         print("++++++++++++++++++++++++++++++++++++++++++++++")
-    
 
 In \[ \]:
 
     print(ingest_create_athena_db_passed)
-    
 
 In \[ \]:
 
@@ -54,7 +51,6 @@ In \[ \]:
         print("++++++++++++++++++++++++++++++++++++++++++++++")
     else:
         print("[OK]")
-    
 
 In \[ \]:
 
@@ -69,7 +65,6 @@ In \[ \]:
         print("[ERROR] PLEASE RE-RUN THE PREVIOUS COPY TSV TO S3 NOTEBOOK ******************")
         print("[ERROR] THIS NOTEBOOK WILL NOT RUN PROPERLY. ********************************")
         print("*****************************************************************************")
-    
 
 In \[ \]:
 
@@ -111,7 +106,6 @@ In \[ \]:
     # Set Athena parameters
     database_name = "dsoaws"
     table_name_tsv = "amazon_reviews_tsv"
-    
 
 In \[ \]:
 
@@ -142,7 +136,6 @@ In \[ \]:
     )
     
     print(statement)
-    
 
 In \[ \]:
 
@@ -208,13 +201,29 @@ In \[ \]:
             )
         )
     )
-    
+
+From your Amazon console navigate to AWS Glue, Tables, View Table Details and scroll down to schema, should see similarly:
 
 **Store Variables for the Next Notebooks**
 
 In \[ \]:
 
     %store
+
+**output:**
+
+```python
+%store
+```
+
+    Stored variables and their in-db values:
+    ingest_create_athena_db_passed                    -> True
+    ingest_create_athena_table_tsv_passed             -> True
+    s3_private_path_tsv                               -> 's3://sagemaker-us-east-1-522208047117/amazon-revi
+    s3_public_path_tsv                                -> 's3://amazon-reviews-pds/tsv'
+    setup_dependencies_passed                         -> True
+    setup_iam_roles_passed                            -> True
+    setup_s3_bucket_passed                            -> True
 
 **Release Resources**
 
@@ -234,7 +243,6 @@ In \[ \]:
         // NoOp
     }    
     script>
-    
 
 In \[ \]:
 
