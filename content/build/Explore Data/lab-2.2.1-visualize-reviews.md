@@ -260,7 +260,7 @@ plt.show(barplot)
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-<img src="img/c5-01.png"  width="80%" align="left">
+![png](/images/c5-01.png)
 
 ### 2. Which Product Categories Have the Most Reviews?
 
@@ -375,14 +375,14 @@ plt.show(barplot)
 ```
 
 ​  
-![png](output_29_0.png)
+![png](/images/output_29_0.png)
 ​
 
 #### Visualization for All Product Categories
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-<img src="img/c5-02.png"  width="80%" align="left">
+![png](/images/c5-02.png)
 
 ### 3. When did each product category become available in the Amazon catalog based on the date of the first review?
 
@@ -514,14 +514,14 @@ plt.show()
 ```
 
 ​  
-![png](output_38_0.png)
+![png](/images/output_38_0.png)
 ​
 
 #### Visualization for All Product Categories
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-<img src="img/c4-04.png"  width="90%" align="left">
+![png](/images/c4-04.png)
 
 ### 4. What is the breakdown of ratings (1-5) per product category?
 
@@ -835,13 +835,13 @@ plt.show()
 
     <Figure size 1000x500 with 0 Axes>
 
-![png](output_51_1.png)
+![png](/images/output_51_1.png)
 
 #### Visualization for All Product Categories
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-<img src="img/c5-04.png"  width="80%" align="left">
+![png](/images/c5-04.png)
 
 ### 5. How Many Reviews per Star Rating? (5, 4, 3, 2, 1)
 
@@ -942,14 +942,14 @@ plt.show(chart)
 ```
 
 ​  
-![png](output_57_0.png)
+![png](/images/output_57_0.png)
 ​
 
 #### Results for All Product Categories
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following result:
 
-<img src="img/star_rating_count_all_bar_chart.png"  width="60%" align="left">
+![png](/images/star_rating_count_all_bar_chart.png)
 
 ### 6. How Did Star Ratings Change Over Time?
 
@@ -1099,14 +1099,14 @@ plt.show()
 ```
 
 ​  
-![png](output_65_0.png)
+![png](/images/output_65_0.png)
 ​
 
 #### Visualization for All Product Categories
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-<img src="img/c4-06.png"  width="90%" align="left">
+![png](/images/c4-06.png)
 
 #### Average Star Rating Per Product Categories Across Time
 
@@ -1379,14 +1379,14 @@ plt.show()
 ```
 
 ​  
-![png](output_72_0.png)
+![png](/images/output_72_0.png)
 ​
 
 #### Visualization for All Product Categories
 
 If you ran this same query across all product categories, you would see the following visualization:
 
-<img src="img/average_rating_category_all_data.png"  width="90%" align="left">
+![png](/images/average_rating_category_all_data.png)
 
 ### 7. Which Star Ratings (1-5) are Most Helpful?
 
@@ -1473,7 +1473,7 @@ vertical-align: middle;
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following result:
 
-<img src="img/star_rating_helpful_all.png"  width="25%" align="left">
+![png](/images/star_rating_helpful_all.png)
 
 #### Visualization for a Subset of Product Categories
 
@@ -1490,14 +1490,14 @@ plt.show(chart)
 ```
 
 ​  
-![png](output_79_0.png)
+![png](/images/output_79_0.png)
 ​
 
 #### Visualization for All Product Categories
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following visualization:
 
-<img src="img/c4-08.png"  width="70%" align="left">
+![png](/images/c4-08.png)
 
 ### 8. Which Products have Most Helpful Reviews?  How Long are the Most Helpful Reviews?
 
@@ -1646,7 +1646,7 @@ vertical-align: middle;
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following result:
 
-<img src="img/most_helpful_all.png"  width="90%" align="left">
+![png](/images/most_helpful_all.png)
 
 ### 9. What is the Ratio of Positive (5, 4) to Negative (3, 2 ,1) Reviews?
 
@@ -1721,7 +1721,7 @@ vertical-align: middle;
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following result:
 
-<img src="img/ratio_all.png"  width="25%" align="left">
+![png](/images/ratio_all.png)
 
 ### 10. Which Customers are Abusing the Review System by Repeatedly Reviewing the Same Product?  What Was Their Average Star Rating for Each Product?
 
@@ -1830,7 +1830,7 @@ vertical-align: middle;
 
 If you ran this same query across all product categories (150+ million reviews), you would see the following result:
 
-<img src="img/athena-abuse-all.png"  width="80%" align="left">
+![png](/images/athena-abuse-all.png)
 
 ### 11. What is the distribution of review lengths (number of words)?
 
@@ -1953,7 +1953,7 @@ df["num_words"].plot.hist(xticks=[0, 16, 32, 64, 128, 256], bins=100, range=[0, 
     <matplotlib.lines.Line2D at 0x7f4910a38ed0>
 
 ​  
-![png](output_97_1.png)
+![png](/images/output_97_1.png)
 ​
 
 ### Release Resources
