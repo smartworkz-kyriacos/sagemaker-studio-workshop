@@ -14,8 +14,6 @@ Presto is an open-source, distributed SQL query engine, developed for fast analy
 
 ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/athena_setup.png)
 
-<img src="img/athena_setup.png" width="60%" align="left">
-
 ```python
 import boto3
 import sagemaker
