@@ -276,7 +276,7 @@ print(s3_output_analyze_data)
 
     s3://sagemaker-us-east-1-522208047117/amazon-reviews-spark-analyzer-2022-11-25-16-06-04/output
 
-## Start the Spark Processing Job
+#### Start the Spark Processing Job
 
 _Notes on Invoking from Lambda:_
 
@@ -362,7 +362,7 @@ display(
 
 <b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-522208047117/amazon-reviews-spark-analyzer-2022-11-25-16-06-04/?region=us-east-1&tab=overview">S3 Output Data</a> After The Spark Job Has Completed</b>
 
-# Monitor the Processing Job
+### Monitor the Processing Job
 
 ```python
 running_processor = sagemaker.processing.ProcessingJob.from_processing_name(
@@ -4070,13 +4070,13 @@ running_processor.wait()
     
     Job ended with status 'Stopped' rather than 'Completed'. This could mean the job timed out or stopped early for some other reason: Consider checking whether it completed as you expect.
 
-# _Please Wait Until the ^^ Processing Job ^^ Completes Above._
+_Please Wait Until the ^^ Processing Job ^^ Completes Above._
 
-# Inspect the Processed Output
+### Inspect the Processed Output
 
-## These are the quality checks on our dataset.
+#### These are the quality checks on our dataset.
 
-## _The next cells will not work properly until the job completes above._
+#### _The next cells will not work properly until the job completes above._
 
 ```python
 !aws s3 ls --recursive $s3_output_analyze_data/
@@ -4091,7 +4091,7 @@ running_processor.wait()
     2022-11-25 16:12:09          0 amazon-reviews-spark-analyzer-2022-11-25-16-06-04/output/success-metrics/_SUCCESS
     2022-11-25 16:12:08        277 amazon-reviews-spark-analyzer-2022-11-25-16-06-04/output/success-metrics/part-00000-533a58b1-d166-4cd3-84e3-e25a91502298-c000.csv
 
-## Copy the Output from S3 to Local
+#### Copy the Output from S3 to Local
 
 * dataset-metrics/
 * constraint-checks/
@@ -4107,7 +4107,7 @@ running_processor.wait()
     download: s3://sagemaker-us-east-1-522208047117/amazon-reviews-spark-analyzer-2022-11-25-16-06-04/output/dataset-metrics/part-00000-d58836ef-1d3f-4514-8c35-e5ffd4c240af-c000.csv to amazon-reviews-spark-analyzer/dataset-metrics/part-00000-d58836ef-1d3f-4514-8c35-e5ffd4c240af-c000.csv
     download: s3://sagemaker-us-east-1-522208047117/amazon-reviews-spark-analyzer-2022-11-25-16-06-04/output/constraint-checks/part-00000-f3ef1914-9c15-466b-a3c1-12fc6ef093b5-c000.csv to amazon-reviews-spark-analyzer/constraint-checks/part-00000-f3ef1914-9c15-466b-a3c1-12fc6ef093b5-c000.csv
 
-## Analyze Constraint Checks
+#### Analyze Constraint Checks
 
 ```python
 import glob
@@ -4207,7 +4207,7 @@ vertical-align: middle;
 </table>
 </div>
 
-## Analyze Dataset Metrics
+#### Analyze Dataset Metrics
 
 ```python
 df_dataset_metrics = load_dataset(path="./amazon-reviews-spark-analyzer/dataset-metrics/", sep="\t", header=0)
@@ -4293,7 +4293,7 @@ vertical-align: middle;
 </table>
 </div>
 
-## Analyze Success Metrics
+#### Analyze Success Metrics
 
 ```python
 df_success_metrics = load_dataset(path="./amazon-reviews-spark-analyzer/success-metrics/", sep="\t", header=0)
@@ -4379,7 +4379,7 @@ vertical-align: middle;
 </table>
 </div>
 
-## Analyze Constraint Suggestions
+#### Analyze Constraint Suggestions
 
 ```python
 # df_constraint_suggestions = load_dataset(path='./amazon-reviews-spark-analyzer/constraint-suggestions/', sep='\t', header=0)
@@ -4391,7 +4391,7 @@ vertical-align: middle;
 # df_constraint_suggestions
 ```
 
-# Release Resources
+### Release Resources
 
 ```python
 %%html
