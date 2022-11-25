@@ -271,6 +271,7 @@ s3_public_path_tsv = "s3://amazon-reviews-pds/tsv"
 s3_private_path_tsv = "s3://{}/amazon-reviews-pds/tsv".format(bucket)
 print(s3_private_path_tsv)
 ```
+**output:**
 
     s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv
 
@@ -301,6 +302,7 @@ _Make sure ^^^^ this ^^^^ S3 COPY command above runs successfully. We will need 
 ```python
 print(s3_private_path_tsv)
 ```
+**output:**
 
     s3://sagemaker-us-east-1-<Your Account ID>/amazon-reviews-pds/tsv
 
