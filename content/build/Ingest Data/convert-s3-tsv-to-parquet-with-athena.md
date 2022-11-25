@@ -113,6 +113,7 @@ FROM {}.{}""".format(
 
 print(statement)
 ```
+
 **output:**
 
     CREATE TABLE IF NOT EXISTS dsoaws.amazon_reviews_parquet
@@ -179,6 +180,7 @@ statement = "MSCK REPAIR TABLE {}.{}".format(database_name, table_name_parquet)
 
 print(statement)
 ```
+
 **output:**
 
     MSCK REPAIR TABLE dsoaws.amazon_reviews_parquet
@@ -189,6 +191,7 @@ import pandas as pd
 df = pd.read_sql(statement, conn)
 df.head(5)
 ```
+
 **output:**
 
 <div>
@@ -224,6 +227,7 @@ statement = "SHOW PARTITIONS {}.{}".format(database_name, table_name_parquet)
 
 print(statement)
 ```
+
 **output:**
 
     SHOW PARTITIONS dsoaws.amazon_reviews_parquet
@@ -232,6 +236,7 @@ print(statement)
 df_partitions = pd.read_sql(statement, conn)
 df_partitions.head(5)
 ```
+
 **output:**
 
 <div>
@@ -283,6 +288,7 @@ statement = "SHOW TABLES in {}".format(database_name)
 df_tables = pd.read_sql(statement, conn)
 df_tables.head(5)
 ```
+
 **output:**
 
 <div>
@@ -343,6 +349,7 @@ statement = """SELECT * FROM {}.{}
 
 print(statement)
 ```
+
 **output:**
 
     SELECT * FROM dsoaws.amazon_reviews_parquet
@@ -352,6 +359,7 @@ print(statement)
 df = pd.read_sql(statement, conn)
 df.head(5)
 ```
+
 **output:**
 
 <div>
@@ -518,7 +526,9 @@ display(
 
 <b>Review <a target="top" href="https://console.aws.amazon.com/glue/home?region=us-east-1#">AWS Glue Catalog</a></b>
 
+From your Amazon console, navigate to AWS Glue, Tables to see your amazon reviews parquet Table:
 
+![](/images/cpnert-parquet.png)
 
 In just a few steps we have set up Amazon Athena to connect to our Amazon Customer Reviews TSV files, and transformed them into Apache Parquet file format.
 
