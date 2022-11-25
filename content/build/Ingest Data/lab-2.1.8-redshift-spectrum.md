@@ -8,7 +8,7 @@ weight = 9
 
 We can leverage our previously created table in Amazon Athena with its metadata and schema information stored in the AWS Glue Data Catalog to access our data in S3 through Redshift Spectrum. All we need to do is create an external schema in Redshift, point it to our AWS Glue Data Catalog, and point Redshift to the database we’ve created.
 
-<img src="img/redshift_spectrum.png" width="90%" align="left">
+![](/images/redshift_spectrum.png)
 
 ```python
 import boto3
@@ -151,11 +151,7 @@ df = wr.data_api.redshift.read_sql_query(
 df.head()
 ```
 
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
+<div> <style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -165,52 +161,9 @@ vertical-align: middle;
         text-align: right;
     }
 
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>year</th>
-<th>product_category</th>
-<th>count_star_rating</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>2015</td>
-<td>Digital_Software</td>
-<td>35585</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2014</td>
-<td>Digital_Software</td>
-<td>36745</td>
-</tr>
-<tr>
-<th>2</th>
-<td>2015</td>
-<td>Digital_Video_Games</td>
-<td>30026</td>
-</tr>
-<tr>
-<th>3</th>
-<td>2014</td>
-<td>Digital_Video_Games</td>
-<td>43754</td>
-</tr>
-<tr>
-<th>4</th>
-<td>2015</td>
-<td>Gift Card</td>
-<td>44000</td>
-</tr>
-</tbody>
-</table>
-</div>
+</style> <table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> <th>year</th> <th>product_category</th> <th>count_star_rating</th> </tr> </thead> <tbody> <tr> <th>0</th> <td>2015</td> <td>Digital_Software</td> <td>35585</td> </tr> <tr> <th>1</th> <td>2014</td> <td>Digital_Software</td> <td>36745</td> </tr> <tr> <th>2</th> <td>2015</td> <td>Digital_Video_Games</td> <td>30026</td> </tr> <tr> <th>3</th> <td>2014</td> <td>Digital_Video_Games</td> <td>43754</td> </tr> <tr> <th>4</th> <td>2015</td> <td>Gift Card</td> <td>44000</td> </tr> </tbody> </table> </div>
 
-### Run Same Query on Original Data in S3 using `athena` Schema to Verify  the Results Match
+### Run the Same Query on Original Data in S3 using `athena` Schema to Verify  the Results Match
 
 ```python
 statement = """
