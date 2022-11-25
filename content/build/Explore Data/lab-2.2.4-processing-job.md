@@ -361,26 +361,29 @@ from IPython.core.display import display, HTML
 display(HTML('<b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report</a></b>'))
 ```
 
-<b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report
+<b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report</a></b>
 
     
-    ### Release Resources
-    
-    ```python
-    %%html
-    
-    <p><b>Shutting down your kernel for this notebook to release resources.</b></p>
-    <button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
-            
-    <script>
-    try {
-        els = document.getElementsByClassName("sm-command-button");
-        els[0].click();
-    }
-    catch(err) {
-        // NoOp
-    }    
-    </script>
+# Release Resources
+
+
+```python
+%%html
+
+<p><b>Shutting down your kernel for this notebook to release resources.</b></p>
+<button class="sm-command-button" data-commandlinker-command="kernelmenu:shutdown" style="display:none;">Shutdown Kernel</button>
+        
+<script>
+try {
+    els = document.getElementsByClassName("sm-command-button");
+    els[0].click();
+}
+catch(err) {
+    // NoOp
+}    
+</script>
+```
+
 
 ```javascript
 %%javascript
