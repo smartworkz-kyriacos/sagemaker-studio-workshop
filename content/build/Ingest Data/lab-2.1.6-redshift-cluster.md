@@ -6,7 +6,7 @@ weight = 7
 +++
 ## Create Amazon Redshift Cluster
 
-Amazon Redshift is a fully managed data warehouse which allows you to run complex analytic queries against petabytes of structured data. Your queries are distributed and parallelized across multiple physical resources, and you can easily scale your Amazon Redshift environment up and down depending on your business needs. ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_create.png) 
+Amazon Redshift is a fully managed data warehouse which allows you to run complex analytic queries against petabytes of structured data. Your queries are distributed and parallelized across multiple physical resources, and you can easily scale your Amazon Redshift environment up and down depending on your business needs. ![](https://raw.githubusercontent.com/smartworkz-kyriacos/data-science-on-aws/1bc7efe6931b75614b570f5f1c6f1c762abd8973/04_ingest/img/redshift_create.png)
 
 > _Note:  This notebook requires that you are running this SageMaker Notebook Instance in a VPC with access to the Redshift cluster._
 
@@ -627,7 +627,8 @@ catch(err) {
 
 ### Navigate to Redshift in the AWS Console
 
+![](/images/redshift-console.png)
 
+Check your clusters created:
 
-```python
-```
+![](/images/redshift-clusters.png)
