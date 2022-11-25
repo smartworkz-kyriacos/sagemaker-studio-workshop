@@ -233,7 +233,7 @@ display(
 
 <b>Review <a target="blank" href="https://s3.console.aws.amazon.com/s3/buckets/sagemaker-us-east-1-522208047117/amazon-reviews-spark-analyzer-2022-11-25-16-06-04/?region=us-east-1&tab=overview">S3 Output Data</a> After The Spark Job Has Completed</b>
 
-# Monitor the Processing Job
+### Monitor the Processing Job
 
 ```python
 running_processor = sagemaker.processing.ProcessingJob.from_processing_name(
@@ -3941,13 +3941,13 @@ running_processor.wait()
     
     Job ended with status 'Stopped' rather than 'Completed'. This could mean the job timed out or stopped early for some other reason: Consider checking whether it completed as you expect.
 
-# _Please Wait Until the ^^ Processing Job ^^ Completes Above._
+_Please Wait Until the ^^ Processing Job ^^ Completes Above._
 
-# Inspect the Processed Output
+### Inspect the Processed Output
 
-## These are the quality checks on our dataset.
+#### These are the quality checks on our dataset.
 
-## _The next cells will not work properly until the job completes above._
+#### _The next cells will not work properly until the job completes above._
 
 ```python
 !aws s3 ls --recursive $s3_output_analyze_data/
