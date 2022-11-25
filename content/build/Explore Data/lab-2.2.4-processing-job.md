@@ -236,7 +236,7 @@ bias_data_config = clarify.DataConfig(
 #### Writing BiasConfig
 
 SageMaker Clarify also needs information on what the sensitive columns (`facets`) are, what the sensitive features (`facet_values_or_threshold`) may be, and what the desirable outcomes are (`label_values_or_threshold`).
-Clarify can handle both categorical and continuous data for `facet_values_or_threshold` and for `label_values_or_threshold`. In this case we are using categorical data.
+Clarify can handle both categorical and continuous _ata for `facet_values_or_threshold` and for `label_values_or_threshold`. In this case_ we are using categorical data.
 
 We specify this information in the `BiasConfig` API. Here that the positive outcome is `star rating==5`, `product_category` is the sensitive column, and `Gift Card` is the sensitive value.
 
@@ -333,7 +333,7 @@ running_processor.wait(logs=False)
 
 ### Download Report From S3
 
-The class-imbalance metric should match the value calculated for the unbalanced dataset using the open source version above.
+The class-imbalance metric should match the value calculated for the unbalanced dataset using the open-source version above.
 
 ```python
 !aws s3 ls $bias_report_output_path/
@@ -363,9 +363,7 @@ display(HTML('<b>Review <a target="blank" href="./generated_bias_report/report.h
 
 <b>Review <a target="blank" href="./generated_bias_report/report.html">Bias Report</a></b>
 
-    
-# Release Resources
-
+### Release Resources
 
 ```python
 %%html
@@ -383,7 +381,6 @@ catch(err) {
 }    
 </script>
 ```
-
 
 ```javascript
 %%javascript
