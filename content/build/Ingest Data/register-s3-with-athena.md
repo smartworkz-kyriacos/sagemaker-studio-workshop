@@ -210,11 +210,10 @@ In \[ \]:
 
     %store
 
-**output:**
-
 ```python
 %store
 ```
+**output:**
 
     Stored variables and their in-db values:
     ingest_create_athena_db_passed                    -> True
