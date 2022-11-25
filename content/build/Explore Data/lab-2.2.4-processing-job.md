@@ -213,7 +213,7 @@ clarify_processor = clarify.SageMakerClarifyProcessor(
 
 ### Pre-training Bias
 
-Bias can be present in your data before any model training occurs. Inspecting your data for bias before training begins can help detect any data collection gaps, inform your feature engineering, and hep you understand what societal biases the data may reflect.
+Bias can be present in your data before any model training occurs. Inspecting your data for bias before training begins can help detect any data collection gaps, inform your feature engineering, and help you understand what societal biases the data may reflect.
 
 Computing pre-training bias metrics does not require a trained model.
 
