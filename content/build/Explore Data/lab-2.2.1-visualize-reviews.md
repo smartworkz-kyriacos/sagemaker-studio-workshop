@@ -253,7 +253,7 @@ plt.show(barplot)
 ```
 
 ​  
-![png](output_22_0.png)
+![png](/images/output_22_0.png)
 ​
 
 #### Visualization for All Product Categories
